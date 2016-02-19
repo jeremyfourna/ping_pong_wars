@@ -1,0 +1,5 @@
+template(name="error")
+	// Display the error message
+	.alert.alert-danger(role="alert")
+		button.close(type="button", data-dismiss="alert") &times;
+		p #{message}

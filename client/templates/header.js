@@ -1,0 +1,1 @@
+Template.header.helpers({});
