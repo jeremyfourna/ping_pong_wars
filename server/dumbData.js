@@ -82,11 +82,15 @@ Meteor.startup(function() {
 		});
 		var mz = Accounts.createUser({
 			password: '123456',
-			username: 'mess_zaoui',
+			username: 'mess_z',
 			profile: {
 				firstName: 'Mess',
 				lastName: 'Zaoui'
 			}
+		});
+		var test = Accounts.createUser({
+			password: '123456',
+			username: 'test_t'
 		});
 		var gamesList = [{
 			player1: av,
@@ -204,7 +208,7 @@ Meteor.startup(function() {
 			scorePlayer2: 4
 		}];
 		for (var i = 0; i < gamesList.length; i++) {
-			Games.insert(gamesList[i], function(error, result) {
+			Meteor.call('addAGame', gamesList[i], function(error, result) {
 				if (error) {
 					console.log(error.message, error);
 				}
