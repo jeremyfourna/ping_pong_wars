@@ -4,4 +4,4 @@ class Account extends BlazeComponent {
 	}
 }
 
-Account.register('Account')
+Account.register('Account');
