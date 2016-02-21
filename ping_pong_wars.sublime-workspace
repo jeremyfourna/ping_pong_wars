@@ -1,0 +1,1064 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pract",
+				"practiveGame"
+			],
+			[
+				"game",
+				"gameData"
+			],
+			[
+				"las",
+				"lastPoints1"
+			],
+			[
+				"lt",
+				"lt"
+			],
+			[
+				"jf",
+				"jf"
+			],
+			[
+				"point",
+				"pointsToLoose"
+			],
+			[
+				"pl",
+				"player1Infos"
+			],
+			[
+				"play",
+				"player2"
+			],
+			[
+				"gma",
+				"gameData"
+			],
+			[
+				"player",
+				"player1"
+			],
+			[
+				"scr",
+				"scorePlayer1"
+			],
+			[
+				"player1",
+				"player1Infos"
+			],
+			[
+				"av",
+				"av"
+			],
+			[
+				"pla",
+				"player2"
+			],
+			[
+				"score",
+				"scorePlayer2"
+			],
+			[
+				"sco",
+				"scorePlayer1"
+			],
+			[
+				"scor",
+				"scorePlayer2"
+			],
+			[
+				"su",
+				"subscribe"
+			],
+			[
+				"use",
+				"user2"
+			],
+			[
+				"user",
+				"user1"
+			],
+			[
+				"Play",
+				"player2"
+			],
+			[
+				"test",
+				"testSuite"
+			],
+			[
+				"not",
+				"notActive"
+			],
+			[
+				"choi",
+				"choiceInList"
+			],
+			[
+				"ans",
+				"answerDate"
+			],
+			[
+				"question",
+				"questionId"
+			],
+			[
+				"Us",
+				"UserQuestions"
+			],
+			[
+				"to",
+				"total"
+			],
+			[
+				"quer",
+				"questionsAnswered"
+			],
+			[
+				"ques",
+				"questionsNotAnswered"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"data",
+				"data-title"
+			],
+			[
+				"verif",
+				"verifTemplateOK"
+			],
+			[
+				"con",
+				"confirmPassword"
+			],
+			[
+				"pro",
+				"property"
+			],
+			[
+				"has",
+				"hasClass"
+			],
+			[
+				"template",
+				"templateError"
+			],
+			[
+				"re",
+				"remove"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"e",
+				"e"
+			],
+			[
+				"quest",
+				"question1"
+			],
+			[
+				"inse",
+				"insertQuestions"
+			],
+			[
+				"Que",
+				"QuestionSchema"
+			],
+			[
+				"ask",
+				"askBy"
+			],
+			[
+				"TS_",
+				"TS_START"
+			],
+			[
+				"manga",
+				"mangas-cover"
+			],
+			[
+				"tome",
+				"tomeTitle"
+			],
+			[
+				"owen",
+				"owned"
+			],
+			[
+				"ymax",
+				"ymax"
+			],
+			[
+				"m",
+				"m"
+			],
+			[
+				"find",
+				"findOne"
+			],
+			[
+				"label",
+				"label3"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "server/dumbData.js",
+			"settings":
+			{
+				"buffer_size": 13062,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/templates/components/ranking/ranking.jade",
+			"settings":
+			{
+				"buffer_size": 59,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/templates/components/ranking/ranking.js",
+			"settings":
+			{
+				"buffer_size": 524,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/jfourna/frfisca/.meteor/packages",
+			"settings":
+			{
+				"buffer_size": 1022,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/router.js",
+			"settings":
+			{
+				"buffer_size": 988,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/publications/gamesPublications.js",
+			"settings":
+			{
+				"buffer_size": 118,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/templates/home.jade",
+			"settings":
+			{
+				"buffer_size": 1826,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "i18n/fr.i18n.json",
+			"settings":
+			{
+				"buffer_size": 403,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/collections/games.js",
+			"settings":
+			{
+				"buffer_size": 2973,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 342.0,
+		"last_filter": "p",
+		"selected_items":
+		[
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 458.0
+	},
+	"console":
+	{
+		"height": 131.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/jfourna/ping_pong_wars",
+		"/home/jfourna/ping_pong_wars/.meteor",
+		"/home/jfourna/ping_pong_wars/client",
+		"/home/jfourna/ping_pong_wars/client/templates",
+		"/home/jfourna/ping_pong_wars/client/templates/components",
+		"/home/jfourna/ping_pong_wars/client/templates/components/ranking",
+		"/home/jfourna/ping_pong_wars/i18n",
+		"/home/jfourna/ping_pong_wars/lib",
+		"/home/jfourna/ping_pong_wars/lib/collections",
+		"/home/jfourna/ping_pong_wars/server",
+		"/home/jfourna/ping_pong_wars/server/publications",
+		"/home/jfourna/ping_pong_wars/tests/gagarin"
+	],
+	"file_history":
+	[
+		"/home/jfourna/ping_pong_wars/client/templates/header.jade",
+		"/home/jfourna/ping_pong_wars/.meteor/packages",
+		"/home/jfourna/frfisca/client/templates/components/netFiscalExpenses/netFiscalExpenses.js",
+		"/home/jfourna/frfisca/client/templates/components/netFiscalExpenses/netFiscalExpenses.jade",
+		"/home/jfourna/ping_pong_wars/client/templates/components/ranking/rankingWrapper.jade",
+		"/home/jfourna/ping_pong_wars/client/templates/components/account/account.js",
+		"/home/jfourna/ping_pong_wars/server/newAccountConfig.js",
+		"/home/jfourna/ping_pong_wars/server/publications/usersPublications.js",
+		"/home/jfourna/mangatek/lib/collections/mangas.js",
+		"/home/jfourna/ping_pong_wars/README.md",
+		"/home/jfourna/ping_pong_wars/tests/gagarin/testSuite.js",
+		"/home/jfourna/meteorBoilerplate/new_meteor.sh",
+		"/home/jfourna/EKlore/circle.yml",
+		"/home/jfourna/ping_pong/lib/collections/games.js",
+		"/home/jfourna/ping_pong/client/templates/home.js",
+		"/home/jfourna/ping_pong/client/templates/main.jade",
+		"/home/jfourna/ping_pong/client/templates/components/championship/championship.js",
+		"/home/jfourna/ping_pong/client/templates/layout.jade",
+		"/home/jfourna/ping_pong/client/lib/accountUI.js",
+		"/home/jfourna/ping_pong/lib/router.js",
+		"/home/jfourna/ping_pong/i18n/fr.i18n.json",
+		"/home/jfourna/ping_pong/client/templates/home.jade",
+		"/home/jfourna/ping_pong/server/publications/gamesPublications.js",
+		"/home/jfourna/ping_pong/client/lib/accounts.js",
+		"/home/jfourna/ping_pong/server/settings.js",
+		"/home/jfourna/ping_pong/lib/collections/users.js",
+		"/home/jfourna/liveBBStats/client/lib/accounts/accountUI.js",
+		"/home/jfourna/mangatek/LICENSE",
+		"/home/jfourna/mangatek/client/templates/front/tomedetails/tomeDetails.js",
+		"/home/jfourna/ping_pong/server/publications/usersPublications.js",
+		"/home/jfourna/ping_pong/client/templates/header.jade",
+		"/home/jfourna/ping_pong/client/templates/components/account/account.js",
+		"/home/jfourna/ping_pong/client/templates/components/account/account.jade",
+		"/home/jfourna/ping_pong/client/templates/components/account/accountWrapper.jade",
+		"/home/jfourna/EKlore/server/dumbData.js",
+		"/home/jfourna/liveBBStats/client/templates/gameStats/gameStats.jade",
+		"/home/jfourna/EKlore/client/templates/components/questions/questions.js",
+		"/home/jfourna/liveBBStats/client/templates/header/header.js",
+		"/home/jfourna/liveBBStats/client/templates/header/header.jade",
+		"/home/jfourna/ping_pong/client/templates/components/championship/championshipWrapper.jade",
+		"/home/jfourna/ping_pong/lib/moment.js",
+		"/home/jfourna/mangatek/lib/moment.js",
+		"/home/jfourna/liveBBStats/client/templates/header/header.css",
+		"/home/jfourna/EKlore/.meteor/packages",
+		"/home/jfourna/ping-pong-stats/system/database/drivers/mysql/mysql_driver.php",
+		"/home/jfourna/EKlore/client/templates/meeting.jade",
+		"/home/jfourna/EKlore/client/templates/myDay.jade",
+		"/home/jfourna/EKlore/client/templates/header.jade",
+		"/home/jfourna/EKlore/client/lib/includes/sharedFunctions.js",
+		"/home/jfourna/Bureau/org_id_active_master.csv",
+		"/home/jfourna/EKlore/client/templates/components/signUpSignIn/signUpSignInWrapper.jade",
+		"/home/jfourna/EKlore/client/templates/components/questions/question/question1.jade",
+		"/home/jfourna/EKlore/client/templates/components/signUpSignIn/signUpSignIn.jade",
+		"/home/jfourna/EKlore/client/templates/components/signUpSignIn/signUpSignIn.js",
+		"/home/jfourna/EKlore/client/templates/home.js",
+		"/home/jfourna/EKlore/client/templates/home.jade",
+		"/home/jfourna/EKlore/client/templates/header.js",
+		"/home/jfourna/liveBBStats/lib/router.js",
+		"/home/jfourna/mangatek/lib/router.js",
+		"/home/jfourna/EKlore/client/templates/components/questions/question/question0.jade",
+		"/home/jfourna/EKlore/client/templates/components/questions/changeQuestion.jade",
+		"/home/jfourna/EKlore/README.md",
+		"/home/jfourna/EKlore/.coveralls.yml",
+		"/home/jfourna/liveBBStats/client/lib/includes/sharedFunctions.js",
+		"/home/jfourna/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/home/jfourna/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/home/jfourna/mangatek/client/templates/header.js",
+		"/home/jfourna/EKlore/client/templates/components/changeQuestion.jade",
+		"/home/jfourna/EKlore/client/templates/components/questions/progressBar.jade",
+		"/home/jfourna/Bureau/test.jade",
+		"/home/jfourna/EKlore/client/stylesheets/style.styl",
+		"/home/jfourna/EKlore/client/templates/components/questions/question/question2.jade",
+		"/home/jfourna/EKlore/client/templates/components/questions/question/question3.jade",
+		"/home/jfourna/EKlore/client/templates/components/questions/question/question4.jade",
+		"/home/jfourna/EKlore/client/templates/components/questions/question/question5.jade",
+		"/home/jfourna/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/jfourna/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/jfourna/EKlore/client/stylesheets/radio.css",
+		"/home/jfourna/EKlore/client/stylesheets/checkbox.css",
+		"/home/jfourna/EKlore/lib/collections/questionsCollection.js",
+		"/home/jfourna/EKlore/client/templates/main.jade",
+		"/home/jfourna/EKlore/tests/gagarin/testSuite.js",
+		"/home/jfourna/EKlore/.travis.yml",
+		"/home/jfourna/EKlore/client/templates/components/question1.jade",
+		"/home/jfourna/EKlore/client/templates/components/question1.js",
+		"/home/jfourna/EKlore/client/compatibility/materialize.js",
+		"/home/jfourna/EKlore/lib/router.js",
+		"/home/jfourna/EKlore/client/templates/myProfile.jade",
+		"/home/jfourna/mangatek/client/templates/admin/components/addCompleteMangas/addCompleteMangas.js",
+		"/home/jfourna/mangatek/lib/collections/mangasData.js",
+		"/home/jfourna/EKlore/client/lib/accounts/accountUI.js",
+		"/home/jfourna/mangatek/.meteor/packages",
+		"/home/jfourna/mangatek/client/templates/front/components/addMangaToWaitingList/addMangaToWaitingList.js",
+		"/home/jfourna/EKlore/lib/atConfig.js",
+		"/home/jfourna/mangatek/client/templates/header.jade",
+		"/home/jfourna/EKlore/server/accounts.js",
+		"/home/jfourna/EKlore/i18n/fr.i18n.json",
+		"/home/jfourna/frfisca/client/templates/components/stateDeficitHistory/stateDeficitHistory.js",
+		"/home/jfourna/EKlore/server/email.js",
+		"/home/jfourna/EKlore/server/settings.js",
+		"/home/jfourna/mangatek/client/templates/front/header.js",
+		"/home/jfourna/mangatek/client/templates/front/header.jade",
+		"/home/jfourna/mangatek/i18n/fr.i18n.json",
+		"/home/jfourna/mangatek/client/templates/front/components/cover/mangaCover.jade",
+		"/home/jfourna/mangatek/client/templates/front/addMangaForUser/step1/addMangaForUserStep1.jade",
+		"/home/jfourna/mangatek/server/publications/mangasDataPublications.js",
+		"/home/jfourna/mangatek/lib/collections/mangasToAdd.js",
+		"/home/jfourna/mangatek/client/templates/front/components/addMangaToWaitingList/addMangaToWaitingList.jade",
+		"/home/jfourna/mangatek/client/templates/front/home.js",
+		"/home/jfourna/mangatek/client/templates/front/home.jade",
+		"/home/jfourna/mangatek/client/templates/front/addMangaForUser/step1/addMangaForUserStep1.js",
+		"/home/jfourna/mangatek/client/templates/front/components/cover/mangaCover.js",
+		"/home/jfourna/mangas/client/templates/front/header.js",
+		"/home/jfourna/mangas/client/templates/admin/viewMangasToAdd/viewMangasToAdd.jade",
+		"/home/jfourna/mangas/lib/router.js",
+		"/home/jfourna/mangas/client/templates/front/header.jade",
+		"/home/jfourna/mangas/i18n/fr.i18n.json",
+		"/home/jfourna/mangas/client/templates/front/components/cover/cover2.jade",
+		"/home/jfourna/mangas/client/templates/front/components/cover/cover2.js",
+		"/home/jfourna/mangas/client/templates/front/tome/tomeDetails.js",
+		"/home/jfourna/mangas/client/templates/admin/addCompleteMangas.jade",
+		"/home/jfourna/mangas/client/templates/front/tome/tomeDetails.jade",
+		"/home/jfourna/mangas/client/templates/front/components/mangaka/mangaka.jade",
+		"/home/jfourna/mangas/missing.txt",
+		"/home/jfourna/mangas/dumbData.json",
+		"/home/jfourna/mangas/owned.txt",
+		"/home/jfourna/mangas/client/templates/front/ownedMangas/ownedMangas.js",
+		"/home/jfourna/mangas/client/templates/front/ownedMangas/ownedMangas.jade"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"exampleInputPassword1",
+			"exampleInputEmail1",
+			"span",
+			"span.text-center",
+			"span",
+			"practiveGame",
+			"data-toggle='collapse'",
+			"p #{scoreGap}",
+			"p #{scoreGap}\n",
+			"email",
+			"player1FullName",
+			"moment",
+			"questionList",
+			"waitOn",
+			"test",
+			"Test",
+			"hidden",
+			"Questions",
+			"\")",
+			"myProfile",
+			"choice",
+			"element",
+			"console.log",
+			"\"",
+			"lastName",
+			"First",
+			"firstName",
+			"error",
+			"success",
+			"error",
+			"question0OKFirstName",
+			"'#firstName'",
+			"return",
+			"firstName",
+			".col-xs-3.col-sm-2.col-md-2.col-lg-2",
+			".col-xs-9.col-sm-10.col-md-10.col-lg-10",
+			"					.col-xs-9.col-sm-10.col-md-10.col-lg-10",
+			".col-xs-9.col-sm-10.col-md-10.col-lg-10",
+			"password",
+			"'",
+			"etudiant",
+			"chomeur",
+			"salarie",
+			"autre",
+			"etudiant",
+			"chomeur",
+			"salarie",
+			"autre",
+			"etudiant",
+			"chomeur",
+			"salarie",
+			"autre",
+			"etudiant",
+			"chomeur",
+			"salarie",
+			"{question",
+			"question",
+			"-xs-10",
+			"xs-2",
+			"fancy-checkbox-default-custom-icons",
+			"  ",
+			"            ",
+			"           ",
+			"          ",
+			"         ",
+			"        ",
+			"       ",
+			"      ",
+			"     ",
+			"    ",
+			"   ",
+			"  ",
+			"                ",
+			"               ",
+			"              ",
+			"             ",
+			"            ",
+			"           ",
+			"          ",
+			"         ",
+			"                    ",
+			"                   ",
+			"                  ",
+			"                 ",
+			"                ",
+			"							span ",
+			"class='[ ]'",
+			"				|",
+			"					| ",
+			"(class='[ ]')",
+			"3",
+			"2",
+			"1",
+			"0",
+			"10",
+			".col-sm-10",
+			".col-sm-2",
+			"validate",
+			"Questions",
+			"			|",
+			"MyProfile",
+			"Session.set",
+			"set",
+			"d c",
+			"l s",
+			" .",
+			"class=\"",
+			"/div",
+			">",
+			"<",
+			"Test",
+			"AddMangaToWaitingList",
+			"admin",
+			"askedB",
+			"askB",
+			"console",
+			"allTomesForUser",
+			"GTO",
+			"GTO-Great Teacher Onizuka",
+			"GTO",
+			"GTO-Shonan 14 Days",
+			"GTO",
+			"naruto([0-9]{2}).jpg",
+			"naruto([0-9]{2})",
+			"Naruto",
+			"\"user\": \\\"[\\s\\S]{17}\\\",\\n\\t\\t\\t\"t",
+			"\"tomeTitle\":(?:\\s)*((?:[^:]*[^\"}])),",
+			"\": ([A-Z])"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\"",
+			"",
+			"d.c",
+			"l.s",
+			".",
+			"",
+			"GTO - Great Teacher Onizuka",
+			"GTO - Shonan 14 Days",
+			"naruto$1.JPG",
+			"naruto_$1",
+			"\"tomeTitle\": \"$1\",",
+			"\"tomeTitle\": \"$1\",\\n\\t",
+			"\"tomeTitle\": \"$1\",\\n",
+			"\"tomeTitle\": \"$1\",",
+			"\"tomeTitle\": \"$1\"",
+			"\":\"",
+			"\":\"[A-Z]",
+			"\":\"",
+			"\"mang",
+			"},{",
+			"",
+			"\"Kentaro Miura\",",
+			"\"Dr. Slump\",",
+			"\"Monster\",",
+			"\"Eiichiro Oda\",",
+			"\"One Piece\",",
+			"\"tomeTitle\": \"\",",
+			"",
+			"\"GTO - Shonan 14 Days\",",
+			"\"Tôru Fujisawa\",",
+			"\"Yoshihiro Togashi\",",
+			"\"Hunter X Hunter\",",
+			"\"Katsuhiro Otomo\",",
+			"\"Akira\",",
+			",",
+			"\"GTO - Great Teacher Onizuka\"",
+			"\"Takeshi Obata & Tsugumi Oba\",",
+			"\"Death Note\",",
+			"\"Naoki Urasawa\"",
+			"\"20th Century Boys\"",
+			"\"Yoshitoki Oima\"",
+			"\"A Silent Voice\"",
+			"\"Hiromu Arakawa\"",
+			"\"FullMetal Alchemist\"",
+			"\"Akira Toriyama\"",
+			"\"Dragon Ball\"",
+			"\"Tsukasa Hojo\"",
+			"\"City Hunter\"",
+			"\"Kohta Hirano\"",
+			"\"Drifters\"",
+			"\"CLAMP\"",
+			"\"XXX Holic\"",
+			"\"author\":",
+			"\"Berserk\"",
+			"\"mangasName\":",
+			"pg\"",
+			"\"http://",
+			"/",
+			"\"fr\"",
+			"\"version\"",
+			"\"editor\"",
+			"\"owned\"",
+			"\"releaseDate\"",
+			"\"cover\"",
+			"\"isbn\"",
+			"\"tomeNumber\"",
+			"\"tomeTitle\"",
+			"},{",
+			"version:fr}{tomeTitle:\"\",",
+			"[a-z]",
+			"	",
+			"Net",
+			"=vlc"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "server/dumbData.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13062,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12818,
+								12818
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 10698.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/templates/components/ranking/ranking.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 59,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								59,
+								59
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/templates/components/ranking/ranking.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 524,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								482,
+								482
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/jfourna/frfisca/.meteor/packages",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1022,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								979,
+								979
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 153.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "lib/router.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 988,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								603,
+								603
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "server/publications/gamesPublications.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 118,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								90,
+								90
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "client/templates/home.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								343,
+								343
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "i18n/fr.i18n.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 403,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								306,
+								306
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "lib/collections/games.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2973,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								437,
+								437
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 459.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 26.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 196.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 110.0
+	},
+	"pinned_build_system": "",
+	"project": "ping_pong_wars.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 219.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
