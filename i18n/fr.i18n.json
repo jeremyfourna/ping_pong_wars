@@ -9,5 +9,7 @@
 	"practiceGame": "Entraînement",
 	"saveAScore": "Enregistrez un score",
 	"player1Name": "Joueur 1",
-	"player2Name": "Joueur 2"
+	"player2Name": "Joueur 2",
+	"score": "Score",
+	"validate": "Valider"
 }
