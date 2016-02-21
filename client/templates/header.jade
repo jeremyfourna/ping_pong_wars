@@ -11,12 +11,10 @@ template(name="header")
 			#navigation.collapse.navbar-collapse
 				ul.nav.navbar-nav
 					li
-						a(href="{{pathFor 'search'}}" data-toggle='collapse', data-target='.navbar-collapse') {{_ "search"}}
-					li
+						a(href="{{pathFor 'rankingWrapper'}}" data-toggle='collapse', data-target='.navbar-collapse') {{_ "ranking"}}
+					//li
 						a(href="{{pathFor 'championshipWrapper'}}" data-toggle='collapse', data-target='.navbar-collapse') {{_ "championship"}}
-					li
-						a(href="{{pathFor 'ranking'}}" data-toggle='collapse', data-target='.navbar-collapse') {{_ "ranking"}}
-					li
+					//li
 						a(href="{{pathFor 'account'}}" data-toggle='collapse', data-target='.navbar-collapse') {{_ "account"}}
 				.nav.navbar-nav.navbar-right
 					+loginButtons
