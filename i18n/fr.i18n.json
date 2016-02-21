@@ -5,5 +5,9 @@
 	"ranking": "Classement",
 	"championship": "Championnat",
 	"search": "Trouver un adversaire",
-	"lastGames": "Derniers matchs"
+	"lastGames": "Derniers matchs",
+	"practiceGame": "Entraînement",
+	"saveAScore": "Enregistrez un score",
+	"player1Name": "Joueur 1",
+	"player2Name": "Joueur 2"
 }
