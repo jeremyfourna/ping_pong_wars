@@ -206,6 +206,258 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 12, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 4
+		}, {
+			player1: jf,
+			player2: ct,
+			gameDate: new Date(2015, 12, 18),
+			scorePlayer1: 10,
+			scorePlayer2: 3
+		}, {
+			player1: jf,
+			player2: sk,
+			gameDate: new Date(2015, 12, 18),
+			scorePlayer1: 10,
+			scorePlayer2: 6
+		}, {
+			player1: ml,
+			player2: ct,
+			gameDate: new Date(2015, 12, 18),
+			scorePlayer1: 10,
+			scorePlayer2: 7
+		}, {
+			player1: ml,
+			player2: sk,
+			gameDate: new Date(2015, 12, 18),
+			scorePlayer1: 10,
+			scorePlayer2: 6
+		}, {
+			player1: jf,
+			player2: ml,
+			gameDate: new Date(2015, 12, 18),
+			scorePlayer1: 10,
+			scorePlayer2: 8
+		}, {
+			player1: ml,
+			player2: lt,
+			gameDate: new Date(2016, 01, 11),
+			scorePlayer1: 8,
+			scorePlayer2: 10
+		}, {
+			player1: lt,
+			player2: jf,
+			gameDate: new Date(2016, 01, 11),
+			scorePlayer1: 10,
+			scorePlayer2: 6
+		}, {
+			player1: ct,
+			player2: lt,
+			gameDate: new Date(2016, 01, 11),
+			scorePlayer1: 4,
+			scorePlayer2: 10
+		}, {
+			player1: lt,
+			player2: av,
+			gameDate: new Date(2016, 01, 11),
+			scorePlayer1: 10,
+			scorePlayer2: 7
+		}, {
+			player1: lt,
+			player2: jf,
+			gameDate: new Date(2016, 01, 15),
+			scorePlayer1: 10,
+			scorePlayer2: 7
+		}, {
+			player1: lt,
+			player2: jf,
+			gameDate: new Date(2016, 01, 15),
+			scorePlayer1: 10,
+			scorePlayer2: 5
+		}, {
+			player1: lt,
+			player2: jf,
+			gameDate: new Date(2016, 01, 15),
+			scorePlayer1: 10,
+			scorePlayer2: 5
+		}, {
+			player1: ac,
+			player2: ol,
+			gameDate: new Date(2016, 01, 22),
+			scorePlayer1: 10,
+			scorePlayer2: 1
+		}, {
+			player1: ac,
+			player2: av,
+			gameDate: new Date(2016, 01, 22),
+			scorePlayer1: 10,
+			scorePlayer2: 7
+		}, {
+			player1: lt,
+			player2: jf,
+			gameDate: new Date(2016, 01, 25),
+			scorePlayer1: 10,
+			scorePlayer2: 5
+		}, {
+			player1: ml,
+			player2: lt,
+			gameDate: new Date(2016, 01, 25),
+			scorePlayer1: 10,
+			scorePlayer2: 8
+		}, {
+			player1: ml,
+			player2: ac,
+			gameDate: new Date(2016, 01, 25),
+			scorePlayer1: 10,
+			scorePlayer2: 8
+		}, {
+			player1: jf,
+			player2: ct,
+			gameDate: new Date(2016, 01, 25),
+			scorePlayer1: 10,
+			scorePlayer2: 6
+		}, {
+			player1: ml,
+			player2: ct,
+			gameDate: new Date(2016, 01, 25),
+			scorePlayer1: 10,
+			scorePlayer2: 5
+		}, {
+			player1: ml,
+			player2: jf,
+			gameDate: new Date(2016, 01, 25),
+			scorePlayer1: 5,
+			scorePlayer2: 10
+		}, {
+			player1: av,
+			player2: ct,
+			gameDate: new Date(2016, 01, 26),
+			scorePlayer1: 10,
+			scorePlayer2: 6
+		}, {
+			player1: lt,
+			player2: jf,
+			gameDate: new Date(2016, 01, 26),
+			scorePlayer1: 10,
+			scorePlayer2: 8
+		}, {
+			player1: lt,
+			player2: av,
+			gameDate: new Date(2016, 01, 26),
+			scorePlayer1: 10,
+			scorePlayer2: 8
+		}, {
+			player1: ml,
+			player2: ct,
+			gameDate: new Date(2016, 01, 26),
+			scorePlayer1: 10,
+			scorePlayer2: 3
+		}, {
+			player1: av,
+			player2: ml,
+			gameDate: new Date(2016, 01, 26),
+			scorePlayer1: 10,
+			scorePlayer2: 8
+		}, {
+			player1: av,
+			player2: jf,
+			gameDate: new Date(2016, 01, 26),
+			scorePlayer1: 11,
+			scorePlayer2: 9
+		}, {
+			player1: lt,
+			player2: ml,
+			gameDate: new Date(2016, 01, 26),
+			scorePlayer1: 10,
+			scorePlayer2: 7
+		}, {
+			player1: lt,
+			player2: ol,
+			gameDate: new Date(2016, 01, 26),
+			scorePlayer1: 9,
+			scorePlayer2: 11
+		}, {
+			player1: jf,
+			player2: ct,
+			gameDate: new Date(2016, 01, 29),
+			scorePlayer1: 10,
+			scorePlayer2: 7
+		}, {
+			player1: ml,
+			player2: jf,
+			gameDate: new Date(2016, 01, 29),
+			scorePlayer1: 10,
+			scorePlayer2: 7
+		}, {
+			player1: av,
+			player2: ct,
+			gameDate: new Date(2016, 01, 29),
+			scorePlayer1: 10,
+			scorePlayer2: 5
+		}, {
+			player1: av,
+			player2: jf,
+			gameDate: new Date(2016, 01, 29),
+			scorePlayer1: 10,
+			scorePlayer2: 8
+		}, {
+			player1: av,
+			player2: jf,
+			gameDate: new Date(2016, 02, 01),
+			scorePlayer1: 10,
+			scorePlayer2: 2
+		}, {
+			player1: av,
+			player2: jf,
+			gameDate: new Date(2016, 02, 01),
+			scorePlayer1: 10,
+			scorePlayer2: 5
+		}, {
+			player1: av,
+			player2: jf,
+			gameDate: new Date(2016, 02, 01),
+			scorePlayer1: 10,
+			scorePlayer2: 5
+		}, {
+			player1: lt,
+			player2: jf,
+			gameDate: new Date(2016, 02, 04),
+			scorePlayer1: 10,
+			scorePlayer2: 5
+		}, {
+			player1: lt,
+			player2: jf,
+			gameDate: new Date(2016, 02, 04),
+			scorePlayer1: 9,
+			scorePlayer2: 11
+		}, {
+			player1: lt,
+			player2: jf,
+			gameDate: new Date(2016, 02, 04),
+			scorePlayer1: 10,
+			scorePlayer2: 6
+		}, {
+			player1: ml,
+			player2: jf,
+			gameDate: new Date(2016, 02, 04),
+			scorePlayer1: 12,
+			scorePlayer2: 10
+		}, {
+			player1: jf,
+			player2: ac,
+			gameDate: new Date(2016, 2, 8),
+			scorePlayer1: 10,
+			scorePlayer2: 7
+		}, {
+			player1: jf,
+			player2: av,
+			gameDate: new Date(2016, 2, 8),
+			scorePlayer1: 10,
+			scorePlayer2: 6
+		}, {
+			player1: jf,
+			player2: ct,
+			gameDate: new Date(2016, 2, 8),
+			scorePlayer1: 10,
+			scorePlayer2: 3
 		}];
 		for (var i = 0; i < gamesList.length; i++) {
 			Meteor.call('addAGame', gamesList[i], function(error, result) {
