@@ -95,571 +95,571 @@ Meteor.startup(function() {
 		var gamesList = [{
 			player1: av,
 			player2: ml,
-			gameDate: new Date(2015, 12, 10),
+			gameDate: new Date(2015, 11, 10),
 			scorePlayer1: 10,
 			scorePlayer2: 3
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2015, 12, 10),
+			gameDate: new Date(2015, 11, 10),
 			scorePlayer1: 10,
 			scorePlayer2: 4
 		}, {
 			player1: lt,
 			player2: ac,
-			gameDate: new Date(2015, 12, 10),
+			gameDate: new Date(2015, 11, 10),
 			scorePlayer1: 10,
 			scorePlayer2: 2
 		}, {
 			player1: lt,
 			player2: rk,
-			gameDate: new Date(2015, 12, 10),
+			gameDate: new Date(2015, 11, 10),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: av,
 			player2: ac,
-			gameDate: new Date(2015, 12, 10),
+			gameDate: new Date(2015, 11, 10),
 			scorePlayer1: 10,
 			scorePlayer2: 3
 		}, {
 			player1: lt,
 			player2: ol,
-			gameDate: new Date(2015, 12, 10),
+			gameDate: new Date(2015, 11, 10),
 			scorePlayer1: 12,
 			scorePlayer2: 10
 		}, {
 			player1: av,
 			player2: mp,
-			gameDate: new Date(2015, 12, 10),
+			gameDate: new Date(2015, 11, 10),
 			scorePlayer1: 10,
 			scorePlayer2: 3
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2015, 12, 10),
+			gameDate: new Date(2015, 11, 10),
 			scorePlayer1: 10,
 			scorePlayer2: 2
 		}, {
 			player1: jf,
 			player2: ml,
-			gameDate: new Date(2015, 12, 17),
+			gameDate: new Date(2015, 11, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 8
 		}, {
 			player1: jf,
 			player2: lt,
-			gameDate: new Date(2015, 12, 17),
+			gameDate: new Date(2015, 11, 17),
 			scorePlayer1: 5,
 			scorePlayer2: 10
 		}, {
 			player1: av,
 			player2: ac,
-			gameDate: new Date(2015, 12, 17),
+			gameDate: new Date(2015, 11, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 4
 		}, {
 			player1: av,
 			player2: ml,
-			gameDate: new Date(2015, 12, 17),
+			gameDate: new Date(2015, 11, 17),
 			scorePlayer1: 11,
 			scorePlayer2: 9
 		}, {
 			player1: av,
 			player2: mz,
-			gameDate: new Date(2015, 12, 17),
+			gameDate: new Date(2015, 11, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: ac,
 			player2: lt,
-			gameDate: new Date(2015, 12, 17),
+			gameDate: new Date(2015, 11, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: ac,
 			player2: ml,
-			gameDate: new Date(2015, 12, 17),
+			gameDate: new Date(2015, 11, 17),
 			scorePlayer1: 11,
 			scorePlayer2: 9
 		}, {
 			player1: av,
 			player2: lt,
-			gameDate: new Date(2015, 12, 17),
+			gameDate: new Date(2015, 11, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2015, 12, 17),
+			gameDate: new Date(2015, 11, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 8
 		}, {
 			player1: av,
 			player2: mp,
-			gameDate: new Date(2015, 12, 17),
+			gameDate: new Date(2015, 11, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 3
 		}, {
 			player1: av,
 			player2: ac,
-			gameDate: new Date(2015, 12, 17),
+			gameDate: new Date(2015, 11, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 4
 		}, {
 			player1: jf,
 			player2: ct,
-			gameDate: new Date(2015, 12, 18),
+			gameDate: new Date(2015, 11, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 3
 		}, {
 			player1: jf,
 			player2: sk,
-			gameDate: new Date(2015, 12, 18),
+			gameDate: new Date(2015, 11, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: ml,
 			player2: ct,
-			gameDate: new Date(2015, 12, 18),
+			gameDate: new Date(2015, 11, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: ml,
 			player2: sk,
-			gameDate: new Date(2015, 12, 18),
+			gameDate: new Date(2015, 11, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: jf,
 			player2: ml,
-			gameDate: new Date(2015, 12, 18),
+			gameDate: new Date(2015, 11, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 8
 		}, {
 			player1: ml,
 			player2: lt,
-			gameDate: new Date(2016, 01, 11),
+			gameDate: new Date(2016, 0, 11),
 			scorePlayer1: 8,
 			scorePlayer2: 10
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 01, 11),
+			gameDate: new Date(2016, 0, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: ct,
 			player2: lt,
-			gameDate: new Date(2016, 01, 11),
+			gameDate: new Date(2016, 0, 11),
 			scorePlayer1: 4,
 			scorePlayer2: 10
 		}, {
 			player1: lt,
 			player2: av,
-			gameDate: new Date(2016, 01, 11),
+			gameDate: new Date(2016, 0, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 01, 15),
+			gameDate: new Date(2016, 0, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 01, 15),
+			gameDate: new Date(2016, 0, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 01, 15),
+			gameDate: new Date(2016, 0, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: ac,
 			player2: ol,
-			gameDate: new Date(2016, 01, 22),
+			gameDate: new Date(2016, 0, 22),
 			scorePlayer1: 10,
 			scorePlayer2: 1
 		}, {
 			player1: ac,
 			player2: av,
-			gameDate: new Date(2016, 01, 22),
+			gameDate: new Date(2016, 0, 22),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 01, 25),
+			gameDate: new Date(2016, 0, 25),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: ml,
 			player2: lt,
-			gameDate: new Date(2016, 01, 25),
+			gameDate: new Date(2016, 0, 25),
 			scorePlayer1: 10,
 			scorePlayer2: 8
 		}, {
 			player1: ml,
 			player2: ac,
-			gameDate: new Date(2016, 01, 25),
+			gameDate: new Date(2016, 0, 25),
 			scorePlayer1: 10,
 			scorePlayer2: 8
 		}, {
 			player1: jf,
 			player2: ct,
-			gameDate: new Date(2016, 01, 25),
+			gameDate: new Date(2016, 0, 25),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: ml,
 			player2: ct,
-			gameDate: new Date(2016, 01, 25),
+			gameDate: new Date(2016, 0, 25),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: ml,
 			player2: jf,
-			gameDate: new Date(2016, 01, 25),
+			gameDate: new Date(2016, 0, 25),
 			scorePlayer1: 5,
 			scorePlayer2: 10
 		}, {
 			player1: av,
 			player2: ct,
-			gameDate: new Date(2016, 01, 26),
+			gameDate: new Date(2016, 0, 26),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 01, 26),
+			gameDate: new Date(2016, 0, 26),
 			scorePlayer1: 10,
 			scorePlayer2: 8
 		}, {
 			player1: lt,
 			player2: av,
-			gameDate: new Date(2016, 01, 26),
+			gameDate: new Date(2016, 0, 26),
 			scorePlayer1: 10,
 			scorePlayer2: 8
 		}, {
 			player1: ml,
 			player2: ct,
-			gameDate: new Date(2016, 01, 26),
+			gameDate: new Date(2016, 0, 26),
 			scorePlayer1: 10,
 			scorePlayer2: 3
 		}, {
 			player1: av,
 			player2: ml,
-			gameDate: new Date(2016, 01, 26),
+			gameDate: new Date(2016, 0, 26),
 			scorePlayer1: 10,
 			scorePlayer2: 8
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2016, 01, 26),
+			gameDate: new Date(2016, 0, 26),
 			scorePlayer1: 11,
 			scorePlayer2: 9
 		}, {
 			player1: lt,
 			player2: ml,
-			gameDate: new Date(2016, 01, 26),
+			gameDate: new Date(2016, 0, 26),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: lt,
 			player2: ol,
-			gameDate: new Date(2016, 01, 26),
+			gameDate: new Date(2016, 0, 26),
 			scorePlayer1: 9,
 			scorePlayer2: 11
 		}, {
 			player1: jf,
 			player2: ct,
-			gameDate: new Date(2016, 01, 29),
+			gameDate: new Date(2016, 0, 29),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: ml,
 			player2: jf,
-			gameDate: new Date(2016, 01, 29),
+			gameDate: new Date(2016, 0, 29),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: av,
 			player2: ct,
-			gameDate: new Date(2016, 01, 29),
+			gameDate: new Date(2016, 0, 29),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2016, 01, 29),
+			gameDate: new Date(2016, 0, 29),
 			scorePlayer1: 10,
 			scorePlayer2: 8
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2016, 02, 01),
+			gameDate: new Date(2016, 1, 01),
 			scorePlayer1: 10,
 			scorePlayer2: 2
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2016, 02, 01),
+			gameDate: new Date(2016, 1, 01),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2016, 02, 01),
+			gameDate: new Date(2016, 1, 01),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 02, 04),
+			gameDate: new Date(2016, 1, 04),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 02, 04),
+			gameDate: new Date(2016, 1, 04),
 			scorePlayer1: 9,
 			scorePlayer2: 11
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 02, 04),
+			gameDate: new Date(2016, 1, 04),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: ml,
 			player2: jf,
-			gameDate: new Date(2016, 02, 04),
+			gameDate: new Date(2016, 1, 04),
 			scorePlayer1: 12,
 			scorePlayer2: 10
 		}, {
 			player1: jf,
 			player2: ac,
-			gameDate: new Date(2016, 2, 8),
+			gameDate: new Date(2016, 1, 8),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: jf,
 			player2: av,
-			gameDate: new Date(2016, 2, 8),
+			gameDate: new Date(2016, 1, 8),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: jf,
 			player2: ct,
-			gameDate: new Date(2016, 2, 8),
+			gameDate: new Date(2016, 1, 8),
 			scorePlayer1: 10,
 			scorePlayer2: 3
 		}, {
 			player1: av,
 			player2: ct,
-			gameDate: new Date(2016, 2, 8),
+			gameDate: new Date(2016, 1, 8),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: av,
 			player2: ac,
-			gameDate: new Date(2016, 2, 8),
+			gameDate: new Date(2016, 1, 8),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: ol,
 			player2: ac,
-			gameDate: new Date(2016, 2, 8),
+			gameDate: new Date(2016, 1, 8),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2016, 2, 15),
+			gameDate: new Date(2016, 1, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 8
 		}, {
 			player1: av,
 			player2: lt,
-			gameDate: new Date(2016, 2, 15),
+			gameDate: new Date(2016, 1, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 12
 		}, {
 			player1: ct,
 			player2: lt,
-			gameDate: new Date(2016, 2, 15),
+			gameDate: new Date(2016, 1, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: ct,
 			player2: sk,
-			gameDate: new Date(2016, 2, 15),
+			gameDate: new Date(2016, 1, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 0
 		}, {
 			player1: jf,
 			player2: ct,
-			gameDate: new Date(2016, 2, 15),
+			gameDate: new Date(2016, 1, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: jf,
 			player2: av,
-			gameDate: new Date(2016, 2, 15),
+			gameDate: new Date(2016, 1, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: jf,
 			player2: av,
-			gameDate: new Date(2016, 2, 15),
+			gameDate: new Date(2016, 1, 15),
 			scorePlayer1: 14,
 			scorePlayer2: 12
 		}, {
 			player1: av,
 			player2: lt,
-			gameDate: new Date(2016, 2, 15),
+			gameDate: new Date(2016, 1, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: jf,
 			player2: lt,
-			gameDate: new Date(2016, 2, 16),
+			gameDate: new Date(2016, 1, 16),
 			scorePlayer1: 10,
 			scorePlayer2: 3
 		}, {
 			player1: jf,
 			player2: ct,
-			gameDate: new Date(2016, 2, 16),
+			gameDate: new Date(2016, 1, 16),
 			scorePlayer1: 10,
 			scorePlayer2: 4
 		}, {
 			player1: jf,
 			player2: sk,
-			gameDate: new Date(2016, 2, 16),
+			gameDate: new Date(2016, 1, 16),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: jf,
 			player2: av,
-			gameDate: new Date(2016, 2, 16),
+			gameDate: new Date(2016, 1, 16),
 			scorePlayer1: 8,
 			scorePlayer2: 10
 		}, {
 			player1: av,
 			player2: lt,
-			gameDate: new Date(2016, 2, 16),
+			gameDate: new Date(2016, 1, 16),
 			scorePlayer1: 9,
 			scorePlayer2: 11
 		}, {
 			player1: jf,
 			player2: lt,
-			gameDate: new Date(2016, 2, 16),
+			gameDate: new Date(2016, 1, 16),
 			scorePlayer1: 10,
 			scorePlayer2: 4
 		}, {
 			player1: jf,
 			player2: lt,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 1
 		}, {
 			player1: jf,
 			player2: ct,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 2
 		}, {
 			player1: jf,
 			player2: sk,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: jf,
 			player2: av,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: jf,
 			player2: ml,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 7
 		}, {
 			player1: jf,
 			player2: lt,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: jf,
 			player2: av,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 8,
 			scorePlayer2: 10
 		}, {
 			player1: jf,
 			player2: lt,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: ml,
 			player2: lt,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: jf,
 			player2: ml,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: ml,
 			player2: av,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 16,
 			scorePlayer2: 14
 		}, {
 			player1: ct,
 			player2: jf,
-			gameDate: new Date(2016, 2, 18),
+			gameDate: new Date(2016, 1, 18),
 			scorePlayer1: 12,
 			scorePlayer2: 10
 		}, {
 			player1: av,
 			player2: lt,
-			gameDate: new Date(2016, 2, 19),
+			gameDate: new Date(2016, 1, 19),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: jf,
 			player2: av,
-			gameDate: new Date(2016, 2, 19),
+			gameDate: new Date(2016, 1, 19),
 			scorePlayer1: 4,
 			scorePlayer2: 10
 		}, {
 			player1: av,
 			player2: ac,
-			gameDate: new Date(2016, 2, 19),
+			gameDate: new Date(2016, 1, 19),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: av,
 			player2: ct,
-			gameDate: new Date(2016, 2, 19),
+			gameDate: new Date(2016, 1, 19),
 			scorePlayer1: 10,
 			scorePlayer2: 2
 		}, {
 			player1: ml,
 			player2: av,
-			gameDate: new Date(2016, 2, 19),
+			gameDate: new Date(2016, 1, 19),
 			scorePlayer1: 10,
 			scorePlayer2: 2
 		}];
