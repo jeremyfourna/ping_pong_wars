@@ -4,7 +4,7 @@ Template.home.helpers({
 			sort: {
 				gameDate: -1
 			},
-			limit: 12
+			limit: 4
 		});
 	},
 	smallScoreGap() {
@@ -78,16 +78,37 @@ Template.home.events({
 		e.preventDefault();
 		if ($('#player1Name').val() === '' || $('#player2Name').val() === '') {
 			console.log($('#player1Name').val(), $('#player1Score').val(), $('#player2Name').val(), $('#player2Score').val());
-			return throwError("The both players are not defined !");
+			return throwError('The both players are not defined !');
 		} else if ($('#player1Score').val() < 10 && $('#player2Score').val() < 10) {
 			console.log($('#player1Name').val(), $('#player1Score').val(), $('#player2Name').val(), $('#player2Score').val());
-			return throwError("The minimum to win a game is 10 !");
+			return throwError('The minimum to win a game is 10 !');
+		} else if ($('#player1Name').val() === $('#player2Name').val()) {
+			return throwError('Player 1 and Player 2 can\'t play against each other !');
 		} else {
 			var player1Names = $('#player1Name').val().split(' ');
 			var player2Names = $('#player2Name').val().split(' ');
 			var player1 = Meteor.users.findOne({ $and: [{ 'profile.firstName': player1Names[0] }, { 'profile.lastName': player1Names[1] }] });
 			var player2 = Meteor.users.findOne({ $and: [{ 'profile.firstName': player2Names[0] }, { 'profile.lastName': player2Names[1] }] });
-			console.log(player1, player2);
+			if (!player1) {
+				return throwError('Player 1 does not exist in the database !');
+			} else if (!player2) {
+				return throwError('Player 2 does not exist in the database !');
+			} else {
+				var game = {
+					player1: player1._id,
+					player2: player2._id,
+					gameDate: new Date(),
+					scorePlayer1: $('#player1Score').val(),
+					scorePlayer2: $('#player2Score').val()
+				};
+				Meteor.call('addAGame', game, function(error, result) {
+					if (error) {
+						return throwError(error.message);
+					} else {
+						return throwError('Another one bite the dust !');
+					}
+				});
+			}
 		}
 	}
 });
