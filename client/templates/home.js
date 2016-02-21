@@ -21,29 +21,20 @@ Template.home.helpers({
 			return false;
 		}
 	},
-	player1List() {
+	playerList() {
 		var list = _.uniq(Meteor.users.find({}, {
-				sort: {
-					'profile.firstName': 1,
-					'profile.lastName': 1
-				},
-				fields: {
-					'_id': 1,
-					'profile.firstName': 1,
-					'profile.lastName': 1
-				}
-			}).fetch().map(function(x) {
-				console.log(x);
-				return x;
-			}),
-			true);
-		console.log(list);
-		for (var i = 0; i < list.length; i++) {
-			var j = list.shift();
-			list.push({
-				fullName: j
-			});
-		}
+			sort: {
+				'profile.firstName': 1,
+				'profile.lastName': 1
+			},
+			fields: {
+				'_id': 1,
+				'profile.firstName': 1,
+				'profile.lastName': 1
+			}
+		}).fetch().map(function(x) {
+			return x;
+		}), true);
 		list.sort(function(a, b) {
 			if (a.fullName > b.fullName) {
 				return 1;
@@ -54,5 +45,15 @@ Template.home.helpers({
 			return 0;
 		});
 		return list;
+	}
+});
+
+Template.home.events({
+	'click #addAGame': function(e) {
+		e.preventDefault();
+		if ($('#player1Name').val() === '' || $('#player2Name').val() === '') {
+			console.log($('#player1Name').val(), $('#player1Score').val(), $('#player2Name').val(), $('#player1Score').val());
+			return throwError("The both players are not defined !");
+		}
 	}
 });

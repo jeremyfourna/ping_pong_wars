@@ -1,45 +1,46 @@
 template(name="home")
-	h1 {{_ "saveAScore"}}
-	form
-		.col-md-6.col-lg-6
-			.form-group
-				label(for='player1Name') {{_ "player1Name"}}
-				input#player1Name.form-control.awesomplete(type='text' list="player1List")
-				datalist#player1List
-					each player1List
-						option(data-id="#{_id}") #{fullName}
-		.col-md-6.col-lg-6
-			.form-group
-				label(for='player2Name') {{_ "player2Name"}}
-				input#player2Name.form-control(type='text')
-		button.btn.btn-success(type='submit') Submit
-
-	h1 {{_ "lastGames"}}
-	.row
-		each lastGames
-			if over10
-				.col-xs-6.col-sm-4.col-md-3.col-lg-3
-					.panel.panel-info
-						.panel-heading
-							h2.panel-title #{player1Data.fullName} vs #{player2Data.fullName}
-						.panel-body
-							p.text-center #{scorePlayer1} - #{scorePlayer2}
-							if practiceGame
-								span.center-block.label.label-default {{_ "practiceGame"}}
-			else
-				if smallScoreGap
-					.col-xs-6.col-sm-4.col-md-3.col-lg-3
-						.panel.panel-warning
-							.panel-heading
-								h2.panel-title #{player1Data.fullName} vs #{player2Data.fullName}
+	.panel.panel-default
+		.panel-heading
+			h3 {{_ "saveAScore"}}
+		.panel-body
+			form
+				.row
+					.col-md-6.col-lg-6
+						.panel.panel-default
 							.panel-body
-								p.text-center #{scorePlayer1} - #{scorePlayer2}
-								if practiceGame
-									span.center-block.label.label-default {{_ "practiceGame"}}
-				else
-					if bigScoreGap
+								.form-group
+									label(for='player1Name') {{_ "player1Name"}}
+									input#player1Name.form-control.awesomplete(type='text' list="player1List")
+									datalist#player1List
+										each playerList
+											option(data-id="#{_id}") #{fullName}
+								.form-group
+									label(for='player1Score') {{_ "score"}}
+									input#player1Score.form-control(type='number' min="0" step="1" value="0")
+					.col-md-6.col-lg-6
+						.panel.panel-default
+							.panel-body
+								.form-group
+									label(for='player2Name') {{_ "player2Name"}}
+									input#player2Name.form-control(type='text' list="playerList")
+									datalist#playerList
+										each playerList
+											option(data-id="#{_id}") #{fullName}
+								.form-group
+									label(for='player2Score') {{_ "score"}}
+									input#player2Score.form-control(type='number' min="0" step="1" value="0")
+				.row
+					.col-md-12.col-lg-12
+						button#addAGame.btn-block.btn.btn-success(type='submit') {{_ "validate"}}
+	.panel.panel-default
+		.panel-heading
+			h3 {{_ "lastGames"}}
+		.panel-body
+			.row
+				each lastGames
+					if over10
 						.col-xs-6.col-sm-4.col-md-3.col-lg-3
-							.panel.panel-success
+							.panel.panel-info
 								.panel-heading
 									h2.panel-title #{player1Data.fullName} vs #{player2Data.fullName}
 								.panel-body
@@ -47,11 +48,31 @@ template(name="home")
 									if practiceGame
 										span.center-block.label.label-default {{_ "practiceGame"}}
 					else
-						.col-xs-6.col-sm-4.col-md-3.col-lg-3
-							.panel.panel-default
-								.panel-heading
-									h2.panel-title #{player1Data.fullName} vs #{player2Data.fullName}
-								.panel-body
-									p.text-center #{scorePlayer1} - #{scorePlayer2}
-									if practiceGame
-										span.center-block.label.label-default {{_ "practiceGame"}}
+						if smallScoreGap
+							.col-xs-6.col-sm-4.col-md-3.col-lg-3
+								.panel.panel-warning
+									.panel-heading
+										h2.panel-title #{player1Data.fullName} vs #{player2Data.fullName}
+									.panel-body
+										p.text-center #{scorePlayer1} - #{scorePlayer2}
+										if practiceGame
+											span.center-block.label.label-default {{_ "practiceGame"}}
+						else
+							if bigScoreGap
+								.col-xs-6.col-sm-4.col-md-3.col-lg-3
+									.panel.panel-success
+										.panel-heading
+											h2.panel-title #{player1Data.fullName} vs #{player2Data.fullName}
+										.panel-body
+											p.text-center #{scorePlayer1} - #{scorePlayer2}
+											if practiceGame
+												span.center-block.label.label-default {{_ "practiceGame"}}
+							else
+								.col-xs-6.col-sm-4.col-md-3.col-lg-3
+									.panel.panel-default
+										.panel-heading
+											h2.panel-title #{player1Data.fullName} vs #{player2Data.fullName}
+										.panel-body
+											p.text-center #{scorePlayer1} - #{scorePlayer2}
+											if practiceGame
+												span.center-block.label.label-default {{_ "practiceGame"}}
