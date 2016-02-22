@@ -77,10 +77,8 @@ Template.home.events({
 	'click #addAGame': function(e) {
 		e.preventDefault();
 		if ($('#player1Name').val() === '' || $('#player2Name').val() === '') {
-			console.log($('#player1Name').val(), $('#player1Score').val(), $('#player2Name').val(), $('#player2Score').val());
 			return throwError('The both players are not defined !');
 		} else if ($('#player1Score').val() < 10 && $('#player2Score').val() < 10) {
-			console.log($('#player1Name').val(), $('#player1Score').val(), $('#player2Name').val(), $('#player2Score').val());
 			return throwError('The minimum to win a game is 10 !');
 		} else if ($('#player1Name').val() === $('#player2Name').val()) {
 			return throwError('Player 1 and Player 2 can\'t play against each other !');
