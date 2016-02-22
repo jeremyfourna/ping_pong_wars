@@ -401,43 +401,43 @@ Meteor.startup(function() {
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2016, 1, 01),
+			gameDate: new Date(2016, 1, 1),
 			scorePlayer1: 10,
 			scorePlayer2: 2
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2016, 1, 01),
+			gameDate: new Date(2016, 1, 1),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: av,
 			player2: jf,
-			gameDate: new Date(2016, 1, 01),
+			gameDate: new Date(2016, 1, 1),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 1, 04),
+			gameDate: new Date(2016, 1, 4),
 			scorePlayer1: 10,
 			scorePlayer2: 5
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 1, 04),
+			gameDate: new Date(2016, 1, 4),
 			scorePlayer1: 9,
 			scorePlayer2: 11
 		}, {
 			player1: lt,
 			player2: jf,
-			gameDate: new Date(2016, 1, 04),
+			gameDate: new Date(2016, 1, 4),
 			scorePlayer1: 10,
 			scorePlayer2: 6
 		}, {
 			player1: ml,
 			player2: jf,
-			gameDate: new Date(2016, 1, 04),
+			gameDate: new Date(2016, 1, 4),
 			scorePlayer1: 12,
 			scorePlayer2: 10
 		}, {
