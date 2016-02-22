@@ -1,3 +1,26 @@
 template(name="ranking")
-	h2 {{_ "ranking"}}
-	#rankingGraph
+	.panel.panel-default
+		.panel-heading
+			h2 {{_ "rankingEvolution"}}
+		.panel-body
+			#rankingGraph
+	.panel.panel-default
+		.panel-heading
+			h2 {{_ "ranking"}}
+		table.table
+			thead
+				tr
+					th #
+					th {{_ "playerName"}}
+					th {{_ "pointsAverage"}}
+						span.glyphicon.glyphicon-arrow-up
+					th {{_ "nbGames"}}
+					th {{_ "last10GamesPerf"}}
+			tbody
+				each playerData
+					tr
+						td #{index}
+						td #{fullName}
+						td #{average}
+						td #{nbGames}
+						td #{last10Games}
