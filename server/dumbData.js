@@ -88,10 +88,6 @@ Meteor.startup(function() {
 				lastName: 'Zaoui'
 			}
 		});
-		var test = Accounts.createUser({
-			password: '123456',
-			username: 'test_t'
-		});
 		var gamesList = [{
 			player1: av,
 			player2: ml,
