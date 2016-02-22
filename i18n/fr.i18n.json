@@ -3,6 +3,7 @@
 	"404": "Désolé, nous ne trouvons pas de page à cette adresse...",
 	"toggleNav": "Basculer la navigation",
 	"ranking": "Classement",
+	"rankingEvolution": "Evolution des performances",
 	"championship": "Championnat",
 	"search": "Trouver un adversaire",
 	"lastGames": "Derniers matchs",
@@ -11,5 +12,9 @@
 	"player1Name": "Joueur 1",
 	"player2Name": "Joueur 2",
 	"score": "Score",
-	"validate": "Valider"
+	"validate": "Valider",
+	"playerName": "Nom du joueur",
+	"pointsAverage": "Moyenne des points",
+	"nbGames": "Nombre de matches joués",
+	"last10GamesPerf": "Performance sur les 10 derniers matchs"
 }
