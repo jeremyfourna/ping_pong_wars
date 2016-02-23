@@ -40,7 +40,13 @@ class Ranking extends BlazeComponent {
 				'profile.points': 1,
 			}
 		}).fetch();
-		freshData.sort(function(a, b) {
+		var newList = []
+		for (var i = 0; i < freshData.length; i++) {
+			if (freshData[i].profile.points.length > 5) {
+				newList.push(freshData[i]);
+			}
+		}
+		newList.sort(function(a, b) {
 			if (a.average() > b.average()) {
 				return -1;
 			}
@@ -49,7 +55,7 @@ class Ranking extends BlazeComponent {
 			}
 			return 0;
 		});
-		return freshData;
+		return newList;
 	}
 
 	index() {
