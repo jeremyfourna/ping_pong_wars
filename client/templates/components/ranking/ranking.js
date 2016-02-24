@@ -4,6 +4,7 @@ class Ranking extends BlazeComponent {
 	}
 
 	onRendered() {
+		super.onRendered();
 		var freshData = Meteor.users.find({}, {
 			fields: {
 				'profile.firstName': 1,
