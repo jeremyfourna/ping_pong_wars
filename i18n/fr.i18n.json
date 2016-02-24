@@ -24,5 +24,11 @@
 	"score": "Score :",
 	"lastScore": "Ancien score :",
 	"newScore": "Nouveau score :",
-	"noImpact": "Aucun impact"
+	"noImpact": "Aucun impact",
+	"account": "Mon compte",
+	"save": "Sauvegarder",
+	"firstName": "Prénom",
+	"lastName": "Nom",
+	"myLastGames": "Mes derniers matchs",
+	"userRankingEvolution": "Evolution de vos performances"
 }
