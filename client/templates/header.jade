@@ -11,7 +11,7 @@ template(name="header")
 			#navigation.collapse.navbar-collapse
 				ul.nav.navbar-nav
 					li
-						a(href="{{pathFor 'rankingWrapper'}}" data-target='.navbar-collapse') {{_ "ranking"}}
+						a.route(href="{{pathFor 'rankingWrapper'}}" data-target='.navbar-collapse') {{_ "ranking"}}
 					//li
 						a(href="{{pathFor 'championshipWrapper'}}" data-target='.navbar-collapse') {{_ "championship"}}
 					//li
