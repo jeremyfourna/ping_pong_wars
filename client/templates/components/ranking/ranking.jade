@@ -8,6 +8,7 @@ template(name="ranking")
 		.panel-heading
 			h2 {{_ "ranking"}}
 		table.table
+			caption {{_ "nbGamesLimit"}}
 			thead
 				tr
 					th #
@@ -23,4 +24,4 @@ template(name="ranking")
 						td #{fullName}
 						td #{currentPoints}
 						td #{nbGames}
-						td #{last10Games}
+						td #{last10GamesPerf}
