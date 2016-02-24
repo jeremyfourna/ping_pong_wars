@@ -1,3 +1,7 @@
+Template.home.onRendered(function() {
+	$(document).on('click', 'input[type=text]', function() { this.select(); });
+});
+
 Template.home.helpers({
 	lastGames() {
 		return Games.find({}, {
@@ -75,8 +79,10 @@ Template.home.events({
 		e.preventDefault();
 		if ($('#player1Name').val() === '' || $('#player2Name').val() === '') {
 			return throwError('The both players are not defined !');
-		} else if ($('#player1Score').val() < 10 && $('#player2Score').val() < 10) {
+		} else if (Number($('#player1Score').val()) < 10 && Number($('#player2Score').val()) < 10) {
 			return throwError('The minimum to win a game is 10 !');
+		} else if ($('#player1Score').val() === '' || $('#player2Score').val() === '') {
+			return throwError('Both scores must be defined !');
 		} else if ($('#player1Name').val() === $('#player2Name').val()) {
 			return throwError('Player 1 and Player 2 can\'t play against each other !');
 		} else {
@@ -93,14 +99,15 @@ Template.home.events({
 					player1: player1._id,
 					player2: player2._id,
 					gameDate: new Date(),
-					scorePlayer1: $('#player1Score').val(),
-					scorePlayer2: $('#player2Score').val(),
+					scorePlayer1: Number($('#player1Score').val()),
+					scorePlayer2: Number($('#player2Score').val()),
 					addedBy: Meteor.userId()
 				};
 				Meteor.call('addAGame', game, function(error, result) {
 					if (error) {
 						return throwError(error.message);
 					} else {
+						$('input').val('');
 						return throwError('Another one bite the dust !');
 					}
 				});

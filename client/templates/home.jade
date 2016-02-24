@@ -41,14 +41,24 @@ template(name="home")
 		.panel-body
 			.row
 				each lastGames
-					.col-xs-6.col-sm-6.col-md-6.col-lg-6
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
 						.panel(class="#{panelClass}")
 							.panel-heading
-								h2.panel-title #{player1Data.fullName} vs #{player2Data.fullName}
+								h2.panel-title.text-center #{player1Data.fullName} vs #{player2Data.fullName}
 									if practiceGame
 										span.pull-right.label.label-default {{_ "practiceGame"}}
 							.panel-body
 								.col-xs-6.col-sm-6.col-md-6.col-lg-6
-									h3.pull-right Score :
+									p {{_ "score"}}
+									p {{_ "lastScore"}}
+									p {{_ "newScore"}}
 								.col-xs-6.col-sm-6.col-md-6.col-lg-6
-									h3.pull-left #{scorePlayer1} - #{scorePlayer2}
+									p #{scorePlayer1} - #{scorePlayer2}
+									if practiceGame
+										p
+											span.label.label-default {{_ "noImpact"}}
+										p
+											span.label.label-default {{_ "noImpact"}}
+									else
+										p #{lastPointsPlayer1} - #{lastPointsPlayer2}
+										p #{newPointsPlayer1} - #{newPointsPlayer2}
