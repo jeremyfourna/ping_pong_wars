@@ -29,6 +29,9 @@ class Ranking extends BlazeComponent {
 		});
 		var chart = c3.generate({
 			bindto: '#rankingGraph',
+			size: {
+				height: 480
+			},
 			data: {
 				type: 'line',
 				columns: userData
