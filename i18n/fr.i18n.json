@@ -7,7 +7,7 @@
 	"championship": "Championnat",
 	"search": "Trouver un adversaire",
 	"lastGames": "Derniers matchs",
-	"practiceGame": "Entraînement",
+	"practiceGame": "Entraîn.",
 	"saveAScore": "Enregistrez un score",
 	"player1Name": "Joueur 1",
 	"player2Name": "Joueur 2",
@@ -15,7 +15,9 @@
 	"validate": "Valider",
 	"playerName": "Nom du joueur",
 	"pointsAverage": "Moyenne des points",
-	"nbGames": "Nombre de matches joués",
-	"last10GamesPerf": "Performance sur les 10 derniers matchs",
-	"points": "Points"
+	"nbGames": "Nb matches joués",
+	"last10GamesPerf": "Perf 10 derniers matchs",
+	"points": "Points",
+	"logInToSaveAGame": "Connectes-toi pour rentrer un score !",
+	"nbGamesLimit": "Seulement les joueurs avec plus de 10 matchs rentrent dans le classement."
 }
