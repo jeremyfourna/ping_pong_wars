@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"fe",
+				"freshData"
+			],
+			[
 				"game",
 				"gameDate"
 			],
@@ -220,66 +224,10 @@
 	"buffers":
 	[
 		{
-			"file": "client/templates/home.jade",
+			"file": "lib/collections/games.js",
 			"settings":
 			{
-				"buffer_size": 2854,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/lib/includes/success/sucess.jade",
-			"settings":
-			{
-				"buffer_size": 168,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/lib/includes/success/success_s.jade",
-			"settings":
-			{
-				"buffer_size": 127,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/lib/includes/success/success.js",
-			"settings":
-			{
-				"buffer_size": 207,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/lib/includes/success/sucess.css",
-			"settings":
-			{
-				"buffer_size": 333,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/lib/includes/success/success_s.js",
-			"settings":
-			{
-				"buffer_size": 139,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/templates/home.js",
-			"settings":
-			{
-				"buffer_size": 2742,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "server/dumbData.js",
-			"settings":
-			{
-				"buffer_size": 13028,
+				"buffer_size": 2973,
 				"line_ending": "Unix"
 			}
 		}
@@ -304,7 +252,7 @@
 				"Package Control: List Packages"
 			]
 		],
-		"width": 458.0
+		"width": 503.0
 	},
 	"console":
 	{
@@ -327,11 +275,9 @@
 	[
 		"/home/jfourna/ping_pong_wars",
 		"/home/jfourna/ping_pong_wars/client",
-		"/home/jfourna/ping_pong_wars/client/lib",
-		"/home/jfourna/ping_pong_wars/client/lib/includes",
-		"/home/jfourna/ping_pong_wars/client/lib/includes/success",
 		"/home/jfourna/ping_pong_wars/client/templates",
 		"/home/jfourna/ping_pong_wars/client/templates/components",
+		"/home/jfourna/ping_pong_wars/client/templates/components/ranking",
 		"/home/jfourna/ping_pong_wars/i18n",
 		"/home/jfourna/ping_pong_wars/lib",
 		"/home/jfourna/ping_pong_wars/lib/collections",
@@ -340,14 +286,31 @@
 	],
 	"file_history":
 	[
-		"/home/jfourna/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
-		"/home/jfourna/ping_pong_wars/client/lib/includes/errors/errors.js",
-		"/home/jfourna/ping_pong_wars/i18n/fr.i18n.json",
-		"/home/jfourna/ping_pong_wars/lib/collections/games.js",
-		"/home/jfourna/ping_pong_wars/server/publications/usersPublications.js",
+		"/home/jfourna/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/jfourna/ping_pong_wars/client/templates/components/ranking/ranking.js",
 		"/home/jfourna/ping_pong_wars/client/templates/components/ranking/ranking.jade",
 		"/home/jfourna/ping_pong_wars/server/dumbData.js",
+		"/home/jfourna/ping_pong_wars/mobile-config.js",
+		"/home/jfourna/ping_pong_wars/client/templates/home.jade",
+		"/home/jfourna/ping_pong_wars/client/templates/home.js",
+		"/home/jfourna/ping_pong_wars/lib/collections/games.js",
+		"/home/jfourna/ping_pong_wars/server/newAccountConfig.js",
+		"/home/jfourna/ping_pong_wars/client/lib/localCollections.js",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/errors/error.css",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/errors/error.js",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/errors/error.jade",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/success/success.css",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/success/successS.jade",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/success/successS.js",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/success/success_s.js",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/success/sucess.css",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/success/success.js",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/success/success_s.jade",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/success/sucess.jade",
+		"/home/jfourna/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/home/jfourna/ping_pong_wars/client/lib/includes/errors/errors.js",
+		"/home/jfourna/ping_pong_wars/i18n/fr.i18n.json",
+		"/home/jfourna/ping_pong_wars/server/publications/usersPublications.js",
 		"/home/jfourna/ping_pong_wars/server/publications/gamesPublications.js",
 		"/home/jfourna/ping_pong_wars/lib/router.js",
 		"/home/jfourna/frfisca/.meteor/packages",
@@ -357,7 +320,6 @@
 		"/home/jfourna/frfisca/client/templates/components/netFiscalExpenses/netFiscalExpenses.jade",
 		"/home/jfourna/ping_pong_wars/client/templates/components/ranking/rankingWrapper.jade",
 		"/home/jfourna/ping_pong_wars/client/templates/components/account/account.js",
-		"/home/jfourna/ping_pong_wars/server/newAccountConfig.js",
 		"/home/jfourna/mangatek/lib/collections/mangas.js",
 		"/home/jfourna/ping_pong_wars/README.md",
 		"/home/jfourna/ping_pong_wars/tests/gagarin/testSuite.js",
@@ -424,7 +386,6 @@
 		"/home/jfourna/EKlore/client/templates/components/questions/question/question3.jade",
 		"/home/jfourna/EKlore/client/templates/components/questions/question/question4.jade",
 		"/home/jfourna/EKlore/client/templates/components/questions/question/question5.jade",
-		"/home/jfourna/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/jfourna/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/jfourna/EKlore/client/stylesheets/radio.css",
 		"/home/jfourna/EKlore/client/stylesheets/checkbox.css",
@@ -452,22 +413,7 @@
 		"/home/jfourna/mangatek/client/templates/front/header.js",
 		"/home/jfourna/mangatek/client/templates/front/header.jade",
 		"/home/jfourna/mangatek/i18n/fr.i18n.json",
-		"/home/jfourna/mangatek/client/templates/front/components/cover/mangaCover.jade",
-		"/home/jfourna/mangatek/client/templates/front/addMangaForUser/step1/addMangaForUserStep1.jade",
-		"/home/jfourna/mangatek/server/publications/mangasDataPublications.js",
-		"/home/jfourna/mangatek/lib/collections/mangasToAdd.js",
-		"/home/jfourna/mangatek/client/templates/front/components/addMangaToWaitingList/addMangaToWaitingList.jade",
-		"/home/jfourna/mangatek/client/templates/front/home.js",
-		"/home/jfourna/mangatek/client/templates/front/home.jade",
-		"/home/jfourna/mangatek/client/templates/front/addMangaForUser/step1/addMangaForUserStep1.js",
-		"/home/jfourna/mangatek/client/templates/front/components/cover/mangaCover.js",
-		"/home/jfourna/mangas/client/templates/front/header.js",
-		"/home/jfourna/mangas/client/templates/admin/viewMangasToAdd/viewMangasToAdd.jade",
-		"/home/jfourna/mangas/lib/router.js",
-		"/home/jfourna/mangas/client/templates/front/header.jade",
-		"/home/jfourna/mangas/i18n/fr.i18n.json",
-		"/home/jfourna/mangas/client/templates/front/components/cover/cover2.jade",
-		"/home/jfourna/mangas/client/templates/front/components/cover/cover2.js"
+		"/home/jfourna/mangatek/client/templates/front/components/cover/mangaCover.jade"
 	],
 	"find":
 	{
@@ -485,6 +431,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"freshData",
+			"04",
+			"throwError",
 			"error",
 			"2016, 01",
 			"2016, 02",
@@ -609,10 +558,7 @@
 			"<",
 			"Test",
 			"AddMangaToWaitingList",
-			"admin",
-			"askedB",
-			"askB",
-			"console"
+			"admin"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -706,340 +652,95 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "client/templates/home.jade",
-					"semi_transient": false,
+					"file": "lib/collections/games.js",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 2854,
+						"buffer_size": 2973,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								469,
-								469
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "client/lib/includes/success/sucess.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 168,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								48,
-								48
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "client/lib/includes/success/success_s.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 127,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								122,
-								122
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "client/lib/includes/success/success.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 207,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								207,
-								207
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": -0.0,
+						"translation.y": 1275.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "client/lib/includes/success/sucess.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 333,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								281,
-								281
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "client/lib/includes/success/success_s.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 139,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								106,
-								106
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "client/templates/home.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2742,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2592,
-								2592
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1215.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "server/dumbData.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13028,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4731,
-								4731
-							],
-							[
-								4846,
-								4846
-							],
-							[
-								4961,
-								4961
-							],
-							[
-								5076,
-								5076
-							],
-							[
-								5191,
-								5191
-							],
-							[
-								5306,
-								5306
-							],
-							[
-								5421,
-								5421
-							],
-							[
-								5536,
-								5536
-							],
-							[
-								5651,
-								5651
-							],
-							[
-								5766,
-								5766
-							],
-							[
-								5881,
-								5881
-							],
-							[
-								5996,
-								5996
-							],
-							[
-								6111,
-								6111
-							],
-							[
-								6226,
-								6226
-							],
-							[
-								6341,
-								6341
-							],
-							[
-								6456,
-								6456
-							],
-							[
-								6571,
-								6571
-							],
-							[
-								6686,
-								6686
-							],
-							[
-								6801,
-								6801
-							],
-							[
-								6916,
-								6916
-							],
-							[
-								7031,
-								7031
-							],
-							[
-								7146,
-								7146
-							],
-							[
-								7261,
-								7261
-							],
-							[
-								7376,
-								7376
-							],
-							[
-								7491,
-								7491
-							],
-							[
-								7606,
-								7606
-							],
-							[
-								7721,
-								7721
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 9503.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
 					"type": "text"
 				}
 			]
