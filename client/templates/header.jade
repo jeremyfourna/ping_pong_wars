@@ -14,7 +14,8 @@ template(name="header")
 						a.route(href="{{pathFor 'rankingWrapper'}}" data-target='.navbar-collapse') {{_ "ranking"}}
 					//li
 						a(href="{{pathFor 'championshipWrapper'}}" data-target='.navbar-collapse') {{_ "championship"}}
-					//li
-						a(href="{{pathFor 'account'}}" data-target='.navbar-collapse') {{_ "account"}}
+					if currentUser
+						li
+							a.route(href="{{pathFor 'accountWrapper'}}" data-target='.navbar-collapse') {{_ "account"}}
 				.nav.navbar-nav.navbar-right
 					+loginButtons
