@@ -1,1 +1,52 @@
 template(name="account")
+	.container
+		.panel.panel-default
+			.panel-heading
+				h2 {{_ "account"}}
+			.panel-body
+				form
+					.row
+						.col-xs-12.col-sm-12.col-md-12.col-lg-12
+							.form-group
+								label(for='firstName') {{_ "firstName"}}
+								input#firstName.form-control.awesomplete(type='text' value="#{userData.profile.firstName}")
+						.col-xs-12.col-sm-12.col-md-12.col-lg-12
+							.form-group
+								label(for='lastName') {{_ "lastName"}}
+								input#lastName.form-control.awesomplete(type='text' value="#{userData.profile.lastName}")
+					.row
+						.col-md-12.col-lg-12
+							button#saveUser.btn-block.btn.btn-success(type='submit') {{_ "save"}}
+		if userHasPlayed
+			.panel.panel-default
+				.panel-heading
+					h2 {{_ "userRankingEvolution"}}
+				.panel-body
+					#userRankingGraph
+			.panel.panel-default
+				.panel-heading
+					h3 {{_ "myLastGames"}}
+				.panel-body
+					.row
+						each lastGames
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								.panel(class="#{panelClass}")
+									.panel-heading
+										h2.panel-title.text-center #{player1Data.fullName} vs #{player2Data.fullName}
+											if practiceGame
+												span.pull-right.label.label-default {{_ "practiceGame"}}
+									.panel-body
+										.col-xs-6.col-sm-6.col-md-6.col-lg-6
+											p {{_ "score"}}
+											p {{_ "lastScore"}}
+											p {{_ "newScore"}}
+										.col-xs-6.col-sm-6.col-md-6.col-lg-6
+											p #{scorePlayer1} - #{scorePlayer2}
+											if practiceGame
+												p
+													span.label.label-default {{_ "noImpact"}}
+												p
+													span.label.label-default {{_ "noImpact"}}
+											else
+												p #{lastPointsPlayer1} - #{lastPointsPlayer2}
+												p #{newPointsPlayer1} - #{newPointsPlayer2}
