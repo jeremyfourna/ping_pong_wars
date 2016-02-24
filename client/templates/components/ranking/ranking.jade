@@ -12,7 +12,7 @@ template(name="ranking")
 				tr
 					th #
 					th {{_ "playerName"}}
-					th {{_ "pointsAverage"}}
+					th {{_ "points"}}
 						span.glyphicon.glyphicon-arrow-up
 					th {{_ "nbGames"}}
 					th {{_ "last10GamesPerf"}}
@@ -21,6 +21,6 @@ template(name="ranking")
 					tr
 						td #{index}
 						td #{fullName}
-						td #{average}
+						td #{currentPoints}
 						td #{nbGames}
 						td #{last10Games}

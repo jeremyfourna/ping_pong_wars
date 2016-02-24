@@ -40,17 +40,17 @@ class Ranking extends BlazeComponent {
 				'profile.points': 1,
 			}
 		}).fetch();
-		var newList = []
+		var newList = [];
 		for (var i = 0; i < freshData.length; i++) {
 			if (freshData[i].profile.points.length > 5) {
 				newList.push(freshData[i]);
 			}
 		}
 		newList.sort(function(a, b) {
-			if (a.average() > b.average()) {
+			if (a.currentPoints() > b.currentPoints()) {
 				return -1;
 			}
-			if (a.average() < b.average()) {
+			if (a.currentPoints() < b.currentPoints()) {
 				return 1;
 			}
 			return 0;
