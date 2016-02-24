@@ -3,6 +3,12 @@ Accounts.onCreateUser(function(options, user) {
 	if (options.profile) {
 		user.profile = options.profile;
 		user.profile.points = [1500];
+		if (!user.profile.firstName) {
+			user.profile.firstName = user.username;
+		}
+		if (!user.profile.lastName) {
+			user.profile.lastName = user.username;
+		}
 	} else {
 		user.profile = {
 			firstName: 'New',
