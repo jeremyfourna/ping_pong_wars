@@ -19,5 +19,10 @@
 	"last10GamesPerf": "Perf 10 derniers matchs",
 	"points": "Points",
 	"logInToSaveAGame": "Connectes-toi pour rentrer un score !",
-	"nbGamesLimit": "Seulement les joueurs avec plus de 10 matchs rentrent dans le classement."
+	"nbGamesLimit": "Seulement les joueurs avec plus de 10 matchs rentrent dans le classement.",
+	"last5Games": "Sur les 5 derniers matchs",
+	"score": "Score :",
+	"lastScore": "Ancien score :",
+	"newScore": "Nouveau score :",
+	"noImpact": "Aucun impact"
 }
