@@ -4,21 +4,18 @@ Template.home.helpers({
 			sort: {
 				gameDate: -1
 			},
-			limit: 4
+			limit: 20
 		});
 	},
-	smallScoreGap() {
-		if (this.scoreGap() === 2) {
-			return true;
+	panelClass() {
+		if (this.over10()) {
+			return 'panel-info';
+		} else if (this.scoreGap() === 2) {
+			return 'panel-warning';
+		} else if (this.scoreGap() > 5) {
+			return 'panel-success';
 		} else {
-			return false;
-		}
-	},
-	bigScoreGap() {
-		if (this.scoreGap() > 5) {
-			return true;
-		} else {
-			return false;
+			return 'panel-default';
 		}
 	},
 	player1List() {
@@ -97,7 +94,8 @@ Template.home.events({
 					player2: player2._id,
 					gameDate: new Date(),
 					scorePlayer1: $('#player1Score').val(),
-					scorePlayer2: $('#player2Score').val()
+					scorePlayer2: $('#player2Score').val(),
+					addedBy: Meteor.userId()
 				};
 				Meteor.call('addAGame', game, function(error, result) {
 					if (error) {
