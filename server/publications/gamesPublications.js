@@ -6,3 +6,13 @@ Meteor.publish('lastGames', function() {
 		limit: 20
 	});
 });
+
+Meteor.publish('userGames', function(userId) {
+	return Games.find({
+		$or: [{ player1: userId }, { player2: userId }]
+	}, {
+		sort: {
+			gameDate: -1
+		}
+	});
+});
