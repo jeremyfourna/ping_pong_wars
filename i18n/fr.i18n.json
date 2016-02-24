@@ -16,5 +16,6 @@
 	"playerName": "Nom du joueur",
 	"pointsAverage": "Moyenne des points",
 	"nbGames": "Nombre de matches joués",
-	"last10GamesPerf": "Performance sur les 10 derniers matchs"
+	"last10GamesPerf": "Performance sur les 10 derniers matchs",
+	"points": "Points"
 }
