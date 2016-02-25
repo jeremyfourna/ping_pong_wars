@@ -16,3 +16,7 @@ Meteor.publish('userGames', function(userId) {
 		}
 	});
 });
+
+Meteor.publish('allGames', function() {
+	return Games.find({});
+});
