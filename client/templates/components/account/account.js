@@ -82,14 +82,10 @@ class UserAccount extends BlazeComponent {
 	}
 
 	panelClass() {
-		if (this.currentData().over10()) {
-			return 'panel-info';
-		} else if (this.currentData().scoreGap() === 2) {
-			return 'panel-warning';
-		} else if (this.currentData().scoreGap() > 5) {
+		if (this.currentData().winner() === Meteor.userId()) {
 			return 'panel-success';
 		} else {
-			return 'panel-default';
+			return 'panel-danger';
 		}
 	}
 
