@@ -30,5 +30,6 @@
 	"firstName": "Prénom",
 	"lastName": "Nom",
 	"myLastGames": "Mes derniers matchs",
-	"userRankingEvolution": "Evolution de vos performances"
+	"userRankingEvolution": "Evolution de vos performances",
+	"nbGamesWithPoints": "Nb M. Champ."
 }
