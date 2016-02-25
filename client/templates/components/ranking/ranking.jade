@@ -16,6 +16,7 @@ template(name="ranking")
 					th {{_ "playerName"}}
 					th {{_ "points"}}
 						span.glyphicon.glyphicon-arrow-up
+					th {{_ "nbGamesWithPoints"}}
 					th {{_ "nbGames"}}
 					th {{_ "last10GamesPerf"}}
 			tbody
@@ -24,5 +25,6 @@ template(name="ranking")
 						td #{index}
 						td #{fullName}
 						td #{currentPoints}
+						td #{nbGamesWithPoints}
 						td #{nbGames}
 						td #{last10GamesPerf}

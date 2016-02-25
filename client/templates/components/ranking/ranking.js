@@ -70,6 +70,7 @@ class Ranking extends BlazeComponent {
 				'profile.firstName': 1,
 				'profile.lastName': 1,
 				'profile.points': 1,
+				'_id': 1
 			}
 		}).fetch();
 		var newList = [];
