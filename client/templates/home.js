@@ -98,6 +98,7 @@ Template.home.events({
 				var game = {
 					player1: player1._id,
 					player2: player2._id,
+					gameDate: new Date(),
 					scorePlayer1: Number($('#player1Score').val()),
 					scorePlayer2: Number($('#player2Score').val()),
 					addedBy: Meteor.userId()

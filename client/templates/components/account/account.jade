@@ -33,20 +33,12 @@ template(name="account")
 								.panel(class="#{panelClass}")
 									.panel-heading
 										h2.panel-title.text-center #{player1Data.fullName} vs #{player2Data.fullName}
-											if practiceGame
-												span.pull-right.label.label-default {{_ "practiceGame"}}
 									.panel-body
 										.col-xs-6.col-sm-6.col-md-6.col-lg-6
-											p {{_ "score"}}
-											p {{_ "lastScore"}}
-											p {{_ "newScore"}}
+											p.text-center {{_ "score"}}
+											p.text-center {{_ "lastScore"}}
+											p.text-center {{_ "newScore"}}
 										.col-xs-6.col-sm-6.col-md-6.col-lg-6
-											p #{scorePlayer1} - #{scorePlayer2}
-											if practiceGame
-												p
-													span.label.label-default {{_ "noImpact"}}
-												p
-													span.label.label-default {{_ "noImpact"}}
-											else
-												p #{lastPointsPlayer1} - #{lastPointsPlayer2}
-												p #{newPointsPlayer1} - #{newPointsPlayer2}
+											p.text-center #{scorePlayer1} - #{scorePlayer2}
+											p.text-center #{lastPointsPlayer1} - #{lastPointsPlayer2}
+											p.text-center #{newPointsPlayer1} - #{newPointsPlayer2}
