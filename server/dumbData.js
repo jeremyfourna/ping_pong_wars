@@ -826,4 +826,9 @@ Meteor.startup(function() {
 			});
 		}
 	}
+	Meteor.call('refreshPoints', function(error, result) {
+		if (error) {
+			console.log(error.message, error);
+		}
+	});
 });
