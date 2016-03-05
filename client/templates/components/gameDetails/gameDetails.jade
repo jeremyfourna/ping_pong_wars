@@ -1,0 +1,46 @@
+template(name="gameDetails")
+	.panel.panel-default
+		.panel-heading
+			h2 {{_ "rankingEvolution"}}
+		.panel-body
+			#rankingGraph
+	with gameData
+		.row
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12
+				.panel(class="#{panelClass}")
+					.panel-heading
+						h2.panel-title.text-center {{_ "gameStats"}}
+					.panel-body
+						table.table.table-condensed.table-responsive
+							thead
+								tr
+									th #
+									th #{player1Data.fullName}
+									th #{player2Data.fullName}
+									th {{_ "diff"}}
+							tbody
+								tr
+									td {{_ "score"}}
+									td #{scorePlayer1}
+									td #{scorePlayer2}
+									td #{scoreGap}
+								tr
+									td {{_ "lastScore"}}
+									td #{lastPointsPlayer1}
+									td #{lastPointsPlayer2}
+									td #{lastPointsGap}
+								tr
+									td {{_ "newScore"}}
+									td #{newPointsPlayer1}
+									td #{newPointsPlayer2}
+									td #{newPointsGap}
+								tr
+									td {{_ "kBase"}}
+									td #{kBasePlayer1}
+									td #{kBasePlayer2}
+									td #{kBaseGap}
+	.panel.panel-default
+		.panel-heading
+			h2 {{_ "historyGrap"}}
+		.panel-body
+			#historyGraph

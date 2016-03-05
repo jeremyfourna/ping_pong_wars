@@ -11,17 +11,6 @@ Template.home.helpers({
 			limit: 20
 		});
 	},
-	panelClass() {
-		if (this.over10()) {
-			return 'panel-info';
-		} else if (this.scoreGap() === 2) {
-			return 'panel-warning';
-		} else if (this.scoreGap() > 5) {
-			return 'panel-success';
-		} else {
-			return 'panel-default';
-		}
-	},
 	player1List() {
 		var list = _.uniq(Meteor.users.find({}, {
 			sort: {

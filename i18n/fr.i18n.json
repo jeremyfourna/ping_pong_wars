@@ -28,5 +28,8 @@
 	"firstName": "Prénom",
 	"lastName": "Nom",
 	"myLastGames": "Mes derniers matchs",
-	"userRankingEvolution": "Evolution de vos performances"
+	"userRankingEvolution": "Evolution de vos performances",
+	"gameStats": "Stats du match",
+	"diff": "Différence",
+	"kBase": "Facteur de base"
 }
