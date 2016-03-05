@@ -31,8 +31,8 @@ class GameDetails extends BlazeComponent {
 		}).fetch();
 		var userData = [];
 		var gamesData = [
-			[twoUserData[0].fullName()],
-			[twoUserData[1].fullName()]
+			[twoUserData[0].fullName(), 0],
+			[twoUserData[1].fullName(), 0]
 		];
 		for (var i = 0; i < twoUserData.length; i++) {
 			var list = [];
@@ -40,21 +40,13 @@ class GameDetails extends BlazeComponent {
 			list = list.concat(twoUserData[i].profile.points);
 			userData.push(list);
 		}
-		for (var j = 0; j < twoUserData.length; j++) {
-			var list2 = [];
-			list2.push(twoUserData[j].fullName());
-			list2 = list2.concat(twoUserData[j].profile.points);
-			userData.push(list2);
+		for (var j = 0; j < gamesBetweenTwoPlayers.length; j++) {
+			if (winner(gamesBetweenTwoPlayers[j]) === twoUserData[0]._id) {
+				gamesData[0][1] = gamesData[0][1] + 1;
+			} else if (winner(gamesBetweenTwoPlayers[j]) === twoUserData[1]._id) {
+				gamesData[1][1] = gamesData[1][1] + 1;
+			}
 		}
-		userData.sort(function(a, b) {
-			if (a[0] > b[0]) {
-				return 1;
-			}
-			if (a[0] < b[0]) {
-				return -1;
-			}
-			return 0;
-		});
 		var chart = c3.generate({
 			bindto: '#rankingGraph',
 			size: {
@@ -92,6 +84,9 @@ class GameDetails extends BlazeComponent {
 		});
 		chart.load({
 			columns: userData
+		});
+		chart2.load({
+			columns: gamesData
 		});
 
 	}

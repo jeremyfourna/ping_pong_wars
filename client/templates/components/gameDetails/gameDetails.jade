@@ -9,7 +9,7 @@ template(name="gameDetails")
 			.col-xs-12.col-sm-12.col-md-12.col-lg-12
 				.panel(class="#{panelClass}")
 					.panel-heading
-						h2.panel-title.text-center {{_ "gameStats"}}
+						h2.text-center {{_ "gameStats"}}
 					.panel-body
 						table.table.table-condensed.table-responsive
 							thead
@@ -41,6 +41,6 @@ template(name="gameDetails")
 									td #{kBaseGap}
 	.panel.panel-default
 		.panel-heading
-			h2 {{_ "historyGrap"}}
+			h2 {{_ "historyGraph"}}
 		.panel-body
 			#historyGraph
