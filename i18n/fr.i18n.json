@@ -31,5 +31,6 @@
 	"userRankingEvolution": "Evolution de vos performances",
 	"gameStats": "Stats du match",
 	"diff": "Différence",
-	"kBase": "Facteur de base"
+	"kBase": "Facteur de base",
+	"historyGraph": "Historique des victoires"
 }
