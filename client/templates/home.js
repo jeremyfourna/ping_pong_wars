@@ -74,6 +74,8 @@ Template.home.events({
 			return throwError('Both scores must be defined !');
 		} else if ($('#player1Name').val() === $('#player2Name').val()) {
 			return throwError('Player 1 and Player 2 can\'t play against each other !');
+		} else if (Number($('#player1Score').val()) <= Number($('#player2Score').val())) {
+			return throwError('The winner must have a higher score than the looser !');
 		} else {
 			var player1Names = $('#player1Name').val().split(' ');
 			var player2Names = $('#player2Name').val().split(' ');
