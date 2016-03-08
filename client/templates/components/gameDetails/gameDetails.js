@@ -41,9 +41,9 @@ class GameDetails extends BlazeComponent {
 			userData.push(list);
 		}
 		for (var j = 0; j < gamesBetweenTwoPlayers.length; j++) {
-			if (winner(gamesBetweenTwoPlayers[j]) === twoUserData[0]._id) {
+			if (gamesBetweenTwoPlayers[j].player1 === twoUserData[0]._id && gamesBetweenTwoPlayers[j].player2 === twoUserData[1]._id) {
 				gamesData[0][1] = gamesData[0][1] + 1;
-			} else if (winner(gamesBetweenTwoPlayers[j]) === twoUserData[1]._id) {
+			} else if (gamesBetweenTwoPlayers[j].player1 === twoUserData[1]._id && gamesBetweenTwoPlayers[j].player2 === twoUserData[0]._id) {
 				gamesData[1][1] = gamesData[1][1] + 1;
 			}
 		}
