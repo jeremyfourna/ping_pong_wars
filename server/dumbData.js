@@ -160,11 +160,11 @@ Meteor.startup(function() {
 			scorePlayer2: 8,
 			addedBy: jf
 		}, {
-			player1: jf,
-			player2: lt,
+			player1: lt,
+			player2: jf,
 			gameDate: new Date(2015, 11, 17, 15, 51, 12),
-			scorePlayer1: 5,
-			scorePlayer2: 10,
+			scorePlayer1: 10,
+			scorePlayer2: 5,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -265,11 +265,11 @@ Meteor.startup(function() {
 			scorePlayer2: 8,
 			addedBy: jf
 		}, {
-			player1: ml,
-			player2: lt,
+			player1: lt,
+			player2: ml,
 			gameDate: new Date(2016, 0, 11, 15, 51, 11),
-			scorePlayer1: 8,
-			scorePlayer2: 10,
+			scorePlayer1: 10,
+			scorePlayer2: 8,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -279,11 +279,11 @@ Meteor.startup(function() {
 			scorePlayer2: 6,
 			addedBy: jf
 		}, {
-			player1: ct,
-			player2: lt,
+			player1: lt,
+			player2: ct,
 			gameDate: new Date(2016, 0, 11, 15, 51, 13),
-			scorePlayer1: 4,
-			scorePlayer2: 10,
+			scorePlayer1: 10,
+			scorePlayer2: 4,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -363,11 +363,11 @@ Meteor.startup(function() {
 			scorePlayer2: 5,
 			addedBy: jf
 		}, {
-			player1: ml,
-			player2: jf,
+			player1: jf,
+			player2: ml,
 			gameDate: new Date(2016, 0, 25, 15, 51, 16),
-			scorePlayer1: 5,
-			scorePlayer2: 10,
+			scorePlayer1: 10,
+			scorePlayer2: 5,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -419,11 +419,11 @@ Meteor.startup(function() {
 			scorePlayer2: 7,
 			addedBy: jf
 		}, {
-			player1: lt,
-			player2: ol,
+			player1: ol,
+			player2: lt,
 			gameDate: new Date(2016, 0, 26, 15, 51, 18),
-			scorePlayer1: 9,
-			scorePlayer2: 11,
+			scorePlayer1: 11,
+			scorePlayer2: 9,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -482,11 +482,11 @@ Meteor.startup(function() {
 			scorePlayer2: 5,
 			addedBy: jf
 		}, {
-			player1: lt,
-			player2: jf,
+			player1: jf,
+			player2: lt,
 			gameDate: new Date(2016, 1, 4, 15, 51, 12),
-			scorePlayer1: 9,
-			scorePlayer2: 11,
+			scorePlayer1: 11,
+			scorePlayer2: 9,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -552,11 +552,11 @@ Meteor.startup(function() {
 			scorePlayer2: 8,
 			addedBy: jf
 		}, {
-			player1: av,
-			player2: lt,
+			player1: lt,
+			player2: av,
 			gameDate: new Date(2016, 1, 15, 15, 51, 18),
-			scorePlayer1: 10,
-			scorePlayer2: 12,
+			scorePlayer1: 12,
+			scorePlayer2: 10,
 			addedBy: jf
 		}, {
 			player1: ct,
@@ -622,18 +622,18 @@ Meteor.startup(function() {
 			scorePlayer2: 5,
 			addedBy: jf
 		}, {
-			player1: jf,
-			player2: av,
+			player1: av,
+			player2: jf,
 			gameDate: new Date(2016, 1, 16, 15, 51, 14),
-			scorePlayer1: 8,
-			scorePlayer2: 10,
+			scorePlayer1: 10,
+			scorePlayer2: 8,
 			addedBy: jf
 		}, {
-			player1: av,
-			player2: lt,
+			player1: lt,
+			player2: av,
 			gameDate: new Date(2016, 1, 16, 15, 51, 15),
-			scorePlayer1: 9,
-			scorePlayer2: 11,
+			scorePlayer1: 11,
+			scorePlayer2: 9,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -685,11 +685,11 @@ Meteor.startup(function() {
 			scorePlayer2: 6,
 			addedBy: jf
 		}, {
-			player1: jf,
-			player2: av,
+			player1: av,
+			player2: jf,
 			gameDate: new Date(2016, 1, 18, 15, 51, 23),
-			scorePlayer1: 8,
-			scorePlayer2: 10,
+			scorePlayer1: 10,
+			scorePlayer2: 8,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -734,11 +734,11 @@ Meteor.startup(function() {
 			scorePlayer2: 5,
 			addedBy: jf
 		}, {
-			player1: jf,
-			player2: av,
+			player1: av,
+			player2: jf,
 			gameDate: new Date(2016, 1, 19, 15, 51, 12),
-			scorePlayer1: 4,
-			scorePlayer2: 10,
+			scorePlayer1: 10,
+			scorePlayer2: 4,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -776,11 +776,11 @@ Meteor.startup(function() {
 			scorePlayer2: 2,
 			addedBy: jf
 		}, {
-			player1: av,
-			player2: jf,
+			player1: jf,
+			player2: av,
 			gameDate: new Date(2016, 1, 24, 15, 44, 59),
-			scorePlayer1: 3,
-			scorePlayer2: 10,
+			scorePlayer1: 10,
+			scorePlayer2: 3,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -826,9 +826,9 @@ Meteor.startup(function() {
 			});
 		}
 	}
-	Meteor.call('refreshPoints', function(error, result) {
+	/*Meteor.call('refreshPoints', function(error, result) {
 		if (error) {
 			console.log(error.message, error);
 		}
-	});
+	});*/
 });
