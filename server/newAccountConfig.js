@@ -13,7 +13,6 @@ Accounts.onCreateUser(function(options, user) {
 		user.profile = {
 			firstName: 'New',
 			lastName: 'User',
-			points: [1500]
 		};
 	}
 	return user;

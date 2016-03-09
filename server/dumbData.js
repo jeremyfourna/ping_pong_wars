@@ -96,12 +96,28 @@ Meteor.startup(function() {
 				lastName: 'Patisson'
 			}
 		});
+		var twengaChampionship = Championships.insert({
+			name: 'Twenga - Championnat',
+			createdAt: new Date(2015, 11, 9, 15, 50, 53),
+			createdBy: jf,
+			players: [jf],
+			public: true
+		});
+		var playerList = [av, ml, lt, ac, rk, mp, sk, ct, ol, mz, cp];
+		_.each(playerList, function(player) {
+			Meteor.call('addPlayerInChampionship', player, twengaChampionship, function(error, result) {
+				if (error) {
+					console.log(error.message, error);
+				}
+			});
+		});
 		var gamesList = [{
 			player1: av,
 			player2: ml,
 			gameDate: new Date(2015, 11, 10, 15, 50, 53),
 			scorePlayer1: 10,
 			scorePlayer2: 3,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -109,6 +125,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 10, 15, 50, 54),
 			scorePlayer1: 10,
 			scorePlayer2: 4,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -116,6 +133,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 10, 15, 50, 55),
 			scorePlayer1: 10,
 			scorePlayer2: 2,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -123,6 +141,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 10, 15, 50, 56),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -130,6 +149,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 10, 15, 50, 57),
 			scorePlayer1: 10,
 			scorePlayer2: 3,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -137,6 +157,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 10, 15, 50, 58),
 			scorePlayer1: 12,
 			scorePlayer2: 10,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -144,6 +165,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 10, 15, 50, 59),
 			scorePlayer1: 10,
 			scorePlayer2: 3,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -151,6 +173,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 10, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 2,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -158,6 +181,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 17, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -165,6 +189,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 17, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -172,6 +197,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 17, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 4,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -179,6 +205,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 17, 15, 51, 14),
 			scorePlayer1: 11,
 			scorePlayer2: 9,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -186,6 +213,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 17, 15, 51, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ac,
@@ -193,6 +221,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 17, 15, 51, 16),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ac,
@@ -200,6 +229,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 17, 15, 51, 17),
 			scorePlayer1: 11,
 			scorePlayer2: 9,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -207,6 +237,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 17, 15, 51, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -214,6 +245,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 17, 15, 51, 19),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -221,6 +253,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 17, 15, 51, 20),
 			scorePlayer1: 10,
 			scorePlayer2: 3,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -228,6 +261,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 17, 15, 51, 21),
 			scorePlayer1: 10,
 			scorePlayer2: 4,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -235,6 +269,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 18, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 3,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -242,6 +277,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 18, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ml,
@@ -249,6 +285,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 18, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ml,
@@ -256,6 +293,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 18, 15, 51, 14),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -263,6 +301,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2015, 11, 18, 15, 51, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -270,6 +309,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 11, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -277,6 +317,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 11, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -284,6 +325,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 11, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 4,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -291,6 +333,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 11, 15, 51, 14),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -298,6 +341,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 15, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -305,6 +349,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 15, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -312,6 +357,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 15, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ac,
@@ -319,6 +365,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 22, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 1,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ac,
@@ -326,6 +373,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 22, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -333,6 +381,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 25, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ml,
@@ -340,6 +389,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 25, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ml,
@@ -347,6 +397,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 25, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -354,6 +405,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 25, 15, 51, 14),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ml,
@@ -361,6 +413,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 25, 15, 51, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -368,6 +421,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 25, 15, 51, 16),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -375,6 +429,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 26, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -382,6 +437,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 26, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -389,6 +445,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 26, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ml,
@@ -396,6 +453,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 26, 15, 51, 14),
 			scorePlayer1: 10,
 			scorePlayer2: 3,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -403,6 +461,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 26, 15, 51, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -410,6 +469,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 26, 15, 51, 16),
 			scorePlayer1: 11,
 			scorePlayer2: 9,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -417,6 +477,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 26, 15, 51, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ol,
@@ -424,6 +485,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 26, 15, 51, 18),
 			scorePlayer1: 11,
 			scorePlayer2: 9,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -431,6 +493,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 29, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ml,
@@ -438,6 +501,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 29, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -445,6 +509,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 29, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -452,6 +517,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 0, 29, 15, 51, 14),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -459,6 +525,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 1, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 2,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -466,6 +533,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 1, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -473,6 +541,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 1, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -480,6 +549,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 4, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -487,6 +557,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 4, 15, 51, 12),
 			scorePlayer1: 11,
 			scorePlayer2: 9,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -494,6 +565,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 4, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ml,
@@ -501,6 +573,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 4, 15, 51, 14),
 			scorePlayer1: 12,
 			scorePlayer2: 10,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -508,6 +581,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 8, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -515,6 +589,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 8, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -522,6 +597,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 8, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 3,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -529,6 +605,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 8, 15, 51, 14),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -536,6 +613,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 8, 15, 51, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ol,
@@ -543,6 +621,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 8, 15, 51, 16),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -550,6 +629,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 15, 15, 51, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -557,6 +637,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 15, 15, 51, 18),
 			scorePlayer1: 12,
 			scorePlayer2: 10,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ct,
@@ -564,6 +645,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 15, 15, 51, 19),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ct,
@@ -571,6 +653,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 15, 15, 51, 20),
 			scorePlayer1: 10,
 			scorePlayer2: 0,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -578,6 +661,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 15, 15, 51, 21),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -585,6 +669,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 15, 15, 51, 22),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -592,6 +677,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 15, 15, 51, 23),
 			scorePlayer1: 14,
 			scorePlayer2: 12,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -599,6 +685,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 15, 15, 51, 24),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -606,6 +693,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 16, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 3,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -613,6 +701,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 16, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 4,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -620,6 +709,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 16, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -627,6 +717,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 16, 15, 51, 14),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -634,6 +725,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 16, 15, 51, 15),
 			scorePlayer1: 11,
 			scorePlayer2: 9,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -641,6 +733,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 16, 15, 51, 16),
 			scorePlayer1: 10,
 			scorePlayer2: 4,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -648,6 +741,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 17),
 			scorePlayer1: 10,
 			scorePlayer2: 1,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -655,6 +749,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 18),
 			scorePlayer1: 10,
 			scorePlayer2: 2,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -662,6 +757,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 19),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -669,6 +765,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 20),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -676,6 +773,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 21),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -683,6 +781,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 22),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -690,6 +789,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 23),
 			scorePlayer1: 10,
 			scorePlayer2: 8,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -697,6 +797,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 24),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ml,
@@ -704,6 +805,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 25),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -711,6 +813,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 26),
 			scorePlayer1: 10,
 			scorePlayer2: 6,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ml,
@@ -718,6 +821,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 27),
 			scorePlayer1: 16,
 			scorePlayer2: 14,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ct,
@@ -725,6 +829,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 18, 15, 51, 28),
 			scorePlayer1: 12,
 			scorePlayer2: 10,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -732,6 +837,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 19, 15, 51, 11),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -739,6 +845,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 19, 15, 51, 12),
 			scorePlayer1: 10,
 			scorePlayer2: 4,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -746,6 +853,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 19, 15, 51, 13),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -753,6 +861,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 19, 15, 51, 14),
 			scorePlayer1: 10,
 			scorePlayer2: 2,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ml,
@@ -760,6 +869,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 19, 15, 51, 15),
 			scorePlayer1: 10,
 			scorePlayer2: 2,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -767,6 +877,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 24, 15, 50, 53),
 			scorePlayer1: 10,
 			scorePlayer2: 2,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -774,6 +885,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 24, 15, 46, 56),
 			scorePlayer1: 10,
 			scorePlayer2: 2,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: jf,
@@ -781,6 +893,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 24, 15, 44, 59),
 			scorePlayer1: 10,
 			scorePlayer2: 3,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -788,6 +901,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 24, 15, 43, 41),
 			scorePlayer1: 10,
 			scorePlayer2: 5,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: av,
@@ -795,6 +909,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 24, 15, 34, 07),
 			scorePlayer1: 10,
 			scorePlayer2: 2,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ct,
@@ -802,6 +917,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 24, 15, 32, 23),
 			scorePlayer1: 10,
 			scorePlayer2: 7,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: lt,
@@ -809,6 +925,7 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 24, 15, 32, 23),
 			scorePlayer1: 10,
 			scorePlayer2: 3,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}, {
 			player1: ct,
@@ -816,15 +933,16 @@ Meteor.startup(function() {
 			gameDate: new Date(2016, 1, 24, 15, 31, 29),
 			scorePlayer1: 15,
 			scorePlayer2: 13,
+			championshipId: twengaChampionship,
 			addedBy: jf
 		}];
-		for (var i = 0; i < gamesList.length; i++) {
-			Meteor.call('addAGame', gamesList[i], function(error, result) {
+		_.each(gamesList, function(game) {
+			Meteor.call('addAGame', game, function(error, result) {
 				if (error) {
 					console.log(error.message, error);
 				}
 			});
-		}
+		});
 	}
 	/*Meteor.call('refreshPoints', function(error, result) {
 		if (error) {
