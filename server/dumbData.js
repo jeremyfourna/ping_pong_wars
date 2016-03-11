@@ -96,18 +96,14 @@ Meteor.startup(function() {
 				lastName: 'Patisson'
 			}
 		});
-		var twengaChampionship = Championships.insert({
-			name: 'Twenga - Championnat',
-			createdAt: new Date(2015, 11, 9, 15, 50, 53),
-			createdBy: jf,
-			players: [jf],
-			public: true
-		});
+		var twengaChampionship = Meteor.call('createChampionship', jf, 'Twenga - Public', true);
 		var playerList = [av, ml, lt, ac, rk, mp, sk, ct, ol, mz, cp];
-		_.each(playerList, function(player) {
+		lodash.each(playerList, function(player) {
 			Meteor.call('addPlayerInChampionship', player, twengaChampionship, function(error, result) {
 				if (error) {
 					console.log(error.message, error);
+				} else {
+					console.log('addPlayerInChampionship : ' + player + ' : Done');
 				}
 			});
 		});
@@ -936,17 +932,14 @@ Meteor.startup(function() {
 			championshipId: twengaChampionship,
 			addedBy: jf
 		}];
-		_.each(gamesList, function(game) {
+		lodash.each(gamesList, function(game) {
 			Meteor.call('addAGame', game, function(error, result) {
 				if (error) {
 					console.log(error.message, error);
+				} else {
+					console.log('addAGame : ' + result + ' : Done');
 				}
 			});
 		});
 	}
-	/*Meteor.call('refreshPoints', function(error, result) {
-		if (error) {
-			console.log(error.message, error);
-		}
-	});*/
 });
