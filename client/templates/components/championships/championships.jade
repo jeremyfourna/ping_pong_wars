@@ -1,0 +1,18 @@
+template(name="championships")
+	.panel.panel-default
+		.panel-heading
+			h3 {{_ "championshipsList"}}
+				a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'createChampionship'}}") {{_ "createChampionship"}}
+		table.table
+			thead
+				tr
+					th {{_ "championshipName"}}
+					th {{_ "seeDetails"}}
+			tbody
+				each championship
+					tr
+						td #{name}
+						td
+							if public
+								a.btn.btn-default(role="button" href="{{pathFor 'championshipWrapper'}}")
+									span.glyphicon.glyphicon-zoom-in

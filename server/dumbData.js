@@ -933,11 +933,11 @@ Meteor.startup(function() {
 			addedBy: jf
 		}];
 		lodash.each(gamesList, function(game) {
-			Meteor.call('addAGame', game, function(error, result) {
+			Meteor.call('addAChampionshipGame', game, function(error, result) {
 				if (error) {
 					console.log(error.message, error);
 				} else {
-					console.log('addAGame : ' + result + ' : Done');
+					console.log('addAChampionshipGame : ' + result + ' : Done');
 				}
 			});
 		});

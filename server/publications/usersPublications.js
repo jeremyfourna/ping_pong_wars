@@ -3,13 +3,36 @@ Meteor.publish('allUsers', function() {
 		fields: {
 			'profile.firstName': 1,
 			'profile.lastName': 1,
-			'profile.points': 1,
+			'_id': 1
+		}
+	});
+});
+
+Meteor.publish('allUsersForAChampionship', function(championshipId) {
+	check(championshipId, String);
+	return Meteor.users.find({ 'profile.championships': championshipId }, {
+		fields: {
+			'profile.firstName': 1,
+			'profile.lastName': 1,
+			'profile.championships': 1,
+			'_id': 1
+		}
+	});
+});
+
+Meteor.publish('aUser', function(userId) {
+	check(userId, String);
+	return Meteor.users.find({ _id: userId }, {
+		fields: {
+			'profile.firstName': 1,
+			'profile.lastName': 1,
 			'_id': 1
 		}
 	});
 });
 
 Meteor.publish('playersForAGame', function(gameId) {
+	check(gameId, String);
 	var players = Games.findOne(gameId);
 	return Meteor.users.find({
 		$or: [{ _id: players.player1 }, { _id: players.player2 }]
@@ -17,7 +40,6 @@ Meteor.publish('playersForAGame', function(gameId) {
 		fields: {
 			'profile.firstName': 1,
 			'profile.lastName': 1,
-			'profile.points': 1,
 			'_id': 1
 		}
 	});

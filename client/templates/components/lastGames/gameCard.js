@@ -14,6 +14,24 @@ class GameCard extends BlazeComponent {
 			return 'panel-default';
 		}
 	}
+
+	player1FullName() {
+		return fullName(Meteor.users.findOne({ _id: this.currentData().player1 }, {
+			fields: {
+				'profile.lastName': 1,
+				'profile.firstName': 1
+			}
+		}).profile);
+	}
+
+	player2FullName() {
+		return fullName(Meteor.users.findOne({ _id: this.currentData().player2 }, {
+			fields: {
+				'profile.lastName': 1,
+				'profile.firstName': 1
+			}
+		}).profile);
+	}
 }
 
 GameCard.register('GameCard');

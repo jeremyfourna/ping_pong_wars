@@ -4,7 +4,7 @@
 	"toggleNav": "Basculer la navigation",
 	"ranking": "Classement",
 	"rankingEvolution": "Evolution des performances",
-	"championship": "Championnat",
+	"championships": "Championnats",
 	"search": "Trouver un adversaire",
 	"lastGames": "Derniers matchs",
 	"practiceGame": "Entraîn.",
@@ -32,5 +32,13 @@
 	"gameStats": "Stats du match",
 	"diff": "Différence",
 	"kBase": "Facteur de base",
-	"historyGraph": "Historique des victoires"
+	"historyGraph": "Historique des victoires",
+	"championshipsList": "Tous les championnats",
+	"gain": "Gain",
+	"championshipName": "Nom du championnat",
+	"seeDetails": "Voir le détail",
+	"integrateChampionship": "Cliquez pour intégrer le championnat",
+	"logInToIntegrateTheChampionship": "Connectes-toi ou créez un compte pour intégrer le championnat",
+	"createChampionship": "Créer votre propre championnat",
+	"newChampionship": "Nouveau championnat"
 }

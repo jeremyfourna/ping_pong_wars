@@ -1,0 +1,14 @@
+template(name="createChampionship")
+	.panel.panel-default
+		.panel-heading
+			h2 {{_ "newChampionship"}}
+		.panel-body
+			form
+				.row
+					.col-xs-12.col-sm-12.col-md-12.col-lg-12
+						.form-group
+							label(for='championshipName') {{_ "championshipName"}}
+							input#championshipName.form-control(type='text')
+				.row
+					.col-md-12.col-lg-12
+						button#createChampionship.btn-block.btn.btn-success(type='submit') {{_ "validate"}}
