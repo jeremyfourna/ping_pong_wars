@@ -4,8 +4,8 @@ template(name="gameCard")
 			.panel-heading
 				h2.panel-title.text-center
 					a(href="{{pathFor 'gameDetailsWrapper'}}") #{player1FullName} vs #{player2FullName}
+						small #{gameDateFromNow}
 			table.table
-				caption #{gameDateFromNow}
 				thead
 					tr
 						th #
