@@ -1,18 +1,10 @@
 template(name="account")
 	.container
-		if userHasPlayed
-			.panel.panel-default
-				.panel-heading
-					h2 {{_ "userRankingEvolution"}}
-				.panel-body
-					#userRankingGraph
-			.panel.panel-default
-				.panel-heading
-					h3 {{_ "myLastGames"}}
-				.panel-body
-					.row
-						each lastGames
-							+gameCard
+		.panel.panel-default
+			.panel-heading
+				h2 {{_ "userRankingEvolution"}}
+			.panel-body
+				#userRankingGraph
 		.panel.panel-default
 			.panel-heading
 				h2 {{_ "account"}}

@@ -1,5 +1,6 @@
-Meteor.publish('lastGames', function() {
-	return Games.find({}, {
+Meteor.publish('lastGamesForAChampionship', function(championshipId) {
+	check(championshipId, String);
+	return Games.find({ championshipId }, {
 		sort: {
 			gameDate: -1
 		},
@@ -17,7 +18,7 @@ Meteor.publish('userGames', function(userId) {
 	});
 });
 
-Meteor.publish('gamesBetweenTwoPlayers', function(gameId) {
+Meteor.publish('gamesBetweenTwoPlayersInAChampionship', function(gameId) {
 	var players = Games.findOne(gameId);
 	return Games.find({
 		$or: [{
@@ -30,12 +31,14 @@ Meteor.publish('gamesBetweenTwoPlayers', function(gameId) {
 				{ player2: players.player1 },
 				{ player1: players.player2 }
 			]
-		}]
+		}],
+		championshipId: players.championshipId
 	});
 });
 
-Meteor.publish('allGames', function() {
-	return Games.find({});
+Meteor.publish('allGamesForAChampionship', function(championshipId) {
+	check(championshipId, String);
+	return Games.find({ championshipId });
 });
 
 Meteor.publish('aGame', function(gameId) {

@@ -29,12 +29,28 @@ class AddAGame extends BlazeComponent {
 		} else {
 			var player1Names = $('#player1Name').val().split(' ');
 			var player2Names = $('#player2Name').val().split(' ');
-			var player1 = Meteor.users.findOne({ $and: [{ 'profile.firstName': player1Names[0] }, { 'profile.lastName': player1Names[1] }] });
-			var player2 = Meteor.users.findOne({ $and: [{ 'profile.firstName': player2Names[0] }, { 'profile.lastName': player2Names[1] }] });
+			var player1 = Meteor.users.findOne({
+				$and: [
+					{ 'profile.firstName': player1Names[0] },
+					{ 'profile.lastName': player1Names[1] }
+				],
+				'profile.championships': Router.current().params._id
+			}, {
+				fields: { _id: 1 }
+			});
+			var player2 = Meteor.users.findOne({
+				$and: [
+					{ 'profile.firstName': player2Names[0] },
+					{ 'profile.lastName': player2Names[1] }
+				],
+				'profile.championships': Router.current().params._id
+			}, {
+				fields: { _id: 1 }
+			});
 			if (!player1) {
-				return throwError('Player 1 does not exist in the database !');
+				return throwError('Player 1 does not participate in this championship !');
 			} else if (!player2) {
-				return throwError('Player 2 does not exist in the database !');
+				return throwError('Player 2 does not participate in this championship !');
 			} else {
 				var game = {
 					gameDate: new Date(),
@@ -51,20 +67,23 @@ class AddAGame extends BlazeComponent {
 					game.scorePlayer1 = Number($('#player1Score').val());
 					game.scorePlayer2 = Number($('#player2Score').val());
 				}
-				Meteor.call('addAGame', game, function(error, result) {
-					if (error) {
-						return throwError(error.message);
-					} else {
-						$('input').val('');
-						return throwError('Another one bite the dust !');
-					}
-				});
+				if (Router.current().url.match('championship')) {
+					game.championshipId = Router.current().params._id;
+					Meteor.call('addAChampionshipGame', game, function(error, result) {
+						if (error) {
+							return throwError(error.message);
+						} else {
+							$('input').val('');
+							return throwError('Another one bite the dust !');
+						}
+					});
+				}
 			}
 		}
 	}
 
 	playerList() {
-		var list = _.uniq(Meteor.users.find({}, {
+		var list = lodash.uniq(Meteor.users.find({ 'profile.championships': Router.current().params._id }, {
 			sort: {
 				'profile.firstName': 1,
 				'profile.lastName': 1

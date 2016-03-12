@@ -6,23 +6,6 @@ class UserAccount extends BlazeComponent {
 	onRendered() {
 		super.onRendered();
 
-		if (!Meteor.userId()) {
-			Router.go('home');
-		}
-		var freshData = Meteor.users.find({ _id: Meteor.userId() }, {
-			fields: {
-				'profile.firstName': 1,
-				'profile.lastName': 1,
-				'profile.points': 1
-			}
-		}).fetch();
-		var userData = [];
-		for (var i = 0; i < freshData.length; i++) {
-			var list = [];
-			list.push(freshData[i].fullName());
-			list = list.concat(freshData[i].profile.points);
-			userData.push(list);
-		}
 		var chart = c3.generate({
 			bindto: '#userRankingGraph',
 			size: {
@@ -30,7 +13,7 @@ class UserAccount extends BlazeComponent {
 			},
 			data: {
 				type: 'line',
-				columns: userData
+				columns: []
 			},
 			axis: {
 				y: {
@@ -52,8 +35,22 @@ class UserAccount extends BlazeComponent {
 				}
 			}
 		});
-		chart.load({
-			columns: userData
+
+		this.autorun(function(tracker) {
+			var championships = Championships.find({ 'players.playerId': Meteor.userId() }).fetch();
+			var userData = [];
+			lodash.each(championships, function(championship) {
+				var ind = lodash.findIndex(championship.players, ['playerId', Meteor.userId()]);
+				if (ind !== -1) {
+					var list = [];
+					list.push(championship.name);
+					list = list.concat(championship.players[ind].points);
+					userData.push(list);
+				}
+			});
+			chart.load({
+				columns: userData
+			});
 		});
 	}
 
@@ -61,32 +58,10 @@ class UserAccount extends BlazeComponent {
 		return Meteor.user();
 	}
 
-	userHasPlayed() {
-		return Meteor.user().hasPlayed();
-	}
-
 	events() {
 		return super.events().concat({
 			'click #saveUser': this.updateUserData
 		});
-	}
-
-	lastGames() {
-		return Games.find({
-			$or: [{ player1: Meteor.userId() }, { player2: Meteor.userId() }]
-		}, {
-			sort: {
-				gameDate: -1
-			}
-		});
-	}
-
-	panelClass() {
-		if (this.currentData().player1 === Meteor.userId()) {
-			return 'panel-success';
-		} else {
-			return 'panel-danger';
-		}
 	}
 
 	updateUserData(e) {

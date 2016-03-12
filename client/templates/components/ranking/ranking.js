@@ -5,29 +5,6 @@ class Ranking extends BlazeComponent {
 
 	onRendered() {
 		super.onRendered();
-		var freshData = Meteor.users.find({}, {
-			fields: {
-				'profile.firstName': 1,
-				'profile.lastName': 1,
-				'profile.points': 1
-			}
-		}).fetch();
-		var userData = [];
-		for (var i = 0; i < freshData.length; i++) {
-			var list = [];
-			list.push(freshData[i].fullName());
-			list = list.concat(freshData[i].last5Games());
-			userData.push(list);
-		}
-		userData.sort(function(a, b) {
-			if (a[0] > b[0]) {
-				return 1;
-			}
-			if (a[0] < b[0]) {
-				return -1;
-			}
-			return 0;
-		});
 		var chart = c3.generate({
 			bindto: '#rankingGraph',
 			size: {
@@ -35,7 +12,7 @@ class Ranking extends BlazeComponent {
 			},
 			data: {
 				type: 'line',
-				columns: userData
+				columns: []
 			},
 			axis: {
 				y: {
@@ -57,15 +34,47 @@ class Ranking extends BlazeComponent {
 				}
 			}
 		});
-		chart.load({
-			columns: userData
+		$('#championshipRankingTable tbody tr:nth-child(-n+3)').addClass('success');
+		$('#championshipRankingTable tbody tr:nth-last-child(-n+3)').addClass('danger');
+
+		this.autorun(function(tracker) {
+			var freshData = Meteor.users.find({ 'profile.championships': Router.current().params._id }, {
+				fields: {
+					'profile.firstName': 1,
+					'profile.lastName': 1,
+					_id: 1
+				}
+			}).fetch();
+			var champData = Championships.findOne({ _id: Router.current().params._id }, {
+				fields: {
+					players: 1
+				}
+			});
+			var userData = [];
+			lodash.each(freshData, function(player) {
+				var list = [];
+				var ind = lodash.findIndex(champData.players, ['playerId', player._id]);
+				list.push(fullName(player.profile));
+				list = list.concat(last5Games(champData.players[ind].points));
+				userData.push(list);
+			});
+			userData.sort(function(a, b) {
+				if (a[0] > b[0]) {
+					return 1;
+				}
+				if (a[0] < b[0]) {
+					return -1;
+				}
+				return 0;
+			});
+			chart.load({
+				columns: userData
+			});
 		});
-		$('tbody tr:nth-child(-n+3)').addClass('success');
-		$('tbody tr:nth-last-child(-n+3)').addClass('danger');
 	}
 
 	playerData() {
-		var freshData = Meteor.users.find({}, {
+		var freshData = Meteor.users.find({ 'profile.championships': Router.current().params._id }, {
 			fields: {
 				'profile.firstName': 1,
 				'profile.lastName': 1,
@@ -73,17 +82,28 @@ class Ranking extends BlazeComponent {
 				'_id': 1
 			}
 		}).fetch();
-		var newList = [];
-		for (var i = 0; i < freshData.length; i++) {
-			if (freshData[i].profile.points.length > 9) {
-				newList.push(freshData[i]);
+		var champData = Championships.findOne({ _id: Router.current().params._id }, {
+			fields: {
+				players: 1
 			}
-		}
+		});
+		var newList = [];
+		lodash.each(freshData, function(player) {
+			var ind = lodash.findIndex(champData.players, ['playerId', player._id]);
+			if (champData.players[ind].points.length > 9) {
+				player.points = champData.players[ind].points;
+				player.fullName = fullName(player.profile);
+				player.currentPoints = player.points.pop();
+				player.nbGames = player.points.length;
+				player.last10GamesPerf = last10GamesPerf(player.points);
+				newList.push(player);
+			}
+		});
 		newList.sort(function(a, b) {
-			if (a.currentPoints() > b.currentPoints()) {
+			if (a.currentPoints > b.currentPoints) {
 				return -1;
 			}
-			if (a.currentPoints() < b.currentPoints()) {
+			if (a.currentPoints < b.currentPoints) {
 				return 1;
 			}
 			return 0;
