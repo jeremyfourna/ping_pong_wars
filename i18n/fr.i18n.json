@@ -40,5 +40,11 @@
 	"integrateChampionship": "Cliquez pour intégrer le championnat",
 	"logInToIntegrateTheChampionship": "Connectes-toi ou créez un compte pour intégrer le championnat",
 	"createChampionship": "Créer votre propre championnat",
-	"newChampionship": "Nouveau championnat"
+	"newChampionship": "Nouveau championnat",
+	"saveAllScores": "Enregistrez tous les scores de vos matchs de Ping Pong !",
+	"championshipsWithAnybody": "Créez des championnats avec vos amis, collègues de bureau ou n'importe qui.",
+	"championshipsRankingBased": "Le classement de chaque championnat est basé sur la ",
+	"eloChessMethod": "méthode ELO de classement aux échecs.",
+	"completelyFree": "C'est totalement GRATUIT !",
+	"seeAllChampionships": "Voir les championnats"
 }
