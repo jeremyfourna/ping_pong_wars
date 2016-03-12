@@ -9,6 +9,9 @@ Meteor.publish('allChampionships', function() {
 			name: 1,
 			public: 1,
 			_id: 1
+		},
+		sort: {
+			name: 1
 		}
 	});
 });
