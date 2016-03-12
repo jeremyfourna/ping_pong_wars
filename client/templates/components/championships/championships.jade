@@ -2,7 +2,8 @@ template(name="championships")
 	.panel.panel-default
 		.panel-heading
 			h3 {{_ "championshipsList"}}
-				a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'createChampionship'}}") {{_ "createChampionship"}}
+				if currentUser
+					a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'createChampionship'}}") {{_ "createChampionship"}}
 		table.table
 			thead
 				tr

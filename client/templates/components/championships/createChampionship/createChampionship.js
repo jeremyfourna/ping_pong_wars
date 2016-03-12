@@ -8,7 +8,7 @@ Template.createChampionship.events({
 				if (error) {
 					return throwError(error.message);
 				} else {
-					Router.go('championshipsWrapper');
+					Router.go('championshipWrapper', { _id: result });
 				}
 			});
 		}
