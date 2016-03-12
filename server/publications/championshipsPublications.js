@@ -12,3 +12,7 @@ Meteor.publish('allChampionships', function() {
 		}
 	});
 });
+
+Meteor.publish('championshipsForUser', function(userId) {
+	return Championships.find({ 'players.playerId': userId });
+});
