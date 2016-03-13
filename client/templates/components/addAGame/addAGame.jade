@@ -8,27 +8,47 @@ template(name="addAGame")
 					.col-xs-6.col-sm-6.col-md-6.col-lg-6
 						.panel.panel-default
 							.panel-body
-								.form-group
+								.form-group.has-feedback
 									label(for='player1Name') {{_ "player1Name"}}
 									input#player1Name.form-control.awesomplete(type='text' list="player1List")
 									datalist#player1List
 										each playerList
 											option(data-id="#{_id}") #{profile.firstName} #{profile.lastName}
-								.form-group
+								.form-group.has-feedback
 									label(for='player1Score') {{_ "score"}}
 									input#player1Score.form-control(type='number' min="0" step="1" value="0")
 					.col-xs-6.col-sm-6.col-md-6.col-lg-6
 						.panel.panel-default
 							.panel-body
-								.form-group
+								.form-group.has-feedback
 									label(for='player2Name') {{_ "player2Name"}}
 									input#player2Name.form-control.awesomplete(type='text' list="player2List")
 									datalist#player2List
 										each playerList
 											option(data-id="#{_id}") #{profile.firstName} #{profile.lastName}
-								.form-group
+								.form-group.has-feedback
 									label(for='player2Score') {{_ "score"}}
 									input#player2Score.form-control(type='number' min="0" step="1" value="0")
 				.row
 					.col-md-12.col-lg-12
 						button#addAGame.btn-block.btn.btn-success(type='submit') {{_ "validate"}}
+
+template(name="playerNotDefined")
+	span.help-block {{_ "playerNotDefined"}}
+	span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true")
+
+template(name="minToWin")
+	span.help-block {{_ "minToWin"}}
+	span.glyphicon.glyphicon-warning.form-control-feedback(aria-hidden="true")
+
+template(name="scoreNotDefined")
+	span.help-block {{_ "scoreNotDefined"}}
+	span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true")
+
+template(name="bothPlayersEqual")
+	span.help-block {{_ "bothPlayersEqual"}}
+	span.glyphicon.glyphicon-warning.form-control-feedback(aria-hidden="true")
+
+template(name="scoreCantBeEqual")
+	span.help-block {{_ "scoreCantBeEqual"}}
+	span.glyphicon.glyphicon-warning.form-control-feedback(aria-hidden="true")

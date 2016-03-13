@@ -46,5 +46,10 @@
 	"championshipsRankingBased": "Le classement de chaque championnat est basé sur la ",
 	"eloChessMethod": "méthode ELO de classement aux échecs.",
 	"completelyFree": "C'est totalement GRATUIT !",
-	"seeAllChampionships": "Voir les championnats"
+	"seeAllChampionships": "Voir les championnats",
+	"playerNotDefined": "Aucun joueur renseigné",
+	"minToWin": "Le minimum pour gagner un match est 10",
+	"scoreNotDefined": "Aucun score renseigné",
+	"bothPlayersEqual": "Les deux joueurs sont identiques !",
+	"scoreCantBeEqual": "Les deux scores sont identiques !"
 }
