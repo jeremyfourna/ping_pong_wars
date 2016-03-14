@@ -51,5 +51,7 @@
 	"minToWin": "Le minimum pour gagner un match est 10",
 	"scoreNotDefined": "Aucun score renseigné",
 	"bothPlayersEqual": "Les deux joueurs sont identiques !",
-	"scoreCantBeEqual": "Les deux scores sont identiques !"
+	"bothScoresEqual": "Les deux scores sont identiques !",
+	"playerNotInDb": "Le joueur n'est pas dans ce championnat !",
+	"saveInProgress": "L'enregistrement est en cours"
 }
