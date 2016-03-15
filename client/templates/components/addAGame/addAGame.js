@@ -30,11 +30,6 @@ class AddAGame extends BlazeComponent {
 			player2OK = false;
 			this.addValidation(Template.playerNotDefined, $('.player2Name'), 'has-error');
 		}
-		if (Number($('#player1Score').val()) < 10 && Number($('#player2Score').val()) < 10) {
-			score = false;
-			this.addValidation(Template.minToWin, $('.player1Score'), 'has-warning');
-			this.addValidation(Template.minToWin, $('.player2Score'), 'has-warning');
-		}
 		if ($('#player1Score').val() === '') {
 			score = false;
 			this.addValidation(Template.scoreNotDefined, $('.player1Score'), 'has-error');
@@ -42,6 +37,11 @@ class AddAGame extends BlazeComponent {
 		if ($('#player2Score').val() === '') {
 			score = false;
 			this.addValidation(Template.scoreNotDefined, $('.player2Score'), 'has-error');
+		}
+		if (Number($('#player1Score').val()) < 10 && Number($('#player2Score').val()) < 10) {
+			score = false;
+			this.addValidation(Template.minToWin, $('.player1Score'), 'has-warning');
+			this.addValidation(Template.minToWin, $('.player2Score'), 'has-warning');
 		}
 		if ($('#player1Name').val() === $('#player2Name').val()) {
 			player1OK = false;
@@ -63,6 +63,16 @@ class AddAGame extends BlazeComponent {
 				player2OK = false;
 				this.addValidation(Template.playerNotInDb, $('.player2Name'), 'has-error');
 			}
+		}
+		if (player1OK) {
+			this.addValidation(Template.fieldOK, $('.player1Name'), 'has-success');
+		}
+		if (player2OK) {
+			this.addValidation(Template.fieldOK, $('.player2Name'), 'has-success');
+		}
+		if (score) {
+			this.addValidation(Template.fieldOK, $('.player1Score'), 'has-success');
+			this.addValidation(Template.fieldOK, $('.player2Score'), 'has-success');
 		}
 		if (!player1OK) {
 			return this.saveEnd();
@@ -95,6 +105,7 @@ class AddAGame extends BlazeComponent {
 					return throwError(error.message);
 				} else {
 					$('input').val('');
+					self.cleanForm();
 					self.saveEnd();
 				}
 			});
@@ -119,12 +130,14 @@ class AddAGame extends BlazeComponent {
 	}
 
 	addValidation(template, element, state) {
-		element.addClass(state);
-		Blaze.render(template, element.get(0));
+		if (!element.hasClass('has-warning') && !element.hasClass('has-error') && !element.hasClass('has-success')) {
+			element.addClass(state);
+			Blaze.render(template, element.get(0));
+		}
 	}
 
 	playerInChampionship(playerName) {
-		var playerNameArray = $('#player1Name').val().split(' ');
+		var playerNameArray = playerName.split(' ');
 		var inDb = Meteor.users.findOne({
 			$and: [
 				{ 'profile.firstName': playerNameArray[0] },
