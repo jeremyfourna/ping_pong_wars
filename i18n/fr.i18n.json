@@ -52,6 +52,6 @@
 	"scoreNotDefined": "Aucun score renseigné",
 	"bothPlayersEqual": "Les deux joueurs sont identiques !",
 	"bothScoresEqual": "Les deux scores sont identiques !",
-	"playerNotInDb": "Le joueur n'est pas dans ce championnat !",
+	"playerNotInDb": "Joueur inconnu !",
 	"saveInProgress": "L'enregistrement est en cours"
 }
