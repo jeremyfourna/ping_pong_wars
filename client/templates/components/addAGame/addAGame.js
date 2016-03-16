@@ -14,71 +14,143 @@ class AddAGame extends BlazeComponent {
 		});
 	}
 
-	saveAGame(e) {
-		e.preventDefault();
-		if ($('#player1Name').val() === '' || $('#player2Name').val() === '') {
-			return throwError('The both players are not defined !');
-		} else if (Number($('#player1Score').val()) < 10 && Number($('#player2Score').val()) < 10) {
-			return throwError('The minimum to win a game is 10 !');
-		} else if ($('#player1Score').val() === '' || $('#player2Score').val() === '') {
-			return throwError('Both scores must be defined !');
-		} else if ($('#player1Name').val() === $('#player2Name').val()) {
-			return throwError('Player 1 and Player 2 can\'t play against each other !');
-		} else if (Number($('#player1Score').val()) === Number($('#player2Score').val())) {
-			return throwError('Both scores can\'t be equal !');
-		} else {
-			var player1Names = $('#player1Name').val().split(' ');
-			var player2Names = $('#player2Name').val().split(' ');
-			var player1 = Meteor.users.findOne({
-				$and: [
-					{ 'profile.firstName': player1Names[0] },
-					{ 'profile.lastName': player1Names[1] }
-				],
-				'profile.championships': Router.current().params._id
-			}, {
-				fields: { _id: 1 }
-			});
-			var player2 = Meteor.users.findOne({
-				$and: [
-					{ 'profile.firstName': player2Names[0] },
-					{ 'profile.lastName': player2Names[1] }
-				],
-				'profile.championships': Router.current().params._id
-			}, {
-				fields: { _id: 1 }
-			});
-			if (!player1) {
-				return throwError('Player 1 does not participate in this championship !');
-			} else if (!player2) {
-				return throwError('Player 2 does not participate in this championship !');
-			} else {
-				var game = {
-					gameDate: new Date(),
-					addedBy: Meteor.userId()
-				};
-				if (Number($('#player1Score').val()) < Number($('#player2Score').val())) {
-					game.player1 = player2._id;
-					game.player2 = player1._id;
-					game.scorePlayer1 = Number($('#player2Score').val());
-					game.scorePlayer2 = Number($('#player1Score').val());
-				} else {
-					game.player1 = player1._id;
-					game.player2 = player2._id;
-					game.scorePlayer1 = Number($('#player1Score').val());
-					game.scorePlayer2 = Number($('#player2Score').val());
-				}
-				if (Router.current().url.match('championship')) {
-					game.championshipId = Router.current().params._id;
-					Meteor.call('addAChampionshipGame', game, function(error, result) {
-						if (error) {
-							return throwError(error.message);
-						} else {
-							$('input').val('');
-							return throwError('Another one bite the dust !');
-						}
-					});
-				}
+	saveAGame(event) {
+		var self = this;
+		event.preventDefault();
+		this.cleanForm();
+		this.saveBegin();
+		var player1OK = true;
+		var player2OK = true;
+		var score = true;
+		if ($('#player1Name').val() === '') {
+			player1OK = false;
+			this.addValidation(Template.playerNotDefined, $('.player1Name'), 'has-error');
+		}
+		if ($('#player2Name').val() === '') {
+			player2OK = false;
+			this.addValidation(Template.playerNotDefined, $('.player2Name'), 'has-error');
+		}
+		if ($('#player1Score').val() === '') {
+			score = false;
+			this.addValidation(Template.scoreNotDefined, $('.player1Score'), 'has-error');
+		}
+		if ($('#player2Score').val() === '') {
+			score = false;
+			this.addValidation(Template.scoreNotDefined, $('.player2Score'), 'has-error');
+		}
+		if (Number($('#player1Score').val()) < 10 && Number($('#player2Score').val()) < 10) {
+			score = false;
+			this.addValidation(Template.minToWin, $('.player1Score'), 'has-warning');
+			this.addValidation(Template.minToWin, $('.player2Score'), 'has-warning');
+		}
+		if ($('#player1Name').val() === $('#player2Name').val()) {
+			player1OK = false;
+			player2OK = false;
+			this.addValidation(Template.bothPlayersEqual, $('.player1Name'), 'has-warning');
+			this.addValidation(Template.bothPlayersEqual, $('.player2Name'), 'has-warning');
+		}
+		if (Number($('#player1Score').val()) === Number($('#player2Score').val())) {
+			score = false;
+			this.addValidation(Template.bothScoresEqual, $('.player1Score'), 'has-warning');
+			this.addValidation(Template.bothScoresEqual, $('.player2Score'), 'has-warning');
+		}
+		if (Router.current().url.match('championship')) {
+			if (!this.playerInChampionship($('#player1Name').val())) {
+				player1OK = false;
+				this.addValidation(Template.playerNotInDb, $('.player1Name'), 'has-error');
 			}
+			if (!this.playerInChampionship($('#player2Name').val())) {
+				player2OK = false;
+				this.addValidation(Template.playerNotInDb, $('.player2Name'), 'has-error');
+			}
+		}
+		if (player1OK) {
+			this.addValidation(Template.fieldOK, $('.player1Name'), 'has-success');
+		}
+		if (player2OK) {
+			this.addValidation(Template.fieldOK, $('.player2Name'), 'has-success');
+		}
+		if (score) {
+			this.addValidation(Template.fieldOK, $('.player1Score'), 'has-success');
+			this.addValidation(Template.fieldOK, $('.player2Score'), 'has-success');
+		}
+		if (!player1OK) {
+			return this.saveEnd();
+		}
+		if (!player2OK) {
+			return this.saveEnd();
+		}
+		if (!score) {
+			return this.saveEnd();
+		}
+		var game = {
+			gameDate: new Date(),
+			addedBy: Meteor.userId()
+		};
+		if (Number($('#player1Score').val()) < Number($('#player2Score').val())) {
+			game.player1 = this.playerInChampionship($('#player1Name').val());
+			game.player2 = this.playerInChampionship($('#player2Name').val());
+			game.scorePlayer1 = Number($('#player2Score').val());
+			game.scorePlayer2 = Number($('#player1Score').val());
+		} else {
+			game.player1 = this.playerInChampionship($('#player1Name').val());
+			game.player2 = this.playerInChampionship($('#player2Name').val());
+			game.scorePlayer1 = Number($('#player1Score').val());
+			game.scorePlayer2 = Number($('#player2Score').val());
+		}
+		if (Router.current().url.match('championship')) {
+			game.championshipId = Router.current().params._id;
+			Meteor.call('addAChampionshipGame', game, function(error, result) {
+				if (error) {
+					return throwError(error.message);
+				} else {
+					$('input').val('');
+					self.cleanForm();
+					self.saveEnd();
+				}
+			});
+		}
+	}
+
+	saveBegin() {
+		$('#addAGame').remove();
+		Blaze.render(Template.progressBar, $('#buttonOrProgressBar').get(0));
+	}
+
+	saveEnd() {
+		$('.progress').remove();
+		Blaze.render(Template.validateButton, $('#buttonOrProgressBar').get(0));
+	}
+
+	cleanForm() {
+		$('.has-feedback').removeClass('has-success');
+		$('.has-feedback').removeClass('has-warning');
+		$('.has-feedback').removeClass('has-error');
+		$('.saveAGame').find('span').remove();
+	}
+
+	addValidation(template, element, state) {
+		if (!element.hasClass('has-warning') && !element.hasClass('has-error') && !element.hasClass('has-success')) {
+			element.addClass(state);
+			Blaze.render(template, element.get(0));
+		}
+	}
+
+	playerInChampionship(playerName) {
+		var playerNameArray = playerName.split(' ');
+		var inDb = Meteor.users.findOne({
+			$and: [
+				{ 'profile.firstName': playerNameArray[0] },
+				{ 'profile.lastName': playerNameArray[1] }
+			],
+			'profile.championships': Router.current().params._id
+		}, {
+			fields: { _id: 1 }
+		});
+		if (inDb) {
+			return inDb._id;
+		} else {
+			return false;
 		}
 	}
 

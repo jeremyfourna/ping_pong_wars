@@ -1,4 +1,4 @@
-Meteor.startup(function() {
+/*Meteor.startup(function() {
 	if (Games.find({}).count() === 0) {
 		var jf = Accounts.createUser({
 			password: '123456',
@@ -942,4 +942,4 @@ Meteor.startup(function() {
 			});
 		});
 	}
-});
+});*/
