@@ -11,7 +11,7 @@ Accounts.onCreateUser(function(options, user) {
 	} else {
 		user.profile = {
 			firstName: 'New',
-			lastName: 'User',
+			lastName: 'User'
 		};
 	}
 	return user;

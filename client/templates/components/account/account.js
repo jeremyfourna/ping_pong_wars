@@ -19,13 +19,13 @@ class UserAccount extends BlazeComponent {
 				y: {
 					label: {
 						text: 'Points',
-						position: 'outer-middle',
+						position: 'outer-middle'
 					}
 				},
 				x: {
 					label: {
 						text: 'Vos matchs',
-						position: 'outer-center',
+						position: 'outer-center'
 					}
 				}
 			},

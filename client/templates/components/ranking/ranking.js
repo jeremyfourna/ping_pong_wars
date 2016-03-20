@@ -18,13 +18,13 @@ class Ranking extends BlazeComponent {
 				y: {
 					label: {
 						text: 'Points',
-						position: 'outer-middle',
+						position: 'outer-middle'
 					}
 				},
 				x: {
 					label: {
 						text: 'Derniers 5 matchs',
-						position: 'outer-center',
+						position: 'outer-center'
 					}
 				}
 			},
