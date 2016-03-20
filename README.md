@@ -13,12 +13,14 @@
 * You can see the detail of game between two players
 * You can see you evolution in different championships
 
-## Awesome contributors
+## Awesome contributors [![Gitter](https://badges.gitter.im/dexterneo/ping_pong_wars.svg)](https://gitter.im/dexterneo/ping_pong_wars?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 
 * [@ltoussaint](https://github.com/ltoussaint)
   * Helped on the data model and super tips about the app refactoring
 
-PR are welcome, go to the wiki if you want to contribute
+PR are welcome, go to the wiki if you want to contribute.
+
 
 ---
 Created with the help of [MeteorBoilerplate](https://github.com/dexterneo/meteorBoilerplate)
