@@ -90,7 +90,7 @@ class Ranking extends BlazeComponent {
 		var newList = [];
 		lodash.each(freshData, function(player) {
 			var ind = lodash.findIndex(champData.players, ['playerId', player._id]);
-			if (champData.players[ind].points.length > 9) {
+			if (champData.players[ind].points.length > 10) {
 				player.points = champData.players[ind].points;
 				player.fullName = fullName(player.profile);
 				player.currentPoints = player.points.pop();
