@@ -1,5 +1,7 @@
 # Ping Pong Wars [![Circle CI](https://circleci.com/gh/dexterneo/ping_pong_wars/tree/master.svg?style=svg)](https://circleci.com/gh/dexterneo/ping_pong_wars/tree/master)
 
+[![Join the chat at https://gitter.im/dexterneo/ping_pong_wars](https://badges.gitter.im/dexterneo/ping_pong_wars.svg)](https://gitter.im/dexterneo/ping_pong_wars?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [See the wiki about the project](https://github.com/dexterneo/ping_pong_wars/wiki)
 
 ## Features
