@@ -88,8 +88,8 @@ class AddAGame extends BlazeComponent {
 			addedBy: Meteor.userId()
 		};
 		if (Number($('#player1Score').val()) < Number($('#player2Score').val())) {
-			game.player1 = this.playerInChampionship($('#player1Name').val());
-			game.player2 = this.playerInChampionship($('#player2Name').val());
+			game.player1 = this.playerInChampionship($('#player2Name').val());
+			game.player2 = this.playerInChampionship($('#player1Name').val());
 			game.scorePlayer1 = Number($('#player2Score').val());
 			game.scorePlayer2 = Number($('#player1Score').val());
 		} else {
