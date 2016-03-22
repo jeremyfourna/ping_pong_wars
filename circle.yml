@@ -3,12 +3,10 @@ dependencies:
     - ~/.meteor
   override:
     - meteor || curl https://install.meteor.com | /bin/sh
-    - npm install -g gagarin
     - npm install -g eslint
 
 test:
   override:
-    - gagarin -v
     - eslint client/ lib/ server/
 
 notify:

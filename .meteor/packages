@@ -30,7 +30,6 @@ ecmascript
 peerlibrary:reactive-field
 peerlibrary:blaze-components
 meteorhacks:aggregate
-anti:gagarin
 twbs:bootstrap
 ian:accounts-ui-bootstrap-3
 momentjs:moment
