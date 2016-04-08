@@ -16,7 +16,7 @@ template(name="addAGame")
 											option(data-id="#{_id}") #{profile.firstName} #{profile.lastName}
 								.form-group.has-feedback.player1Score
 									label(for='player1Score') {{_ "score"}}
-									input#player1Score.form-control(type='number' min="0" step="1" value="0")
+									input#player1Score.form-control(type='number' min="0" step="1")
 					.col-xs-6.col-sm-6.col-md-6.col-lg-6
 						.panel.panel-default
 							.panel-body
@@ -28,7 +28,7 @@ template(name="addAGame")
 											option(data-id="#{_id}") #{profile.firstName} #{profile.lastName}
 								.form-group.has-feedback.player2Score
 									label(for='player2Score') {{_ "score"}}
-									input#player2Score.form-control(type='number' min="0" step="1" value="0")
+									input#player2Score.form-control(type='number' min="0" step="1")
 				.row
 					.col-md-12.col-lg-12#buttonOrProgressBar
 						+validateButton
