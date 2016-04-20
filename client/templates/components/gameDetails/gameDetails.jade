@@ -4,7 +4,7 @@ template(name="gameDetails")
 			.col-xs-12.col-sm-12.col-md-12.col-lg-12
 				.panel(class="#{panelClass}")
 					.panel-heading
-						h2 {{_ "gameStats"}}
+						h2.panel-title {{_ "gameStats"}}
 							small #{gameDateFromNow}
 					table.table.table-condensed.table-responsive
 						thead
@@ -41,6 +41,6 @@ template(name="gameDetails")
 								td #{gainGap}
 	.panel.panel-default
 		.panel-heading
-			h2 {{_ "historyGraph"}}
+			h2.panel-title {{_ "historyGraph"}}
 		.panel-body
 			#historyGraph

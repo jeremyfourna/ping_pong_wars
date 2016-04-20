@@ -1,7 +1,7 @@
 template(name="ranking")
 	.panel.panel-default
 		.panel-heading
-			h2 {{_ "ranking"}}
+			h2.panel-title {{_ "ranking"}}
 		table#championshipRankingTable.table.table-condensed.table-responsive
 			caption {{_ "nbGamesLimit"}}
 			thead
@@ -22,7 +22,7 @@ template(name="ranking")
 						td #{last10GamesPerf}
 	.panel.panel-default
 		.panel-heading
-			h2 {{_ "rankingEvolution"}}
+			h2.panel-title {{_ "rankingEvolution"}}
 			small {{_ "last5Games"}}
 		.panel-body
 			#rankingGraph
