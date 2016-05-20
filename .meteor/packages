@@ -14,7 +14,6 @@ iron:router
 accounts-password
 stylus
 aldeed:collection2
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -40,3 +39,5 @@ d3js:d3
 meteorhacks:kadira
 kadira:debug
 zhenya:forkme
+standard-minifier-css
+standard-minifier-js
