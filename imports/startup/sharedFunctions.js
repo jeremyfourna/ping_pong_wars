@@ -32,7 +32,7 @@ looser = function(game) {
 	}
 };
 
-pointBase = function(playerNbGames, currentPoints) {
+export const pointBase = function(playerNbGames, currentPoints) {
 	// Check the params of the function
 	check(playerNbGames, Number);
 	check(currentPoints, Number);
@@ -46,7 +46,7 @@ pointBase = function(playerNbGames, currentPoints) {
 	}
 };
 
-pointsDifference = function(winnerPoints, looserPoints) {
+export const pointsDifference = function(winnerPoints, looserPoints) {
 	// Check the params of the function
 	check(winnerPoints, Number);
 	check(looserPoints, Number);

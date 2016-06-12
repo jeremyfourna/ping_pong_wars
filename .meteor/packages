@@ -13,7 +13,7 @@ tap:i18n
 iron:router
 accounts-password
 stylus
-aldeed:collection2
+aldeed:simple-schema
 meteor-base
 mobile-experience
 mongo
