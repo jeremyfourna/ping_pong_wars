@@ -7,10 +7,4 @@ dependencies:
 
 test:
   override:
-    - eslint client/ lib/ server/
-
-notify:
-  webhooks:
-    # A list of hook hashes, containing the url field
-    # gitter hook
-    - url: https://webhooks.gitter.im/e/d187e252a0149d4693da
+    - eslint client/ imports/ server/

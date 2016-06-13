@@ -1,4 +1,6 @@
-Accounts.onCreateUser(function(options, user) {
+import { Accounts } from 'meteor/accounts-base';
+
+Accounts.onCreateUser((options, user) => {
 	// We still want the default hook's 'profile' behavior.
 	if (options.profile) {
 		user.profile = options.profile;
@@ -8,10 +10,14 @@ Accounts.onCreateUser(function(options, user) {
 		if (!user.profile.lastName) {
 			user.profile.lastName = user.username;
 		}
+		user.championships = [];
+		user.tournaments = [];
 	} else {
 		user.profile = {
 			firstName: 'New',
-			lastName: 'User'
+			lastName: 'User',
+			championships: [],
+			tournaments: []
 		};
 	}
 	return user;

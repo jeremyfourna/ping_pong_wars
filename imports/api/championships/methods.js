@@ -2,23 +2,20 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { Random } from 'meteor/random';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { lodash } from 'meteor/stevezhu:lodash';
 
 import { Championships } from './schema.js';
-import { pointBase, pointsDifference } from '../../startup/sharedFunctions.js';
+import { pointBase, pointsDifference, kEqualForBothPlayers } from '../../startup/sharedFunctions.js';
 
 Meteor.methods({
 	createChampionship(data) {
 		let methodSchema = new SimpleSchema({
 			userId: { type: String },
 			name: { type: String },
-			publicOrPrivate: { type: Boolean }
+			public: { type: Boolean }
 		});
-		let newData = {
-			userId: data.userId
-		};
 		check(data, methodSchema);
 		data._id = Random.id();
-		newData.championshipId = data._id;
 
 		Championships.insert({
 			_id: data._id,
@@ -29,7 +26,7 @@ Meteor.methods({
 			}],
 			createdAt: new Date(),
 			createdBy: data.userId,
-			public: data.publicOrPrivate
+			public: data.public
 		});
 
 		Meteor.call('addChampionshipIntoProfile', data);
@@ -95,14 +92,14 @@ Meteor.methods({
 			});
 		});
 		// Fetch all games
-		let allGames = Games.find({ championshipId }, { sort: { gameDate: 1 } }).fetch();
+		let allGames = Games.find({ championshipId: data.championshipId }, { sort: { gameDate: 1 } }).fetch();
+		let champOfTheGame = Championships.findOne({ _id: data.championshipId }, {
+			fields: {
+				players: 1
+			}
+		});
 		// Loop on each game to calculate the new points
 		allGames.map((cur, index, array) => {
-			let champOfTheGame = Championships.findOne({ _id: cur.championshipId }, {
-				fields: {
-					players: 1
-				}
-			});
 			let ind1 = lodash.findIndex(champOfTheGame.players, ['playerId', cur.player1]);
 			let ind2 = lodash.findIndex(champOfTheGame.players, ['playerId', cur.player2]);
 			cur.lastPointsPlayer1 = lodash.last(champOfTheGame.players[ind1].points);
@@ -118,9 +115,19 @@ Meteor.methods({
 				var pointsToLoose = Math.round(pointsToAdd / cur.kBasePlayer1 * cur.kBasePlayer2);
 				cur.newPointsPlayer2 = cur.lastPointsPlayer2 - pointsToLoose;
 			}
+			let data1 = {
+				championshipId: cur.championshipId,
+				userId: cur.player1,
+				newPoints: cur.newPointsPlayer1
+			};
+			let data2 = {
+				championshipId: cur.championshipId,
+				userId: cur.player2,
+				newPoints: cur.newPointsPlayer2
+			};
 
-			Meteor.call('addPointsForPlayerInChampionship', cur.championshipId, cur.player1, cur.newPointsPlayer1);
-			Meteor.call('addPointsForPlayerInChampionship', cur.championshipId, cur.player2, cur.newPointsPlayer2);
+			Meteor.call('addPointsForPlayerInChampionship', data1);
+			Meteor.call('addPointsForPlayerInChampionship', data2);
 
 			Games.update({ _id: cur._id }, {
 				$set: {
@@ -134,19 +141,32 @@ Meteor.methods({
 			});
 		});
 	},
-	migrate(champ) {
-		var usersInDB = Meteor.users.find({}).fetch();
-		Games.update({}, {
-			$set: { championshipId: champ }
+	migrate(data) {
+		let methodSchema = new SimpleSchema({
+			fromChampionshipId: { type: String },
+			toChampionshipId: { type: String }
+		});
+		check(data, methodSchema);
+		let usersInDB = Meteor.users.find({}).fetch();
+		Games.update({ championshipId: data.fromChampionshipId }, {
+			$set: { championshipId: data.toChampionshipId }
 		}, { multi: true });
-		lodash.each(usersInDB, function(player) {
-			Meteor.call('addPlayerInChampionship', player._id, champ);
+		usersInDB.map((cur, index, array) => {
+			let data1 = {
+				championshipId: data.toChampionshipId,
+				userId: cur._id
+			};
+			Meteor.call('addPlayerInChampionship', data1);
 			Meteor.users.update({ _id: player._id }, {
-				$set: {
-					'profile.championships': [champ]
+				$pull: {
+					'profile.championships': data.fromChampionshipId
+				},
+				$push: {
+					'profile.championships': data.toChampionshipId
 				}
 			});
 		});
-		Meteor.call('refreshPoints', champ);
+		Meteor.call('refreshPoints', data.toChampionshipId);
+		Championships.remove({ _id: data.fromChampionshipId });
 	}
 });

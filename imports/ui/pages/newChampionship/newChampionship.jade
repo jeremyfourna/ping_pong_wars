@@ -1,4 +1,4 @@
-template(name="createChampionship")
+template(name="newChampionship")
 	.panel.panel-default
 		.panel-heading
 			h2.panel-title {{_ "newChampionship"}}
@@ -9,6 +9,5 @@ template(name="createChampionship")
 						.form-group
 							label(for='championshipName') {{_ "championshipName"}}
 							input#championshipName.form-control(type='text')
-				.row
-					.col-md-12.col-lg-12
-						button#createChampionship.btn-block.btn.btn-success(type='submit') {{_ "validate"}}
+		.panel-footer
+			button#createChampionship.btn-block.btn.btn-success(type='submit') {{_ "validate"}}

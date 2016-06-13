@@ -1,4 +1,4 @@
-template(name="championships")
+template(name="listChampionships")
 	.panel.panel-default
 		.panel-heading
 			.row
@@ -6,7 +6,7 @@ template(name="championships")
 					h3.panel-title {{_ "championshipsList"}}
 				if currentUser
 					.col-xs-4.col-sm-4.col-md-6.col-lg-6
-						a.pull-right.btn.btn-primary.btn-xs(role="button" href="{{pathFor 'createChampionship'}}") {{_ "createChampionship"}}
+						a.pull-right.btn.btn-primary.btn-xs(role="button" href="{{pathFor 'newChampionship'}}") {{_ "createChampionship"}}
 		table.table
 			thead
 				tr
@@ -18,5 +18,5 @@ template(name="championships")
 						td #{name}
 						td
 							if public
-								a.btn.btn-default(role="button" href="{{pathFor 'championshipWrapper'}}")
+								a.btn.btn-default(role="button" href="{{pathFor 'championship'}}")
 									span.glyphicon.glyphicon-zoom-in

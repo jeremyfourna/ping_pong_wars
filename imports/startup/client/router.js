@@ -1,4 +1,16 @@
-var subscriptions = new SubsManager();
+import { Router } from 'meteor/iron:router';
+import { loading } from 'meteor/sacha:spin';
+
+// Base components/layouts
+import '../../ui/layouts/layout.js';
+import '../../ui/components/loading.jade';
+import '../../ui/components/notFound.jade';
+
+// Pages
+import '../../ui/pages/home/home.js';
+import '../../ui/pages/listChampionships/listChampionships.js';
+import '../../ui/pages/newChampionship/newChampionship.js';
+import '../../ui/pages/championship/championship.js';
 
 Router.configure({
 	layoutTemplate: 'layout',
@@ -11,39 +23,19 @@ Router.route('/', {
 });
 
 Router.route('/championships', {
-	name: 'championshipsWrapper',
-	waitOn() {
-		return subscriptions.subscribe('allChampionships');
-	},
-	fastRender: true
+	name: 'listChampionships'
 });
 
 Router.route('/championship/new', {
-	name: 'createChampionship'
+	name: 'newChampionship'
 });
 
 Router.route('/championship/:_id', {
-	name: 'championshipWrapper',
-	waitOn() {
-		return [
-			subscriptions.subscribe('aChampionship', this.params._id),
-			subscriptions.subscribe('allUsersForAChampionship', this.params._id),
-			subscriptions.subscribe('lastGamesForAChampionship', this.params._id)
-		];
-	},
-	fastRender: false
+	name: 'championship'
 });
 
 Router.route('/championship/game/:_id', {
-	name: 'gameDetailsWrapper',
-	waitOn() {
-		return [
-			subscriptions.subscribe('aGame', this.params._id),
-			subscriptions.subscribe('playersForAGame', this.params._id),
-			subscriptions.subscribe('gamesBetweenTwoPlayersInAChampionship', this.params._id)
-		];
-	},
-	fastRender: true
+	name: 'gameDetails'
 });
 
 

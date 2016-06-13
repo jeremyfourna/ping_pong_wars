@@ -6,8 +6,6 @@
 
 mquandalle:jade
 jquery
-meteorhacks:fast-render
-meteorhacks:subs-manager
 sacha:spin
 tap:i18n
 iron:router
@@ -26,8 +24,9 @@ ejson
 spacebars
 check
 ecmascript
+blaze-html-templates
 peerlibrary:reactive-field
-peerlibrary:blaze-components
+templating
 meteorhacks:aggregate
 twbs:bootstrap
 ian:accounts-ui-bootstrap-3
@@ -41,3 +40,6 @@ kadira:debug
 zhenya:forkme
 standard-minifier-css
 standard-minifier-js
+themeteorchef:bert
+meteorhacks:kadira-profiler
+doctorpangloss:method-hooks

@@ -69,7 +69,7 @@ export const pointsDifference = function(winnerPoints, looserPoints) {
 	}
 };
 
-kEqualForBothPlayers = function(kForWinner, kForLooser) {
+export const kEqualForBothPlayers = function(kForWinner, kForLooser) {
 	// Check the params of the function
 	check(kForWinner, Number);
 	check(kForLooser, Number);

@@ -1,4 +1,8 @@
-Meteor.publish('lastGamesForAChampionship', function(championshipId) {
+import { Meteor } from 'meteor/meteor';
+
+import { Games } from '../schema.js';
+
+Meteor.publish('lastGamesForAChampionship', (championshipId) => {
 	check(championshipId, String);
 	return Games.find({ championshipId }, {
 		sort: {
@@ -8,7 +12,7 @@ Meteor.publish('lastGamesForAChampionship', function(championshipId) {
 	});
 });
 
-Meteor.publish('userGames', function(userId) {
+Meteor.publish('userGames', (userId) => {
 	return Games.find({
 		$or: [{ player1: userId }, { player2: userId }]
 	}, {
@@ -18,7 +22,7 @@ Meteor.publish('userGames', function(userId) {
 	});
 });
 
-Meteor.publish('gamesBetweenTwoPlayersInAChampionship', function(gameId) {
+Meteor.publish('gamesBetweenTwoPlayersInAChampionship', (gameId) => {
 	var players = Games.findOne(gameId);
 	return Games.find({
 		$or: [{
@@ -36,11 +40,11 @@ Meteor.publish('gamesBetweenTwoPlayersInAChampionship', function(gameId) {
 	});
 });
 
-Meteor.publish('allGamesForAChampionship', function(championshipId) {
+Meteor.publish('allGamesForAChampionship', (championshipId) => {
 	check(championshipId, String);
 	return Games.find({ championshipId });
 });
 
-Meteor.publish('aGame', function(gameId) {
+Meteor.publish('aGame', (gameId) => {
 	return Games.find({ _id: gameId });
 });

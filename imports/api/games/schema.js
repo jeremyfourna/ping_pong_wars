@@ -1,8 +1,21 @@
-Games = new Mongo.Collection('games');
+import { Mongo } from 'meteor/mongo';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-var Schemas = {};
+export const Games = new Mongo.Collection('games');
 
-Schemas.Games = new SimpleSchema({
+Games.deny({
+	insert() {
+		return true;
+	},
+	update() {
+		return true;
+	},
+	remove() {
+		return true;
+	}
+});
+
+Games.schema = new SimpleSchema({
 	player1: {
 		type: String,
 		label: 'User ID of player1'
@@ -69,8 +82,6 @@ Schemas.Games = new SimpleSchema({
 	}
 });
 
-Games.attachSchema(Schemas.Games);
-
 Games.helpers({
 	player1Data() {
 		return Meteor.users.findOne(this.player1);
@@ -114,72 +125,5 @@ Games.helpers({
 	},
 	gainGap() {
 		return this.newPointsGap() - this.lastPointsGap();
-	}
-});
-
-Meteor.methods({
-	addAChampionshipGame(gameData) {
-		// Check the params of the function
-		check(gameData, Object);
-		check(gameData.player1, String);
-		check(gameData.player2, String);
-		check(gameData.scorePlayer1, Number);
-		check(gameData.scorePlayer2, Number);
-		check(gameData.addedBy, String);
-
-		// Define again the object to protect against bad object
-		var game = {
-			player1: gameData.player1,
-			player2: gameData.player2,
-			gameDate: gameData.gameDate,
-			scorePlayer1: gameData.scorePlayer1,
-			scorePlayer2: gameData.scorePlayer2,
-			addedBy: gameData.addedBy,
-			championshipId: gameData.championshipId
-		};
-		var champData = Championships.findOne({ _id: game.championshipId });
-		var ind1 = lodash.findIndex(champData.players, ['playerId', game.player1]);
-		var ind2 = lodash.findIndex(champData.players, ['playerId', game.player2]);
-		game.lastPointsPlayer1 = lodash.last(champData.players[ind1].points);
-		game.lastPointsPlayer2 = lodash.last(champData.players[ind2].points);
-		game.kBasePlayer1 = pointBase(champData.players[ind1].points.length, game.lastPointsPlayer1);
-		game.kBasePlayer2 = pointBase(champData.players[ind2].points.length, game.lastPointsPlayer2);
-		var pointsToAdd = Math.round(game.kBasePlayer1 * (1 / (1 + Math.pow(10, pointsDifference(game.lastPointsPlayer1, game.lastPointsPlayer2) / 400))));
-		game.newPointsPlayer1 = game.lastPointsPlayer1 + pointsToAdd;
-
-		if (kEqualForBothPlayers(game.kBasePlayer1, game.kBasePlayer2)) {
-			game.newPointsPlayer2 = game.lastPointsPlayer2 - pointsToAdd;
-		} else {
-			var pointsToLoose = Math.round(pointsToAdd / game.kBasePlayer1 * game.kBasePlayer2);
-			game.newPointsPlayer2 = game.lastPointsPlayer2 - pointsToLoose;
-		}
-		Meteor.call('addPointsForPlayerInChampionship', game.championshipId, game.player1, game.newPointsPlayer1);
-		Meteor.call('addPointsForPlayerInChampionship', game.championshipId, game.player2, game.newPointsPlayer2);
-
-		// Insert game Object in the Games collection
-		return Games.insert(game);
-	},
-	cleanGamesCollection() {
-		// Method to clean the Games collection, all games must have player1 have winner
-		var allGames = Games.find({}).fetch();
-		// Loop on each game to see if the player2 is the winner
-		lodash.each(allGames, function(game) {
-			if (game.scorePlayer1 < game.scorePlayer2) {
-				Games.update({ _id: game._id }, {
-					$set: {
-						player1: game.player2,
-						player2: game.player1,
-						scorePlayer1: game.scorePlayer2,
-						scorePlayer2: game.scorePlayer1,
-						lastPointsPlayer1: game.lastPointsPlayer2,
-						lastPointsPlayer2: game.lastPointsPlayer1,
-						kBasePlayer1: game.kBasePlayer2,
-						kBasePlayer2: game.kBasePlayer1,
-						newPointsPlayer1: game.newPointsPlayer2,
-						newPointsPlayer2: game.newPointsPlayer1
-					}
-				});
-			}
-		});
 	}
 });

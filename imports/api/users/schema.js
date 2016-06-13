@@ -1,33 +1,13 @@
-Meteor.users.helpers({});
+import { Mongo } from 'meteor/mongo';
 
-Meteor.methods({
-	updateUserData(user) {
-		check(user.firstName, String);
-		check(user.lastName, String);
-		check(user.userId, String);
-		Meteor.users.update({ _id: user.userId }, {
-			$set: {
-				'profile.firstName': user.firstName,
-				'profile.lastName': user.lastName
-			}
-		});
+Meteor.users.deny({
+	insert() {
+		return true;
 	},
-	addChampionshipIntoProfile(userId, championshipId) {
-		check(userId, String);
-		check(championshipId, String);
-		Meteor.users.update({ _id: userId }, {
-			$push: {
-				'profile.championships': championshipId
-			}
-		});
+	update() {
+		return true;
 	},
-	addTournamentIntoProfile(userId, tournamentId) {
-		check(userId, String);
-		check(tournamentId, String);
-		Meteor.users.update({ _id: userId }, {
-			$push: {
-				'profile.tournaments': tournamentId
-			}
-		});
+	remove() {
+		return true;
 	}
 });

@@ -1,4 +1,8 @@
-Meteor.publish('allUsers', function() {
+import { Meteor } from 'meteor/meteor';
+
+import { Games } from '../../games/schema.js';
+
+Meteor.publish('allUsers', () => {
 	return Meteor.users.find({}, {
 		fields: {
 			'profile.firstName': 1,
@@ -8,7 +12,7 @@ Meteor.publish('allUsers', function() {
 	});
 });
 
-Meteor.publish('allUsersForAChampionship', function(championshipId) {
+Meteor.publish('allUsersForAChampionship', (championshipId) => {
 	check(championshipId, String);
 	return Meteor.users.find({ 'profile.championships': championshipId }, {
 		fields: {
@@ -20,7 +24,7 @@ Meteor.publish('allUsersForAChampionship', function(championshipId) {
 	});
 });
 
-Meteor.publish('aUser', function(userId) {
+Meteor.publish('aUser', (userId) => {
 	return Meteor.users.find({ _id: userId }, {
 		fields: {
 			'profile.firstName': 1,
@@ -31,7 +35,7 @@ Meteor.publish('aUser', function(userId) {
 	});
 });
 
-Meteor.publish('playersForAGame', function(gameId) {
+Meteor.publish('playersForAGame', (gameId) => {
 	check(gameId, String);
 	var players = Games.findOne(gameId);
 	return Meteor.users.find({

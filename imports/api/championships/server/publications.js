@@ -1,9 +1,13 @@
-Meteor.publish('aChampionship', function(championshipId) {
+import { Meteor } from 'meteor/meteor';
+
+import { Championships } from '../schema.js';
+
+Meteor.publish('aChampionship', (championshipId) => {
 	check(championshipId, String);
 	return Championships.find({ _id: championshipId });
 });
 
-Meteor.publish('allChampionships', function() {
+Meteor.publish('allChampionships', () => {
 	return Championships.find({}, {
 		fields: {
 			name: 1,
@@ -16,6 +20,6 @@ Meteor.publish('allChampionships', function() {
 	});
 });
 
-Meteor.publish('championshipsForUser', function(userId) {
+Meteor.publish('championshipsForUser', (userId) => {
 	return Championships.find({ 'players.playerId': userId });
 });
