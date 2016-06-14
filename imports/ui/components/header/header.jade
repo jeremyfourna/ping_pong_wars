@@ -11,9 +11,9 @@ template(name="header")
 			#navigation.collapse.navbar-collapse
 				ul.nav.navbar-nav
 					li
-						a.route(href="{{pathFor 'championshipsWrapper'}}" data-target='.navbar-collapse') {{_ "championships"}}
+						a.route(href="{{pathFor 'listChampionships'}}" data-target='.navbar-collapse') {{_ "championships"}}
 					if currentUser
 						li
-							a.route(href="{{pathFor 'accountWrapper'}}" data-target='.navbar-collapse') {{_ "account"}}
+							a.route(href="{{pathFor 'account'}}" data-target='.navbar-collapse') {{_ "account"}}
 				.nav.navbar-nav.navbar-right
 					+loginButtons

@@ -111,6 +111,6 @@ last5Games = function(playerPoints) {
 	}
 };
 
-fullName = function(userProfile) {
+export const fullName = function(userProfile) {
 	return userProfile.firstName + ' ' + userProfile.lastName.charAt(0) + '.';
 };

@@ -38,17 +38,8 @@ Router.route('/championship/game/:_id', {
 	name: 'gameDetails'
 });
 
-
-Router.route('/championship/:_id/ranking', {
-	name: 'rankingWrapper',
-	waitOn() {
-		return [subscriptions.subscribe('allUsersForAChampionship', this.params._id), subscriptions.subscribe('allGamesForAChampionship'), subscriptions.subscribe('aChampionship', this.params._id)];
-	},
-	fastRender: false
-});
-
 Router.route('/account', {
-	name: 'accountWrapper',
+	name: 'account',
 	waitOn() {
 		return [
 			subscriptions.subscribe('aUser', Meteor.userId()),

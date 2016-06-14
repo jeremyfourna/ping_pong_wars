@@ -1,12 +1,10 @@
 template(name="championship")
-	h1 #{championshipName}
+	with championshipData
+		h1 #{name}
 	if currentUser
-		if playerInChampionship
-			+AddAGame
-		else
-			button#integrateChampionship.btn.btn-success.btn-block(type="button") {{_ "integrateChampionship"}}
+		+addAGame
 	else
 		p
 			mark {{_ "logInToIntegrateTheChampionship"}}
-	+Ranking
-	+LastGamesComponent(nbGames="20")
+	+ranking
+	+listLastGames(nbGames="20")
