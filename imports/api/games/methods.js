@@ -49,7 +49,7 @@ Meteor.methods({
 		Meteor.call('addPointsForPlayerInChampionship', data2);
 
 		// Insert game Object in the Games collection
-		Games.insert(game);
+		return Games.insert(data);
 	},
 	cleanGamesCollection() {
 		// Method to clean the Games collection, all games must have player1 have winner

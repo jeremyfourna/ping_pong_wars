@@ -12,10 +12,18 @@ Meteor.methods({
 		let methodSchema = new SimpleSchema({
 			userId: { type: String },
 			name: { type: String },
-			public: { type: Boolean }
+			public: { type: Boolean },
+			minPointsToWin: { type: Number, min: 1 },
+			numberOfSetsToPlay: { type: Number, min: 1 },
+			numberOfGamesToBeDisplayedInTheRanking: { type: Number, min: 1 },
+			numberOfResultsToBeDisplayedInTheGraph: { type: Number, min: 3 }
 		});
 		check(data, methodSchema);
 		data._id = Random.id();
+		let data1 = {
+			userId: data.userId,
+			championshipId: data._id
+		};
 
 		Championships.insert({
 			_id: data._id,
@@ -26,10 +34,14 @@ Meteor.methods({
 			}],
 			createdAt: new Date(),
 			createdBy: data.userId,
-			public: data.public
+			public: data.public,
+			minPointsToWin: data.minPointsToWin,
+			numberOfSetsToPlay: data.numberOfSetsToPlay,
+			numberOfGamesToBeDisplayedInTheRanking: data.numberOfGamesToBeDisplayedInTheRanking,
+			numberOfResultsToBeDisplayedInTheGraph: data.numberOfResultsToBeDisplayedInTheGraph
 		});
-
-		Meteor.call('addChampionshipIntoProfile', data);
+		Meteor.call('addChampionshipIntoProfile', data1);
+		return data._id;
 	},
 	addPlayerInChampionship(data) {
 		let methodSchema = new SimpleSchema({

@@ -3,7 +3,7 @@ template(name="gameCard")
 		.panel(class="#{panelClass}")
 			.panel-heading
 				h2.panel-title.text-center
-					a(href="{{pathFor 'gameDetailsWrapper'}}") #{player1FullName} vs #{player2FullName}
+					a(href="{{pathFor 'gameDetails'}}") #{player1FullName} vs #{player2FullName}
 						small #{gameDateFromNow}
 			table.table
 				thead

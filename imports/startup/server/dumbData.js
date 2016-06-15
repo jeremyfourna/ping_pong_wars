@@ -1,6 +1,11 @@
-/*Meteor.startup(function() {
+import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
+
+import { Games } from '../../api/games/schema.js';
+
+Meteor.startup(function() {
 	if (Games.find({}).count() === 0) {
-		var jf = Accounts.createUser({
+		let jf = Accounts.createUser({
 			password: '123456',
 			username: 'jeremy_f',
 			profile: {
@@ -8,7 +13,7 @@
 				lastName: 'Fourna'
 			}
 		});
-		var av = Accounts.createUser({
+		let av = Accounts.createUser({
 			password: '123456',
 			username: 'antoine_v',
 			profile: {
@@ -16,7 +21,7 @@
 				lastName: 'Vanderstukken'
 			}
 		});
-		var ml = Accounts.createUser({
+		let ml = Accounts.createUser({
 			password: '123456',
 			username: 'mickael_l',
 			profile: {
@@ -24,7 +29,7 @@
 				lastName: 'Lattes'
 			}
 		});
-		var lt = Accounts.createUser({
+		let lt = Accounts.createUser({
 			password: '123456',
 			username: 'laurent_t',
 			profile: {
@@ -32,7 +37,7 @@
 				lastName: 'Toussaint'
 			}
 		});
-		var ac = Accounts.createUser({
+		let ac = Accounts.createUser({
 			password: '123456',
 			username: 'andrea_c',
 			profile: {
@@ -40,7 +45,7 @@
 				lastName: 'Colonna'
 			}
 		});
-		var rk = Accounts.createUser({
+		let rk = Accounts.createUser({
 			password: '123456',
 			username: 'romain_k',
 			profile: {
@@ -48,7 +53,7 @@
 				lastName: 'Kalinsky'
 			}
 		});
-		var mp = Accounts.createUser({
+		let mp = Accounts.createUser({
 			password: '123456',
 			username: 'mickael_p',
 			profile: {
@@ -56,7 +61,7 @@
 				lastName: 'Pouhaer'
 			}
 		});
-		var sk = Accounts.createUser({
+		let sk = Accounts.createUser({
 			password: '123456',
 			username: 'samy_k',
 			profile: {
@@ -64,7 +69,7 @@
 				lastName: 'Khanafer'
 			}
 		});
-		var ct = Accounts.createUser({
+		let ct = Accounts.createUser({
 			password: '123456',
 			username: 'claude_t',
 			profile: {
@@ -72,7 +77,7 @@
 				lastName: 'Traglia'
 			}
 		});
-		var ol = Accounts.createUser({
+		let ol = Accounts.createUser({
 			password: '123456',
 			username: 'olivier_l',
 			profile: {
@@ -80,7 +85,7 @@
 				lastName: 'Labayle'
 			}
 		});
-		var mz = Accounts.createUser({
+		let mz = Accounts.createUser({
 			password: '123456',
 			username: 'mess_z',
 			profile: {
@@ -88,7 +93,7 @@
 				lastName: 'Zaoui'
 			}
 		});
-		var cp = Accounts.createUser({
+		let cp = Accounts.createUser({
 			password: '123456',
 			username: 'christy_p',
 			profile: {
@@ -96,18 +101,34 @@
 				lastName: 'Patisson'
 			}
 		});
-		var twengaChampionship = Meteor.call('createChampionship', jf, 'Twenga - Public', true);
-		var playerList = [av, ml, lt, ac, rk, mp, sk, ct, ol, mz, cp];
-		lodash.each(playerList, function(player) {
-			Meteor.call('addPlayerInChampionship', player, twengaChampionship, function(error, result) {
+		const champ = {
+			userId: jf,
+			name: 'Twenga - Public',
+			public: true,
+			minPointsToWin: 10,
+			numberOfSetsToPlay: 1,
+			numberOfGamesToBeDisplayedInTheRanking: 10,
+			numberOfResultsToBeDisplayedInTheGraph: 5
+		};
+		console.log('begin championship creation');
+		let twengaChampionship = Meteor.call('createChampionship', champ);
+		console.log('Done championship creation', twengaChampionship);
+		let playerList = [av, ml, lt, ac, rk, mp, sk, ct, ol, mz, cp];
+		console.log('begin adding player into championship');
+		playerList.map((cur, index, array) => {
+			let data = {
+				championshipId: twengaChampionship,
+				userId: cur
+			};
+			Meteor.call('addPlayerInChampionship', data, (error, result) => {
 				if (error) {
 					console.log(error.message, error);
 				} else {
-					console.log('addPlayerInChampionship : ' + player + ' : Done');
+					console.log('addPlayerInChampionship : ' + cur + ' : Done');
 				}
 			});
 		});
-		var gamesList = [{
+		let gamesList = [{
 			player1: av,
 			player2: ml,
 			gameDate: new Date(2015, 11, 10, 15, 50, 53),
@@ -932,8 +953,8 @@
 			championshipId: twengaChampionship,
 			addedBy: jf
 		}];
-		lodash.each(gamesList, function(game) {
-			Meteor.call('addAChampionshipGame', game, function(error, result) {
+		gamesList.map((cur, index, array) => {
+			Meteor.call('addAChampionshipGame', cur, (error, result) => {
 				if (error) {
 					console.log(error.message, error);
 				} else {
@@ -942,4 +963,4 @@
 			});
 		});
 	}
-});*/
+});

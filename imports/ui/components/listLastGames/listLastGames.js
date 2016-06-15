@@ -18,6 +18,12 @@ Template.listLastGames.onCreated(function() {
 
 Template.listLastGames.helpers({
 	game() {
+		console.log(Games.find({ championshipId: Router.current().params._id }, {
+			sort: {
+				gameDate: -1
+			},
+			limit: Number(this.nbGames)
+		}).fetch());
 		return Games.find({ championshipId: Router.current().params._id }, {
 			sort: {
 				gameDate: -1

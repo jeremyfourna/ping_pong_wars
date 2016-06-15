@@ -54,7 +54,8 @@ Championships.schema = new SimpleSchema({
 	},
 	numberOfSetsToPlay: {
 		type: Number,
-		label: 'Number of sets in a game at max, must be odd'
+		label: 'Number of sets in a game at max, must be odd',
+		min: 1
 	},
 	numberOfGamesToBeDisplayedInTheRanking: {
 		type: Number,

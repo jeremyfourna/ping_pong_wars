@@ -3,7 +3,15 @@ import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { lodash } from 'meteor/stevezhu:lodash';
 
+import { fullName } from '../../../startup/sharedFunctions.js';
+
 import './gameCard.jade';
+
+Template.gameCard.onCreated(function() {
+	this.autorun(() => {
+		this.subscribe('allUsersForAChampionship', Router.current().params._id);
+	});
+});
 
 Template.gameCard.helpers({
 	panelClass() {
@@ -18,19 +26,21 @@ Template.gameCard.helpers({
 		}
 	},
 	player1FullName() {
-		return fullName(Meteor.users.findOne({ _id: this.player1 }, {
+		let data = Meteor.users.findOne({ _id: this.player1 }, {
 			fields: {
 				'profile.lastName': 1,
 				'profile.firstName': 1
 			}
-		}).profile);
+		});
+		return fullName(data.profile);
 	},
 	player2FullName() {
-		return fullName(Meteor.users.findOne({ _id: this.player2 }, {
+		let data = Meteor.users.findOne({ _id: this.player2 }, {
 			fields: {
 				'profile.lastName': 1,
 				'profile.firstName': 1
 			}
-		}).profile);
+		});
+		return fullName(data.profile);
 	}
 });

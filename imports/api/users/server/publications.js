@@ -6,8 +6,7 @@ Meteor.publish('allUsers', () => {
 	return Meteor.users.find({}, {
 		fields: {
 			'profile.firstName': 1,
-			'profile.lastName': 1,
-			'_id': 1
+			'profile.lastName': 1
 		}
 	});
 });
@@ -18,8 +17,7 @@ Meteor.publish('allUsersForAChampionship', (championshipId) => {
 		fields: {
 			'profile.firstName': 1,
 			'profile.lastName': 1,
-			'profile.championships': 1,
-			'_id': 1
+			'profile.championships': 1
 		}
 	});
 });
@@ -29,8 +27,7 @@ Meteor.publish('aUser', (userId) => {
 		fields: {
 			'profile.firstName': 1,
 			'profile.lastName': 1,
-			'profile.championships': 1,
-			'_id': 1
+			'profile.championships': 1
 		}
 	});
 });
@@ -43,8 +40,7 @@ Meteor.publish('playersForAGame', (gameId) => {
 	}, {
 		fields: {
 			'profile.firstName': 1,
-			'profile.lastName': 1,
-			'_id': 1
+			'profile.lastName': 1
 		}
 	});
 });

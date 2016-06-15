@@ -85,7 +85,8 @@ Template.ranking.onRendered(function() {
 });
 
 Template.ranking.helpers({
-	playerData() {
+	playersRanking() {
+		let newList = [];
 		let freshData = Meteor.users.find({ 'profile.championships': Router.current().params._id }, {
 			fields: {
 				'profile.firstName': 1,
@@ -97,7 +98,6 @@ Template.ranking.helpers({
 				players: 1
 			}
 		});
-		let newList = [];
 		freshData.map((cur, index, array) => {
 			let ind = lodash.findIndex(champData.players, ['playerId', cur._id]);
 			if (champData.players[ind].points.length > 10) {
