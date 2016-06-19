@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { lodash } from 'meteor/stevezhu:lodash';
+import 'meteor/sacha:spin';
 
 import './addAGame.jade';
 

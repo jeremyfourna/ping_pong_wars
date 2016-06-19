@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { lodash } from 'meteor/stevezhu:lodash';
+import 'meteor/sacha:spin';
 
 import { Games } from '../../../api/games/schema.js';
 
@@ -18,12 +19,6 @@ Template.listLastGames.onCreated(function() {
 
 Template.listLastGames.helpers({
 	game() {
-		console.log(Games.find({ championshipId: Router.current().params._id }, {
-			sort: {
-				gameDate: -1
-			},
-			limit: Number(this.nbGames)
-		}).fetch());
 		return Games.find({ championshipId: Router.current().params._id }, {
 			sort: {
 				gameDate: -1

@@ -1,8 +1,11 @@
 template(name="listLastGames")
-	.panel.panel-default
-		.panel-heading
-			h3.panel-title {{_ "lastGames"}}
-		.panel-body
-			.row
-				each game
-					+gameCard
+	if Template.subscriptionsReady
+		.panel.panel-default
+			.panel-heading
+				h3.panel-title {{_ "lastGames"}}
+			.panel-body
+				.row
+					each game
+						+gameCard
+	else
+		+spinner

@@ -3,9 +3,10 @@ import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { lodash } from 'meteor/stevezhu:lodash';
 import 'meteor/peernohell:c3';
+import 'meteor/sacha:spin';
 
 import { Championships } from '../../../api/championships/schema.js';
-import { fullName } from '../../../startup/sharedFunctions.js';
+import { fullName, last10GamesPerf, lastXGames } from '../../../startup/sharedFunctions.js';
 
 import './ranking.jade';
 
@@ -45,8 +46,6 @@ Template.ranking.onRendered(function() {
 			}
 		}
 	});
-	$('#championshipRankingTable tbody tr:nth-child(-n+3)').addClass('success');
-	$('#championshipRankingTable tbody tr:nth-last-child(-n+3)').addClass('danger');
 
 	this.autorun(function(tracker) {
 		let freshData = Meteor.users.find({ 'profile.championships': Router.current().params._id }, {
@@ -58,7 +57,8 @@ Template.ranking.onRendered(function() {
 		}).fetch();
 		let champData = Championships.findOne({ _id: Router.current().params._id }, {
 			fields: {
-				players: 1
+				players: 1,
+				numberOfResultsToBeDisplayedInTheGraph: 1
 			}
 		});
 		let userData = [];
@@ -66,7 +66,7 @@ Template.ranking.onRendered(function() {
 			let list = [];
 			let ind = lodash.findIndex(champData.players, ['playerId', cur._id]);
 			list.push(fullName(cur.profile));
-			list = list.concat(last5Games(champData.players[ind].points));
+			list = list.concat(lastXGames(champData.players[ind].points, champData.numberOfResultsToBeDisplayedInTheGraph));
 			userData.push(list);
 		});
 		userData.sort((a, b) => {
@@ -85,6 +85,14 @@ Template.ranking.onRendered(function() {
 });
 
 Template.ranking.helpers({
+	champInfos() {
+		return Championships.findOne({ _id: Router.current().params._id }, {
+			fields: {
+				numberOfGamesToBeDisplayedInTheRanking: 1,
+				numberOfResultsToBeDisplayedInTheGraph: 1
+			}
+		});
+	},
 	playersRanking() {
 		let newList = [];
 		let freshData = Meteor.users.find({ 'profile.championships': Router.current().params._id }, {
@@ -95,12 +103,13 @@ Template.ranking.helpers({
 		}).fetch();
 		let champData = Championships.findOne({ _id: Router.current().params._id }, {
 			fields: {
-				players: 1
+				players: 1,
+				numberOfGamesToBeDisplayedInTheRanking: 1
 			}
 		});
 		freshData.map((cur, index, array) => {
 			let ind = lodash.findIndex(champData.players, ['playerId', cur._id]);
-			if (champData.players[ind].points.length > 10) {
+			if (champData.players[ind].points.length > champData.numberOfGamesToBeDisplayedInTheRanking) {
 				cur.points = champData.players[ind].points;
 				cur.fullName = fullName(cur.profile);
 				cur.currentPoints = cur.points.pop();
@@ -118,9 +127,17 @@ Template.ranking.helpers({
 			}
 			return 0;
 		});
+		let newListLength = newList.length;
+		newList.map((cur, index, array) => {
+			if (index <= 2) {
+				return cur.colorClass = 'success';
+			} else if (index >= newListLength - 3) {
+				return cur.colorClass = 'danger';
+			}
+		})
 		return newList;
 	},
-	index(index) {
+	myIndex(index) {
 		return index + 1;
 	}
 });

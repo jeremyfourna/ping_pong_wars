@@ -1,10 +1,17 @@
 template(name="championship")
-	with championshipData
-		h1 #{name}
-	if currentUser
-		+addAGame
+	if Template.subscriptionsReady
+		with championshipData
+			h1 #{name}
+				if ownerOfTheChampionship
+					a.btn.btn-info.pull-right(role="button" href="{{pathFor 'editChampionship'}}")
+						span.glyphicon.glyphicon-edit(aria-hidden="true")
+						| {{_ "edit"}}
+		if currentUser
+			+addAGame
+		else
+			p
+				mark {{_ "logInToIntegrateTheChampionship"}}
+		+ranking
+		+listLastGames(nbGames="20")
 	else
-		p
-			mark {{_ "logInToIntegrateTheChampionship"}}
-	+ranking
-	+listLastGames(nbGames="20")
+		+spinner

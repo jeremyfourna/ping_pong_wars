@@ -43,6 +43,29 @@ Meteor.methods({
 		Meteor.call('addChampionshipIntoProfile', data1);
 		return data._id;
 	},
+	updateChampionship(data) {
+		let methodSchema = new SimpleSchema({
+			championshipId: { type: String },
+			name: { type: String },
+			public: { type: Boolean },
+			minPointsToWin: { type: Number, min: 1 },
+			numberOfSetsToPlay: { type: Number, min: 1 },
+			numberOfGamesToBeDisplayedInTheRanking: { type: Number, min: 1 },
+			numberOfResultsToBeDisplayedInTheGraph: { type: Number, min: 3 }
+		});
+		check(data, methodSchema);
+
+		return Championships.update({ _id: data.championshipId }, {
+			$set: {
+				name: data.name,
+				public: data.public,
+				minPointsToWin: data.minPointsToWin,
+				numberOfSetsToPlay: data.numberOfSetsToPlay,
+				numberOfGamesToBeDisplayedInTheRanking: data.numberOfGamesToBeDisplayedInTheRanking,
+				numberOfResultsToBeDisplayedInTheGraph: data.numberOfResultsToBeDisplayedInTheGraph
+			}
+		});
+	},
 	addPlayerInChampionship(data) {
 		let methodSchema = new SimpleSchema({
 			userId: { type: String },

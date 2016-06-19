@@ -1,37 +1,3 @@
-winner = function(game) {
-	// Check the params of the function
-	check(game, Object);
-	check(game.scorePlayer1, Number);
-	check(game.scorePlayer2, Number);
-	check(game.player1, String);
-	check(game.player2, String);
-
-	if (game.scorePlayer1 > game.scorePlayer2) {
-		return game.player1;
-	} else if (game.scorePlayer1 < game.scorePlayer2) {
-		return game.player2;
-	} else {
-		return null;
-	}
-};
-
-looser = function(game) {
-	// Check the params of the function
-	check(game, Object);
-	check(game.scorePlayer1, Number);
-	check(game.scorePlayer2, Number);
-	check(game.player1, String);
-	check(game.player2, String);
-
-	if (game.scorePlayer1 < game.scorePlayer2) {
-		return game.player1;
-	} else if (game.scorePlayer1 > game.scorePlayer2) {
-		return game.player2;
-	} else {
-		return null;
-	}
-};
-
 export const pointBase = function(playerNbGames, currentPoints) {
 	// Check the params of the function
 	check(playerNbGames, Number);
@@ -81,7 +47,7 @@ export const kEqualForBothPlayers = function(kForWinner, kForLooser) {
 	}
 };
 
-last10GamesPerf = function(playerPoints) {
+export const last10GamesPerf = function(playerPoints) {
 	// Check the params of the function
 	check(playerPoints, Array);
 	var list = [];
@@ -99,12 +65,12 @@ last10GamesPerf = function(playerPoints) {
 	}
 };
 
-last5Games = function(playerPoints) {
+export const lastXGames = function(playerPoints, numberOfResultsToBeDisplayedInTheGraph) {
 	// Check the params of the function
 	check(playerPoints, Array);
 	var list = [];
-	if (playerPoints.length > 4) {
-		list = playerPoints.slice(-5);
+	if (playerPoints.length > numberOfResultsToBeDisplayedInTheGraph - 1) {
+		list = playerPoints.slice(-numberOfResultsToBeDisplayedInTheGraph);
 		return list;
 	} else {
 		return playerPoints;
@@ -113,4 +79,12 @@ last5Games = function(playerPoints) {
 
 export const fullName = function(userProfile) {
 	return userProfile.firstName + ' ' + userProfile.lastName.charAt(0) + '.';
+};
+
+export const over10 = function(player1Score) {
+	if (player1Score > 10) {
+		return true;
+	} else {
+		return false;
+	}
 };

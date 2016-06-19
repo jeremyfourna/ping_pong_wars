@@ -1,0 +1,50 @@
+template(name="editChampionship")
+	if Template.subscriptionsReady
+		.panel.panel-default
+			.panel-heading
+				h2.panel-title {{_ "editChampionship"}}
+			.panel-body
+				with champData
+					form
+						.form-group
+							label(for="championshipName") {{_ "championshipName"}}
+							input#championshipName.form-control(type="text" value="#{name}")
+						.row
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								.form-group
+									label(for="championshipMinPointsToWin") {{_ "championshipMinPointsToWin"}}
+									input#championshipMinPointsToWin.form-control(type="number" min="1" step="1" value="#{minPointsToWin}")
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								.form-group
+									label(for="championshipNumberOfSetsToPlay") {{_ "championshipNumberOfSetsToPlay"}}
+									input#championshipNumberOfSetsToPlay.form-control(type="number" min="1" step="1" value="#{numberOfSetsToPlay}")
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								.form-group
+									label(for="championshipNumberOfGamesToBeDisplayedInTheRanking") {{_ "championshipNumberOfGamesToBeDisplayedInTheRanking"}}
+									input#championshipNumberOfGamesToBeDisplayedInTheRanking.form-control(type="number" min="1" step="1" value="#{numberOfGamesToBeDisplayedInTheRanking}")
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								.form-group
+									label(for="championshipNumberOfResultsToBeDisplayedInTheGraph") {{_ "championshipNumberOfResultsToBeDisplayedInTheGraph"}}
+									input#championshipNumberOfResultsToBeDisplayedInTheGraph.form-control(type="number" min="3" step="1" value="#{numberOfResultsToBeDisplayedInTheGraph}")
+						.panel.panel-default
+							.panel-heading
+								p.panel-title {{_ "championshipMode"}}
+							.panel-body
+								if public
+									label.radio-inline
+										input(type="radio" name="championshipPublic" value="yes" checked)
+										| {{_ "yes"}}
+									label.radio-inline
+										input(type="radio" name="championshipPublic" value="no")
+										| {{_ "no"}}
+								else
+									label.radio-inline
+										input(type="radio" name="championshipPublic" value="yes")
+										| {{_ "yes"}}
+									label.radio-inline
+										input(type="radio" name="championshipPublic" value="no" checked)
+										| {{_ "no"}}
+			.panel-footer
+				button#updateChampionship.btn-block.btn.btn-success(type="submit") {{_ "validate"}}
+	else
+		+spinner

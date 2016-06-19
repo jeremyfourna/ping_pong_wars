@@ -8,6 +8,7 @@ Meteor.startup(function() {
 		let jf = Accounts.createUser({
 			password: '123456',
 			username: 'jeremy_f',
+			email: 'jeremy.fourna@twenga.com',
 			profile: {
 				firstName: 'Jeremy',
 				lastName: 'Fourna'
@@ -16,6 +17,7 @@ Meteor.startup(function() {
 		let av = Accounts.createUser({
 			password: '123456',
 			username: 'antoine_v',
+			email: 'antoine.vanderstukken@twenga.com',
 			profile: {
 				firstName: 'Antoine',
 				lastName: 'Vanderstukken'
@@ -24,6 +26,7 @@ Meteor.startup(function() {
 		let ml = Accounts.createUser({
 			password: '123456',
 			username: 'mickael_l',
+			email: 'mickael.lattes@twenga.com',
 			profile: {
 				firstName: 'Mickaël',
 				lastName: 'Lattes'
@@ -32,6 +35,7 @@ Meteor.startup(function() {
 		let lt = Accounts.createUser({
 			password: '123456',
 			username: 'laurent_t',
+			email: 'laurent.toussaint@twenga.com',
 			profile: {
 				firstName: 'Laurent',
 				lastName: 'Toussaint'
@@ -40,6 +44,7 @@ Meteor.startup(function() {
 		let ac = Accounts.createUser({
 			password: '123456',
 			username: 'andrea_c',
+			email: 'andrea.colonna@twenga.com',
 			profile: {
 				firstName: 'Andréa',
 				lastName: 'Colonna'
@@ -48,6 +53,7 @@ Meteor.startup(function() {
 		let rk = Accounts.createUser({
 			password: '123456',
 			username: 'romain_k',
+			email: 'romain.kalinsky@twenga.com',
 			profile: {
 				firstName: 'Romain',
 				lastName: 'Kalinsky'
@@ -56,6 +62,7 @@ Meteor.startup(function() {
 		let mp = Accounts.createUser({
 			password: '123456',
 			username: 'mickael_p',
+			email: 'mickael.pouhaer@twenga.com',
 			profile: {
 				firstName: 'Mickaël',
 				lastName: 'Pouhaer'
@@ -64,6 +71,7 @@ Meteor.startup(function() {
 		let sk = Accounts.createUser({
 			password: '123456',
 			username: 'samy_k',
+			email: 'samy.khanafer@twenga.com',
 			profile: {
 				firstName: 'Samy',
 				lastName: 'Khanafer'
@@ -72,6 +80,7 @@ Meteor.startup(function() {
 		let ct = Accounts.createUser({
 			password: '123456',
 			username: 'claude_t',
+			email: 'claude.traglia@twenga.com',
 			profile: {
 				firstName: 'Claude',
 				lastName: 'Traglia'
@@ -80,6 +89,7 @@ Meteor.startup(function() {
 		let ol = Accounts.createUser({
 			password: '123456',
 			username: 'olivier_l',
+			email: 'olivier.labayle@twenga.com',
 			profile: {
 				firstName: 'Olivier',
 				lastName: 'Labayle'
@@ -88,6 +98,7 @@ Meteor.startup(function() {
 		let mz = Accounts.createUser({
 			password: '123456',
 			username: 'mess_z',
+			email: 'mess.zaoui@twenga.com',
 			profile: {
 				firstName: 'Mess',
 				lastName: 'Zaoui'
@@ -96,6 +107,7 @@ Meteor.startup(function() {
 		let cp = Accounts.createUser({
 			password: '123456',
 			username: 'christy_p',
+			email: 'christy.patisson@twenga.com',
 			profile: {
 				firstName: 'Christy',
 				lastName: 'Patisson'

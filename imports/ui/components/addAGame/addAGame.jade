@@ -1,40 +1,43 @@
 template(name="addAGame")
-	if playerInChampionship
-		.panel.panel-default
-			.panel-heading
-				h3.panel-title {{_ "saveAScore"}}
-			.panel-body
-				form.saveAGame
-					.row
-						.col-xs-6.col-sm-6.col-md-6.col-lg-6
-							.panel.panel-default
-								.panel-body
-									.form-group.has-feedback.player1Name
-										label(for='player1Name') {{_ "player1Name"}}
-										input#player1Name.form-control.awesomplete(type='text' list="player1List")
-										datalist#player1List
-											each playerList
-												option(data-id="#{_id}") #{profile.firstName} #{profile.lastName}
-									.form-group.has-feedback.player1Score
-										label(for='player1Score') {{_ "score"}}
-										input#player1Score.form-control(type='number' min="0" step="1")
-						.col-xs-6.col-sm-6.col-md-6.col-lg-6
-							.panel.panel-default
-								.panel-body
-									.form-group.has-feedback.player2Name
-										label(for='player2Name') {{_ "player2Name"}}
-										input#player2Name.form-control.awesomplete(type='text' list="player2List")
-										datalist#player2List
-											each playerList
-												option(data-id="#{_id}") #{profile.firstName} #{profile.lastName}
-									.form-group.has-feedback.player2Score
-										label(for='player2Score') {{_ "score"}}
-										input#player2Score.form-control(type='number' min="0" step="1")
-					.row
-						.col-md-12.col-lg-12#buttonOrProgressBar
-							+validateButton
+	if Template.subscriptionsReady
+		if playerInChampionship
+			.panel.panel-default
+				.panel-heading
+					h3.panel-title {{_ "saveAScore"}}
+				.panel-body
+					form.saveAGame
+						.row
+							.col-xs-6.col-sm-6.col-md-6.col-lg-6
+								.panel.panel-default
+									.panel-body
+										.form-group.has-feedback.player1Name
+											label(for='player1Name') {{_ "player1Name"}}
+											input#player1Name.form-control.awesomplete(type='text' list="player1List")
+											datalist#player1List
+												each playerList
+													option(data-id="#{_id}") #{profile.firstName} #{profile.lastName}
+										.form-group.has-feedback.player1Score
+											label(for='player1Score') {{_ "score"}}
+											input#player1Score.form-control(type='number' min="0" step="1")
+							.col-xs-6.col-sm-6.col-md-6.col-lg-6
+								.panel.panel-default
+									.panel-body
+										.form-group.has-feedback.player2Name
+											label(for='player2Name') {{_ "player2Name"}}
+											input#player2Name.form-control.awesomplete(type='text' list="player2List")
+											datalist#player2List
+												each playerList
+													option(data-id="#{_id}") #{profile.firstName} #{profile.lastName}
+										.form-group.has-feedback.player2Score
+											label(for='player2Score') {{_ "score"}}
+											input#player2Score.form-control(type='number' min="0" step="1")
+						.row
+							.col-md-12.col-lg-12#buttonOrProgressBar
+								+validateButton
+		else
+			button#integrateChampionship.btn.btn-success.btn-block(type="button") {{_ "integrateChampionship"}}
 	else
-		button#integrateChampionship.btn.btn-success.btn-block(type="button") {{_ "integrateChampionship"}}
+		+spinner
 
 template(name="playerNotDefined")
 	span.help-block {{_ "playerNotDefined"}}

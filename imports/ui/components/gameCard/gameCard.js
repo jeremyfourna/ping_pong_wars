@@ -2,8 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { lodash } from 'meteor/stevezhu:lodash';
+import 'meteor/sacha:spin';
 
-import { fullName } from '../../../startup/sharedFunctions.js';
+import { fullName, over10 } from '../../../startup/sharedFunctions.js';
 
 import './gameCard.jade';
 
@@ -15,11 +16,11 @@ Template.gameCard.onCreated(function() {
 
 Template.gameCard.helpers({
 	panelClass() {
-		if (this.over10()) {
+		if (over10(this.scorePlayer1)) {
 			return 'panel-info';
-		} else if (this.scoreGap() === 2) {
+		} else if (this.scorePlayer1 - this.scorePlayer2 === 2) {
 			return 'panel-warning';
-		} else if (this.scoreGap() > 5) {
+		} else if (this.scorePlayer1 - this.scorePlayer2 > 5) {
 			return 'panel-success';
 		} else {
 			return 'panel-default';

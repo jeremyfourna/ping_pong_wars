@@ -89,16 +89,6 @@ Games.helpers({
 	player2Data() {
 		return Meteor.users.findOne(this.player2);
 	},
-	scoreGap() {
-		return this.scorePlayer1 - this.scorePlayer2;
-	},
-	over10() {
-		if (this.scorePlayer1 > 10) {
-			return true;
-		} else {
-			return false;
-		}
-	},
 	lastPointsGap() {
 		return Math.abs(this.lastPointsPlayer1 - this.lastPointsPlayer2);
 	},

@@ -1,28 +1,31 @@
 template(name="ranking")
-	.panel.panel-default
-		.panel-heading
-			h2.panel-title {{_ "ranking"}}
-		table#championshipRankingTable.table.table-condensed.table-responsive
-			caption {{_ "nbGamesLimit"}}
-			thead
-				tr
-					th #
-					th {{_ "playerName"}}
-					th {{_ "points"}}
-						span.glyphicon.glyphicon-arrow-up
-					th {{_ "nbGames"}}
-					th {{_ "last10GamesPerf"}}
-			tbody
-				each playersRanking
+	if Template.subscriptionsReady
+		.panel.panel-default
+			.panel-heading
+				h2.panel-title {{_ "ranking"}}
+			table#championshipRankingTable.table.table-condensed.table-responsive
+				caption {{_ "nbGamesLimit" nbGames=champInfos.numberOfGamesToBeDisplayedInTheRanking}}
+				thead
 					tr
-						td ?
-						td #{fullName}
-						td #{currentPoints}
-						td #{nbGames}
-						td #{last10GamesPerf}
+						th #
+						th {{_ "playerName"}}
+						th {{_ "points"}}
+							span.glyphicon.glyphicon-arrow-up
+						th {{_ "nbGames"}}
+						th {{_ "last10GamesPerf"}}
+				tbody
+					each playersRanking
+						tr(class="#{colorClass}")
+							td {{myIndex @index}}
+							td #{fullName}
+							td #{currentPoints}
+							td #{nbGames}
+							td #{last10GamesPerf}
+	else
+		+spinner
 	.panel.panel-default
 		.panel-heading
 			h2.panel-title {{_ "rankingEvolution"}}
-			small {{_ "last5Games"}}
+			small {{_ "lastXGames" nbGames=champInfos.numberOfResultsToBeDisplayedInTheGraph}}
 		.panel-body
 			#rankingGraph

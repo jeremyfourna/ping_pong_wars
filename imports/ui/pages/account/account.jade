@@ -1,10 +1,10 @@
 template(name="account")
-	.container
-		.panel.panel-default
-			.panel-heading
-				h2.panel-title {{_ "userRankingEvolution"}}
-			.panel-body
-				#userRankingGraph
+	.panel.panel-default
+		.panel-heading
+			h2.panel-title {{_ "userRankingEvolution"}}
+		.panel-body
+			#userRankingGraph
+	if Template.subscriptionsReady
 		.panel.panel-default
 			.panel-heading
 				h2.panel-title {{_ "account"}}
@@ -22,3 +22,5 @@ template(name="account")
 					.row
 						.col-md-12.col-lg-12
 							button#saveUser.btn-block.btn.btn-success(type='submit') {{_ "save"}}
+	else
+		+spinner

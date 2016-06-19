@@ -1,17 +1,30 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import { Bert } from 'meteor/themeteorchef:bert';
 import { Router } from 'meteor/iron:router';
+import { Bert } from 'meteor/themeteorchef:bert';
+import 'meteor/sacha:spin';
 
 import { Championships } from '../../../api/championships/schema.js';
 
-import './newChampionship.jade';
+import './editChampionship.jade';
 
-Template.newChampionship.events({
-	'click #createChampionship': function(event) {
+Template.editChampionship.onCreated(function() {
+	this.autorun(() => {
+		this.subscribe('aChampionshipForEdition', Router.current().params._id);
+	});
+});
+
+Template.editChampionship.helpers({
+	champData() {
+		return Championships.findOne({ _id: Router.current().params._id });
+	}
+});
+
+Template.editChampionship.events({
+	'click #updateChampionship': function(event) {
 		event.preventDefault();
 		const data = {
-			userId: Meteor.userId(),
+			championshipId: Router.current().params._id,
 			name: $('#championshipName').val(),
 			minPointsToWin: Number($('#championshipMinPointsToWin').val()),
 			numberOfSetsToPlay: Number($('#championshipNumberOfSetsToPlay').val()),
@@ -38,11 +51,11 @@ Template.newChampionship.events({
 		if (!data.numberOfResultsToBeDisplayedInTheGraph) {
 			return Bert.alert('You must define the number of scores to be displayed into the graph', 'danger', 'growl-top-right');
 		}
-		Meteor.call('createChampionship', data, (error, result) => {
+		Meteor.call('updateChampionship', data, (error, result) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
-				Router.go('championship', { _id: result });
+				Router.go('championship', { _id: Router.current().params._id });
 			}
 		});
 	}

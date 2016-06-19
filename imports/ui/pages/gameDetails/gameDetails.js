@@ -1,11 +1,12 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
-import { Bert } from 'meteor/themeteorchef:bert';
 import { lodash } from 'meteor/stevezhu:lodash';
-import { c3 } from 'meteor/peernohell:c3';
+import 'meteor/peernohell:c3';
+import 'meteor/sacha:spin';
 
 import { Games } from '../../../api/games/schema.js';
+import { fullName, over10 } from '../../../startup/sharedFunctions.js';
 
 import './gameDetails.jade';
 
@@ -25,11 +26,10 @@ Template.gameDetails.onRendered(function() {
 			columns: []
 		},
 		bar: {
-			width: {
-				ratio: 0.5
-			}
+			width: { ratio: 0.5 }
 		}
 	});
+
 	this.autorun(function(tracker) {
 		let players = Games.findOne({ _id: Router.current().params._id });
 		let twoUserData = Meteor.users.find({
@@ -87,34 +87,39 @@ Template.gameDetails.onRendered(function() {
 });
 
 Template.gameDetails.helpers({
+	scoreGap() {
+		return this.scorePlayer1 - this.scorePlayer2;
+	},
 	gameData() {
 		return Games.findOne({ _id: Router.current().params._id });
 	},
 	panelClass() {
-		if (this.over10()) {
+		if (over10(this.scorePlayer1)) {
 			return 'panel-info';
-		} else if (this.currentData().scoreGap() === 2) {
+		} else if (this.scorePlayer1 - this.scorePlayer2 === 2) {
 			return 'panel-warning';
-		} else if (this.currentData().scoreGap() > 5) {
+		} else if (this.scorePlayer1 - this.scorePlayer2 > 5) {
 			return 'panel-success';
 		} else {
 			return 'panel-default';
 		}
 	},
 	player1FullName() {
-		return fullName(Meteor.users.findOne({ _id: this.currentData().player1 }, {
+		let data = Meteor.users.findOne({ _id: this.player1 }, {
 			fields: {
 				'profile.lastName': 1,
 				'profile.firstName': 1
 			}
-		}).profile);
+		});
+		return fullName(data.profile);
 	},
 	player2FullName() {
-		return fullName(Meteor.users.findOne({ _id: this.currentData().player2 }, {
+		let data = Meteor.users.findOne({ _id: this.player2 }, {
 			fields: {
 				'profile.lastName': 1,
 				'profile.firstName': 1
 			}
-		}).profile);
+		});
+		return fullName(data.profile);
 	}
 });
