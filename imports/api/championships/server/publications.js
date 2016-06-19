@@ -26,7 +26,7 @@ Meteor.publish('allChampionships', () => {
 		fields: {
 			name: 1,
 			public: 1,
-			players: 1,
+			players: 1
 		},
 		sort: {
 			name: 1

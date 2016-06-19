@@ -14,6 +14,9 @@ template(name="listChampionships")
 						.panel-heading
 							p.panel-title #{name}
 						.panel-body
+							.row
+								.col-xs-12.col-sm-6.col-md-6.col-lg-6
+									{{_ ""}}
 							if public
 								a.btn.btn-default(role="button" href="{{pathFor 'championship'}}")
 									span.glyphicon.glyphicon-zoom-in

@@ -134,7 +134,7 @@ Template.ranking.helpers({
 			} else if (index >= newListLength - 3) {
 				return cur.colorClass = 'danger';
 			}
-		})
+		});
 		return newList;
 	},
 	myIndex(index) {

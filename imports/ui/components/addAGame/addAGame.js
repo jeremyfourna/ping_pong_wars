@@ -59,26 +59,26 @@ Template.addAGame.events({
 		function saveBegin() {
 			$('#addAGame').remove();
 			Blaze.render(Template.progressBar, $('#buttonOrProgressBar').get(0));
-		};
+		}
 
 		function saveEnd() {
 			$('.progress').remove();
 			Blaze.render(Template.validateButton, $('#buttonOrProgressBar').get(0));
-		};
+		}
 
 		function cleanForm() {
 			$('.has-feedback').removeClass('has-success');
 			$('.has-feedback').removeClass('has-warning');
 			$('.has-feedback').removeClass('has-error');
 			$('.saveAGame').find('span').remove();
-		};
+		}
 
 		function addValidation(template, element, state) {
 			if (!element.hasClass('has-warning') && !element.hasClass('has-error') && !element.hasClass('has-success')) {
 				element.addClass(state);
 				Blaze.render(template, element.get(0));
 			}
-		};
+		}
 
 		function playerInChampionship(playerName) {
 			var playerNameArray = playerName.split(' ');
@@ -96,7 +96,7 @@ Template.addAGame.events({
 			} else {
 				return false;
 			}
-		};
+		}
 
 		cleanForm();
 		saveBegin();

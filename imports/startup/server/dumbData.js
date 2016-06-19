@@ -1,4 +1,4 @@
-import { Meteor } from 'meteor/meteor';
+/*import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
 import { Games } from '../../api/games/schema.js';
@@ -935,7 +935,7 @@ Meteor.startup(function() {
 		}, {
 			player1: av,
 			player2: ct,
-			gameDate: new Date(2016, 1, 24, 15, 34, 07),
+			gameDate: new Date(2016, 1, 24, 15, 34, 7),
 			scorePlayer1: 10,
 			scorePlayer2: 2,
 			championshipId: twengaChampionship,
@@ -975,4 +975,4 @@ Meteor.startup(function() {
 			});
 		});
 	}
-});
+});*/
