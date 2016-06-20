@@ -16,6 +16,7 @@ Accounts.onCreateUser((options, user) => {
 		user.profile = {
 			firstName: 'New',
 			lastName: 'User',
+			fullName: 'New User',
 			championships: [],
 			tournaments: []
 		};

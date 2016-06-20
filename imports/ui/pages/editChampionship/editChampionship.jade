@@ -17,7 +17,7 @@ template(name="editChampionship")
 							.col-xs-12.col-sm-6.col-md-6.col-lg-6
 								.form-group
 									label(for="championshipNumberOfSetsToPlay") {{_ "championshipNumberOfSetsToPlay"}}
-									input#championshipNumberOfSetsToPlay.form-control(type="number" min="1" step="1" value="#{numberOfSetsToPlay}")
+									input#championshipNumberOfSetsToPlay.form-control(type="number" min="1" step="1" value="#{numberOfSetsToPlay}" disabled)
 							.col-xs-12.col-sm-6.col-md-6.col-lg-6
 								.form-group
 									label(for="championshipNumberOfGamesToBeDisplayedInTheRanking") {{_ "championshipNumberOfGamesToBeDisplayedInTheRanking"}}

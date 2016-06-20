@@ -1,4 +1,6 @@
-/*import { Meteor } from 'meteor/meteor';
+/*eslint no-console: "off"*/
+
+import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
 import { Games } from '../../api/games/schema.js';
@@ -975,4 +977,4 @@ Meteor.startup(function() {
 			});
 		});
 	}
-});*/
+});

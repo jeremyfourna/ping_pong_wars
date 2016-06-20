@@ -17,8 +17,11 @@ Template.listChampionships.helpers({
 			fields: {
 				name: 1,
 				public: 1,
-				_id: 1
+				players: 1
 			}
 		});
+	},
+	nbPlayers() {
+		return this.players.length;
 	}
 });
