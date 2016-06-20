@@ -13,7 +13,8 @@ Meteor.methods({
 		Meteor.users.update({ _id: data.userId }, {
 			$set: {
 				'profile.firstName': data.firstName,
-				'profile.lastName': data.lastName
+				'profile.lastName': data.lastName,
+				'profile.fullName': data.firstName + ' ' + data.lastName
 			}
 		});
 	},
