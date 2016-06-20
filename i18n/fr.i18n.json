@@ -60,5 +60,7 @@
 	"championshipNumberOfResultsToBeDisplayedInTheGraph": "Nombre de scores à afficher dans le graphique",
 	"championshipMode": "Le championnat est-il public ?",
 	"yes": "Oui",
-	"no": "Non"
+	"no": "Non",
+	"thereAre": "Il y a",
+	"playersInTheChampionship": "joueurs dans ce championnat"
 }
