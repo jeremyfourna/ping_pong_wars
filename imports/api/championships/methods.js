@@ -5,6 +5,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { lodash } from 'meteor/stevezhu:lodash';
 
 import { Championships } from './schema.js';
+import { Games } from '../games/schema.js';
 import { pointBase, pointsDifference, kEqualForBothPlayers } from '../../startup/sharedFunctions.js';
 
 Meteor.methods({
