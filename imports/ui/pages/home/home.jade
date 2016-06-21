@@ -1,0 +1,13 @@
+template(name="home")
+	+forkme(align="left" url="https://github.com/dexterneo/ping_pong_wars")
+	.jumbotron
+		h1 {{_ "applicationName"}}
+		p {{_ "saveAllScores"}}
+			br
+			| {{_ "championshipsWithAnybody"}}
+			br
+			| {{_ "championshipsRankingBased"}}
+			a(target="blank" href="https://en.wikipedia.org/wiki/Elo_rating_system") {{_ "eloChessMethod"}}
+			br
+			| {{_ "completelyFree"}}
+		a.btn.btn-primary(href="{{pathFor 'listChampionships'}}") {{_ "seeAllChampionships"}}

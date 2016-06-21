@@ -19,8 +19,8 @@
 	"last10GamesPerf": "Perf last 10",
 	"points": "Pts.",
 	"logInToSaveAGame": "Connectes-toi pour rentrer un score !",
-	"nbGamesLimit": "Seulement les joueurs avec plus de 10 matchs rentrent dans le classement.",
-	"last5Games": "Sur les 5 derniers matchs",
+	"nbGamesLimit": "Seulement les joueurs avec plus de __nbGames__ matchs rentrent dans le classement.",
+	"lastXGames": "Sur les __nbGames__ derniers matchs",
 	"lastScore": "Prev pts",
 	"newScore": "New pts",
 	"account": "Mon compte",
@@ -53,5 +53,14 @@
 	"bothPlayersEqual": "Les deux joueurs sont identiques !",
 	"bothScoresEqual": "Les deux scores sont identiques !",
 	"playerNotInDb": "Joueur inconnu !",
-	"saveInProgress": "L'enregistrement est en cours"
+	"saveInProgress": "L'enregistrement est en cours",
+	"championshipMinPointsToWin": "Nombre de points pour gagner un match",
+	"championshipNumberOfSetsToPlay": "Nombre de sets dans un match",
+	"championshipNumberOfGamesToBeDisplayedInTheRanking": "Nombre de match à jouer avant d'apparaître dans le classement",
+	"championshipNumberOfResultsToBeDisplayedInTheGraph": "Nombre de scores à afficher dans le graphique",
+	"championshipMode": "Le championnat est-il public ?",
+	"yes": "Oui",
+	"no": "Non",
+	"thereAre": "Il y a",
+	"playersInTheChampionship": "joueurs dans ce championnat"
 }

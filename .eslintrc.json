@@ -5,6 +5,13 @@
         "meteor": true
     },
     "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": false
+        }
+    },
     "rules": {
         "eqeqeq": [
             "error",

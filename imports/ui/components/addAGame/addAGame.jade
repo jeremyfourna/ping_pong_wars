@@ -1,0 +1,72 @@
+template(name="addAGame")
+	if Template.subscriptionsReady
+		if playerInChampionship
+			.panel.panel-default
+				.panel-heading
+					h3.panel-title {{_ "saveAScore"}}
+				.panel-body
+					form.saveAGame
+						.row
+							.col-xs-6.col-sm-6.col-md-6.col-lg-6
+								.panel.panel-default
+									.panel-body
+										.form-group.has-feedback.player1fullName
+											label(for='player1fullName') {{_ "player1Name"}}
+											+inputAutocomplete(settings=settings id="player1fullName" class="form-control")
+										.form-group.has-feedback.player1Score
+											label(for='player1Score') {{_ "score"}}
+											input#player1Score.form-control(type='number' min="0" step="1")
+							.col-xs-6.col-sm-6.col-md-6.col-lg-6
+								.panel.panel-default
+									.panel-body
+										.form-group.has-feedback.player2fullName
+											label(for='player2fullName') {{_ "player2Name"}}
+											+inputAutocomplete(settings=settings id="player2fullName" class="form-control")
+										.form-group.has-feedback.player2Score
+											label(for='player2Score') {{_ "score"}}
+											input#player2Score.form-control(type='number' min="0" step="1")
+						.row
+							.col-md-12.col-lg-12#buttonOrProgressBar
+								+validateButton
+		else
+			button#integrateChampionship.btn.btn-success.btn-block(type="button") {{_ "integrateChampionship"}}
+	else
+		+spinner
+
+template(name="userPill")
+	span.label.label-default #{profile.fullName}
+
+template(name="playerNotDefined")
+	span.help-block {{_ "playerNotDefined"}}
+	span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true")
+
+template(name="minToWin")
+	span.help-block {{_ "minToWin"}}
+	span.glyphicon.glyphicon-warning-sign.form-control-feedback(aria-hidden="true")
+
+template(name="scoreNotDefined")
+	span.help-block {{_ "scoreNotDefined"}}
+	span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true")
+
+template(name="bothPlayersEqual")
+	span.help-block {{_ "bothPlayersEqual"}}
+	span.glyphicon.glyphicon-warning-sign.form-control-feedback(aria-hidden="true")
+
+template(name="bothScoresEqual")
+	span.help-block {{_ "bothScoresEqual"}}
+	span.glyphicon.glyphicon-warning-sign.form-control-feedback(aria-hidden="true")
+
+template(name="playerNotInDb")
+	span.help-block {{_ "playerNotInDb"}}
+	span.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true")
+
+template(name="progressBar")
+	.progress
+		.progress-bar.progress-bar-warning-sign.progress-bar-striped.active(role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%")
+			p {{_ "saveInProgress"}}
+
+template(name="validateButton")
+	button#addAGame.btn-block.btn.btn-success(type='submit') {{_ "validate"}}
+
+template(name="fieldOK")
+	span.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")

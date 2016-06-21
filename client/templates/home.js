@@ -1,1 +1,0 @@
-Template.home.helpers({});

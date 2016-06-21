@@ -1,0 +1,25 @@
+template(name="listChampionships")
+	if Template.subscriptionsReady
+		.panel.panel-default
+			.panel-heading
+				.row
+					.col-xs-8.col-sm-8.col-md-6.col-lg-6
+						h3.panel-title {{_ "championshipsList"}}
+					if currentUser
+						.col-xs-4.col-sm-4.col-md-6.col-lg-6
+							a.pull-right.btn.btn-primary.btn-xs(role="button" href="{{pathFor 'newChampionship'}}") {{_ "createChampionship"}}
+			.panel-body
+				each championship
+					.panel.panel-default
+						.panel-heading
+							p.panel-title #{name}
+						.panel-body
+							p {{_ "thereAre"}}
+								span.badge #{nbPlayers}
+								| {{_ "playersInTheChampionship"}}
+								if public
+									a.btn.btn-default.pull-right(role="button" href="{{pathFor 'championship'}}")
+										span.glyphicon.glyphicon-zoom-in
+										| {{_ "seeDetails"}}
+	else
+		+spinner

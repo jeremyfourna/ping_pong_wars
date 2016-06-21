@@ -1,0 +1,38 @@
+template(name="newChampionship")
+	.panel.panel-default
+		.panel-heading
+			h2.panel-title {{_ "newChampionship"}}
+		.panel-body
+			form
+				.form-group
+					label(for="championshipName") {{_ "championshipName"}}
+					input#championshipName.form-control(type="text")
+				.row
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						.form-group
+							label(for="championshipMinPointsToWin") {{_ "championshipMinPointsToWin"}}
+							input#championshipMinPointsToWin.form-control(type="number" min="1" step="1" value="10")
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						.form-group
+							label(for="championshipNumberOfSetsToPlay") {{_ "championshipNumberOfSetsToPlay"}}
+							input#championshipNumberOfSetsToPlay.form-control(type="number" min="1" step="1" value="1" disabled)
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						.form-group
+							label(for="championshipNumberOfGamesToBeDisplayedInTheRanking") {{_ "championshipNumberOfGamesToBeDisplayedInTheRanking"}}
+							input#championshipNumberOfGamesToBeDisplayedInTheRanking.form-control(type="number" min="1" step="1" value="1")
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						.form-group
+							label(for="championshipNumberOfResultsToBeDisplayedInTheGraph") {{_ "championshipNumberOfResultsToBeDisplayedInTheGraph"}}
+							input#championshipNumberOfResultsToBeDisplayedInTheGraph.form-control(type="number" min="3" step="1" value="3")
+				.panel.panel-default
+					.panel-heading
+						p.panel-title {{_ "championshipMode"}}
+					.panel-body
+						label.radio-inline
+							input(type="radio" name="championshipPublic" value="yes" checked)
+							| {{_ "yes"}}
+						label.radio-inline
+							input(type="radio" name="championshipPublic" value="no")
+							| {{_ "no"}}
+		.panel-footer
+			button#createChampionship.btn-block.btn.btn-success(type="submit") {{_ "validate"}}

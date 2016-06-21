@@ -6,15 +6,12 @@
 
 mquandalle:jade
 jquery
-meteorhacks:fast-render
-meteorhacks:subs-manager
 sacha:spin
 tap:i18n
 iron:router
 accounts-password
 stylus
-aldeed:collection2
-standard-minifiers
+aldeed:simple-schema
 meteor-base
 mobile-experience
 mongo
@@ -27,8 +24,9 @@ ejson
 spacebars
 check
 ecmascript
-peerlibrary:reactive-field
-peerlibrary:blaze-components
+blaze-html-templates
+reactive-var
+templating
 meteorhacks:aggregate
 twbs:bootstrap
 ian:accounts-ui-bootstrap-3
@@ -36,7 +34,12 @@ momentjs:moment
 dburles:collection-helpers
 peernohell:c3
 stevezhu:lodash
-d3js:d3
 meteorhacks:kadira
 kadira:debug
 zhenya:forkme
+standard-minifier-css
+standard-minifier-js
+themeteorchef:bert
+meteorhacks:kadira-profiler
+doctorpangloss:method-hooks
+mizzao:autocomplete
