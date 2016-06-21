@@ -106,73 +106,62 @@ Meteor.methods({
 			}
 		});
 	},
-	refreshPoints(data) {
-		let methodSchema = new SimpleSchema({
-			championshipId: { type: String }
-		});
-		check(data, methodSchema);
-		let champ = Championships.findOne({ _id: data.championshipId }, {
-			fields: {
-				players: 1
-			}
-		});
+	refreshPoints(championshipId) {
+		check(championshipId, String);
+		var theChamp = Championships.findOne({ _id: championshipId });
 		// Allow to start anew with the points if the calculus method change (bugs, etc...)
 		// Clean users points
-		champ.players.map((cur, index, array) => {
-			let ind = lodash.findIndex(champ.players, ['playerId', cur.playerId]);
-			let res = 'players.' + ind + '.points';
-			Championships.update({ _id: data.championshipId }, {
+		lodash.each(theChamp.players, function(player) {
+			var ind = lodash.findIndex(theChamp.players, ['playerId', player.playerId]);
+			var res = 'players.' + ind + '.points';
+			Championships.update({ _id: championshipId }, {
 				$set: {
 					[res]: [1500]
 				}
 			});
 		});
 		// Fetch all games
-		let allGames = Games.find({ championshipId: data.championshipId }, { sort: { gameDate: 1 } }).fetch();
-		let champOfTheGame = Championships.findOne({ _id: data.championshipId }, {
-			fields: {
-				players: 1
-			}
-		});
+		var allGames = Games.find({ championshipId }, { sort: { gameDate: 1 } }).fetch();
 		// Loop on each game to calculate the new points
-		allGames.map((cur, index, array) => {
-			let ind1 = lodash.findIndex(champOfTheGame.players, ['playerId', cur.player1]);
-			let ind2 = lodash.findIndex(champOfTheGame.players, ['playerId', cur.player2]);
-			cur.lastPointsPlayer1 = lodash.last(champOfTheGame.players[ind1].points);
-			cur.lastPointsPlayer2 = lodash.last(champOfTheGame.players[ind2].points);
-			cur.kBasePlayer1 = pointBase(champOfTheGame.players[ind1].points.length, cur.lastPointsPlayer1);
-			cur.kBasePlayer2 = pointBase(champOfTheGame.players[ind2].points.length, cur.lastPointsPlayer2);
-			let pointsToAdd = Math.round(cur.kBasePlayer1 * (1 / (1 + Math.pow(10, pointsDifference(cur.lastPointsPlayer1, cur.lastPointsPlayer2) / 400))));
-			cur.newPointsPlayer1 = cur.lastPointsPlayer1 + pointsToAdd;
+		lodash.each(allGames, function(game) {
+			var champData = Championships.findOne({ _id: game.championshipId });
+			var ind1 = lodash.findIndex(champData.players, ['playerId', game.player1]);
+			var ind2 = lodash.findIndex(champData.players, ['playerId', game.player2]);
+			game.lastPointsPlayer1 = lodash.last(champData.players[ind1].points);
+			game.lastPointsPlayer2 = lodash.last(champData.players[ind2].points);
+			game.kBasePlayer1 = pointBase(champData.players[ind1].points.length, game.lastPointsPlayer1);
+			game.kBasePlayer2 = pointBase(champData.players[ind2].points.length, game.lastPointsPlayer2);
+			var pointsToAdd = Math.round(game.kBasePlayer1 * (1 / (1 + Math.pow(10, pointsDifference(game.lastPointsPlayer1, game.lastPointsPlayer2) / 400))));
+			game.newPointsPlayer1 = game.lastPointsPlayer1 + pointsToAdd;
 
-			if (kEqualForBothPlayers(cur.kBasePlayer1, cur.kBasePlayer2)) {
-				cur.newPointsPlayer2 = cur.lastPointsPlayer2 - pointsToAdd;
+			if (kEqualForBothPlayers(game.kBasePlayer1, game.kBasePlayer2)) {
+				game.newPointsPlayer2 = game.lastPointsPlayer2 - pointsToAdd;
 			} else {
-				var pointsToLoose = Math.round(pointsToAdd / cur.kBasePlayer1 * cur.kBasePlayer2);
-				cur.newPointsPlayer2 = cur.lastPointsPlayer2 - pointsToLoose;
+				var pointsToLoose = Math.round(pointsToAdd / game.kBasePlayer1 * game.kBasePlayer2);
+				game.newPointsPlayer2 = game.lastPointsPlayer2 - pointsToLoose;
 			}
-			let data1 = {
-				championshipId: cur.championshipId,
-				userId: cur.player1,
-				newPoints: cur.newPointsPlayer1
+			let game1 = {
+				championshipId: game.championshipId,
+				userId: game.player1,
+				newPoints: game.newPointsPlayer1
 			};
-			let data2 = {
-				championshipId: cur.championshipId,
-				userId: cur.player2,
-				newPoints: cur.newPointsPlayer2
+			let game2 = {
+				championshipId: game.championshipId,
+				userId: game.player2,
+				newPoints: game.newPointsPlayer2
 			};
 
-			Meteor.call('addPointsForPlayerInChampionship', data1);
-			Meteor.call('addPointsForPlayerInChampionship', data2);
+			Meteor.call('addPointsForPlayerInChampionship', game1);
+			Meteor.call('addPointsForPlayerInChampionship', game2);
 
-			Games.update({ _id: cur._id }, {
+			Games.update({ _id: game._id }, {
 				$set: {
-					lastPointsPlayer1: cur.lastPointsPlayer1,
-					lastPointsPlayer2: cur.lastPointsPlayer2,
-					kBasePlayer1: cur.kBasePlayer1,
-					kBasePlayer2: cur.kBasePlayer2,
-					newPointsPlayer1: cur.newPointsPlayer1,
-					newPointsPlayer2: cur.newPointsPlayer2
+					lastPointsPlayer1: game.lastPointsPlayer1,
+					lastPointsPlayer2: game.lastPointsPlayer2,
+					kBasePlayer1: game.kBasePlayer1,
+					kBasePlayer2: game.kBasePlayer2,
+					newPointsPlayer1: game.newPointsPlayer1,
+					newPointsPlayer2: game.newPointsPlayer2
 				}
 			});
 		});
