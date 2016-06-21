@@ -25,7 +25,7 @@ spacebars
 check
 ecmascript
 blaze-html-templates
-peerlibrary:reactive-field
+reactive-var
 templating
 meteorhacks:aggregate
 twbs:bootstrap
