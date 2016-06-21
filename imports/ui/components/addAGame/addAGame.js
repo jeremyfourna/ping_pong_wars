@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { lodash } from 'meteor/stevezhu:lodash';
+import { ReactiveVar } from 'meteor/reactive-var';
 import 'meteor/mizzao:autocomplete';
 import 'meteor/sacha:spin';
 
@@ -15,6 +16,8 @@ Template.addAGame.onCreated(function() {
 });
 
 Template.addAGame.onRendered(function() {
+	this.player1Id = new ReactiveVar('');
+	this.player2Id = new ReactiveVar('');
 	$(document).on('click', 'input[type=text]', function() { this.select(); });
 	let list = Meteor.users.find({ 'profile.championships': Router.current().params._id }, {
 		fields: {
@@ -37,6 +40,7 @@ Template.addAGame.helpers({
 		return {
 			position: 'bottom',
 			limit: 5,
+			matchAll: true,
 			rules: [{
 				collection: Meteor.users,
 				field: 'profile.fullName',
@@ -54,6 +58,12 @@ Template.addAGame.helpers({
 });
 
 Template.addAGame.events({
+	'autocompleteselect #player1fullName': function(event, template, doc) {
+		Template.instance().player1Id.set(doc._id);
+	},
+	'autocompleteselect #player2fullName': function(event, template, doc) {
+		Template.instance().player2Id.set(doc._id);
+	},
 	'click #addAGame': function(event) {
 		event.preventDefault();
 
@@ -81,19 +91,15 @@ Template.addAGame.events({
 			}
 		}
 
-		function playerInChampionship(playerName) {
-			let playerNameArray = playerName.split(' ');
+		function playerInChampionship(playerId) {
 			let inDb = Meteor.users.findOne({
-				$and: [
-					{ 'profile.firstName': playerNameArray[0] },
-					{ 'profile.lastName': playerNameArray[1] }
-				],
+				_id: playerId,
 				'profile.championships': Router.current().params._id
 			}, {
 				fields: { _id: 1 }
 			});
 			if (inDb) {
-				return inDb._id;
+				return true;
 			} else {
 				return false;
 			}
@@ -107,31 +113,32 @@ Template.addAGame.events({
 		let score = true;
 
 		const data = {
-			player1: $('#player1Name').val(),
-			player2: $('#player2Name').val(),
-			player1Score: Number($('#player1Score').val()),
-			player2Score: Number($('#player2Score').val()),
+			player1: Template.instance().player1Id.get(),
+			player2: Template.instance().player2Id.get(),
+			scorePlayer1: Number($('#player1Score').val()),
+			scorePlayer2: Number($('#player2Score').val()),
 			gameDate: new Date(),
-			addedBy: Meteor.userId()
+			addedBy: Meteor.userId(),
+			championshipId: Router.current().params._id
 		};
 
 		if (!data.player1) {
 			player1OK = false;
-			addValidation(Template.playerNotDefined, $('.player1Name'), 'has-error');
+			addValidation(Template.playerNotDefined, $('.player1fullName'), 'has-error');
 		}
 		if (!data.player2) {
 			player2OK = false;
-			addValidation(Template.playerNotDefined, $('.player2Name'), 'has-error');
+			addValidation(Template.playerNotDefined, $('.player2fullName'), 'has-error');
 		}
-		if (!data.player1Score) {
+		if (!data.scorePlayer1) {
 			score = false;
 			addValidation(Template.scoreNotDefined, $('.player1Score'), 'has-error');
 		}
-		if (!data.player2Score) {
+		if (!data.scorePlayer2) {
 			score = false;
 			addValidation(Template.scoreNotDefined, $('.player2Score'), 'has-error');
 		}
-		if (data.player1Score < 10 && data.player2Score < 10) {
+		if (data.scorePlayer1 < 10 && data.scorePlayer2 < 10) {
 			score = false;
 			addValidation(Template.minToWin, $('.player1Score'), 'has-warning');
 			addValidation(Template.minToWin, $('.player2Score'), 'has-warning');
@@ -139,27 +146,27 @@ Template.addAGame.events({
 		if (data.player1 === data.player2) {
 			player1OK = false;
 			player2OK = false;
-			addValidation(Template.bothPlayersEqual, $('.player1Name'), 'has-warning');
-			addValidation(Template.bothPlayersEqual, $('.player2Name'), 'has-warning');
+			addValidation(Template.bothPlayersEqual, $('.player1fullName'), 'has-warning');
+			addValidation(Template.bothPlayersEqual, $('.player2fullName'), 'has-warning');
 		}
-		if (data.player1Score === data.player2Score) {
+		if (data.scorePlayer1 === data.scorePlayer2) {
 			score = false;
 			addValidation(Template.bothScoresEqual, $('.player1Score'), 'has-warning');
 			addValidation(Template.bothScoresEqual, $('.player2Score'), 'has-warning');
 		}
 		if (!playerInChampionship(data.player1)) {
 			player1OK = false;
-			addValidation(Template.playerNotInDb, $('.player1Name'), 'has-error');
+			addValidation(Template.playerNotInDb, $('.player1fullName'), 'has-error');
 		}
 		if (!playerInChampionship(data.player2)) {
 			player2OK = false;
-			addValidation(Template.playerNotInDb, $('.player2Name'), 'has-error');
+			addValidation(Template.playerNotInDb, $('.player2fullName'), 'has-error');
 		}
 		if (player1OK) {
-			addValidation(Template.fieldOK, $('.player1Name'), 'has-success');
+			addValidation(Template.fieldOK, $('.player1fullName'), 'has-success');
 		}
 		if (player2OK) {
-			addValidation(Template.fieldOK, $('.player2Name'), 'has-success');
+			addValidation(Template.fieldOK, $('.player2fullName'), 'has-success');
 		}
 		if (score) {
 			addValidation(Template.fieldOK, $('.player1Score'), 'has-success');
@@ -174,19 +181,14 @@ Template.addAGame.events({
 		if (!score) {
 			return saveEnd();
 		}
-		if (Number($('#player1Score').val()) < Number($('#player2Score').val())) {
-			game.player1 = playerInChampionship($('#player2Name').val());
-			game.player2 = playerInChampionship($('#player1Name').val());
-			game.scorePlayer1 = Number($('#player2Score').val());
-			game.scorePlayer2 = Number($('#player1Score').val());
-		} else {
-			game.player1 = playerInChampionship($('#player1Name').val());
-			game.player2 = playerInChampionship($('#player2Name').val());
-			game.scorePlayer1 = Number($('#player1Score').val());
-			game.scorePlayer2 = Number($('#player2Score').val());
+		if (data.scorePlayer1 < data.scorePlayer2) {
+			data.player1 = Template.instance().player2Id.get();
+			data.player2 = Template.instance().player1Id.get();
+			data.scorePlayer1 = Number($('#player2Score').val());
+			data.scorePlayer2 = Number($('#player1Score').val());
 		}
-		game.championshipId = Router.current().params._id;
-		Meteor.call('addAChampionshipGame', game, (error, result) => {
+
+		Meteor.call('addAChampionshipGame', data, (error, result) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {

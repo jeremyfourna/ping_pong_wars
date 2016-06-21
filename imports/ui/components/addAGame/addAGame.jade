@@ -10,18 +10,18 @@ template(name="addAGame")
 							.col-xs-6.col-sm-6.col-md-6.col-lg-6
 								.panel.panel-default
 									.panel-body
-										.form-group.has-feedback.player1Name
-											label(for='player1Name') {{_ "player1Name"}}
-											+inputAutocomplete(settings=settings id="player1Name" class="form-control")
+										.form-group.has-feedback.player1fullName
+											label(for='player1fullName') {{_ "player1Name"}}
+											+inputAutocomplete(settings=settings id="player1fullName" class="form-control")
 										.form-group.has-feedback.player1Score
 											label(for='player1Score') {{_ "score"}}
 											input#player1Score.form-control(type='number' min="0" step="1")
 							.col-xs-6.col-sm-6.col-md-6.col-lg-6
 								.panel.panel-default
 									.panel-body
-										.form-group.has-feedback.player2Name
-											label(for='player2Name') {{_ "player2Name"}}
-											+inputAutocomplete(settings=settings id="player2Name" class="form-control")
+										.form-group.has-feedback.player2fullName
+											label(for='player2fullName') {{_ "player2Name"}}
+											+inputAutocomplete(settings=settings id="player2fullName" class="form-control")
 										.form-group.has-feedback.player2Score
 											label(for='player2Score') {{_ "score"}}
 											input#player2Score.form-control(type='number' min="0" step="1")
@@ -34,7 +34,7 @@ template(name="addAGame")
 		+spinner
 
 template(name="userPill")
-	span.label #{profile.fullName}
+	span.label.label-default #{profile.fullName}
 
 template(name="playerNotDefined")
 	span.help-block {{_ "playerNotDefined"}}
