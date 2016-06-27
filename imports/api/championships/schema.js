@@ -15,7 +15,7 @@ Championships.deny({
 	}
 });
 
-PlayerPoints = new SimpleSchema({
+let PlayerPoints = new SimpleSchema({
 	playerId: {
 		type: String,
 		label: 'Player ID'
