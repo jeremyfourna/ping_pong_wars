@@ -33,27 +33,5 @@ Template.championship.helpers({
 		} else {
 			return false;
 		}
-	},
-	playerInChampionship() {
-		if (lodash.includes(Meteor.user().profile.championships, Router.current().params._id)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-});
-
-Template.championship.events({
-	'click #integrateChampionship': function(event) {
-		event.preventDefault();
-		const data = {
-			userId: Meteor.userId(),
-			championshipId: Router.current().params._id
-		};
-		Meteor.call('addPlayerInChampionship', data, (error, result) => {
-			if (error) {
-				return Bert.alert(error.message, 'danger', 'growl-top-right');
-			}
-		});
 	}
 });
