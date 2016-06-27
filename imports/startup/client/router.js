@@ -1,5 +1,4 @@
 import { Router } from 'meteor/iron:router';
-import { loading } from 'meteor/sacha:spin';
 
 // Base components/layouts
 import '../../ui/layouts/layout.js';
