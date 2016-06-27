@@ -19,20 +19,6 @@ Template.addAGame.onRendered(function() {
 	this.player1Id = new ReactiveVar('');
 	this.player2Id = new ReactiveVar('');
 	$(document).on('click', 'input[type=text]', function() { this.select(); });
-	let list = Meteor.users.find({ 'profile.championships': Router.current().params._id }, {
-		fields: {
-			'profile.firstName': 1,
-			'profile.lastName': 1
-		}
-	}).fetch();
-	list.map((cur, index, array) => {
-		let data = {
-			userId: cur._id,
-			firstName: cur.profile.firstName,
-			lastName: cur.profile.lastName
-		};
-		Meteor.call('updateUserData', data);
-	});
 });
 
 Template.addAGame.helpers({
