@@ -10,15 +10,18 @@ Accounts.onCreateUser((options, user) => {
 		if (!user.profile.lastName) {
 			user.profile.lastName = user.username;
 		}
-		user.championships = [];
-		user.tournaments = [];
+		user.profile.championships = [];
+		user.profile.tournaments = [];
+		user.profile.fullName = user.profile.firstName + ' ' + user.profile.lastName;
+		user.profile.worldPoints = 0;
 	} else {
 		user.profile = {
 			firstName: 'New',
 			lastName: 'User',
 			fullName: 'New User',
 			championships: [],
-			tournaments: []
+			tournaments: [],
+			worldPoints: 0
 		};
 	}
 	return user;
