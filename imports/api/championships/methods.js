@@ -150,20 +150,20 @@ Meteor.methods({
 				userId: game.player2,
 				newPoints: game.newPointsPlayer2
 			};
+			let game3 = {
+				gameId: game._id,
+				lastPointsPlayer1: game.lastPointsPlayer1,
+				lastPointsPlayer2: game.lastPointsPlayer2,
+				kBasePlayer1: game.kBasePlayer1,
+				kBasePlayer2: game.kBasePlayer2,
+				newPointsPlayer1: game.newPointsPlayer1,
+				newPointsPlayer2: game.newPointsPlayer2
+			};
 
 			Meteor.call('addPointsForPlayerInChampionship', game1);
 			Meteor.call('addPointsForPlayerInChampionship', game2);
 
-			Games.update({ _id: game._id }, {
-				$set: {
-					lastPointsPlayer1: game.lastPointsPlayer1,
-					lastPointsPlayer2: game.lastPointsPlayer2,
-					kBasePlayer1: game.kBasePlayer1,
-					kBasePlayer2: game.kBasePlayer2,
-					newPointsPlayer1: game.newPointsPlayer1,
-					newPointsPlayer2: game.newPointsPlayer2
-				}
-			});
+			Meteor.call('updateAGame', game3);
 		});
 	},
 	migrate(data) {
