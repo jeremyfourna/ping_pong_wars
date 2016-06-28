@@ -183,5 +183,17 @@ Template.addAGame.events({
 				saveEnd();
 			}
 		});
+	},
+	'click #integrateChampionship': function(event) {
+		event.preventDefault();
+		const data = {
+			userId: Meteor.userId(),
+			championshipId: Router.current().params._id
+		};
+		Meteor.call('addPlayerInChampionship', data, (error, result) => {
+			if (error) {
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
+			}
+		});
 	}
 });
