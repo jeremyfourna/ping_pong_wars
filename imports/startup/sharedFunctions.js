@@ -35,6 +35,26 @@ export const pointsDifference = function(winnerPoints, looserPoints) {
 	}
 };
 
+export const worldPointsForAGame = function(winnerPoints, looserPoints) {
+	let win = 0;
+	let loose = 0;
+	if (winnerPoints - looserPoints === 2) {
+		win += 2;
+		loose += 2;
+	}
+	if (winnerPoints > 10) {
+		win += 2;
+		loose += 2;
+	}
+	if (looserPoints <= 2) {
+		win += 3;
+	}
+	return {
+		win,
+		loose
+	};
+};
+
 export const kEqualForBothPlayers = function(kForWinner, kForLooser) {
 	// Check the params of the function
 	check(kForWinner, Number);
