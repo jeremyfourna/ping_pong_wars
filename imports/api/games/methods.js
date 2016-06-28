@@ -73,5 +73,27 @@ Meteor.methods({
 				});
 			}
 		});
+	},
+	updateAGame(data) {
+		let methodSchema = new SimpleSchema({
+			gameId: { type: String },
+			lastPointsPlayer1: { type: Number },
+			lastPointsPlayer2: { type: Number },
+			kBasePlayer1: { type: Number },
+			kBasePlayer2: { type: Number },
+			newPointsPlayer1: { type: Number },
+			newPointsPlayer2: { type: Number }
+		});
+		check(data, methodSchema);
+		return Games.update({ _id: data.gameId }, {
+			$set: {
+				lastPointsPlayer1: data.lastPointsPlayer1,
+				lastPointsPlayer2: data.lastPointsPlayer2,
+				kBasePlayer1: data.kBasePlayer1,
+				kBasePlayer2: data.kBasePlayer2,
+				newPointsPlayer1: data.newPointsPlayer1,
+				newPointsPlayer2: data.newPointsPlayer2
+			}
+		});
 	}
 });
