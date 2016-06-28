@@ -116,11 +116,11 @@ Template.addAGame.events({
 			player2OK = false;
 			addValidation(Template.playerNotDefined, $('.player2fullName'), 'has-error');
 		}
-		if (!data.scorePlayer1) {
+		if (data.scorePlayer1 === '' || data.scorePlayer1 < 0) {
 			score = false;
 			addValidation(Template.scoreNotDefined, $('.player1Score'), 'has-error');
 		}
-		if (!data.scorePlayer2) {
+		if (data.scorePlayer2 === '' || data.scorePlayer2 < 0) {
 			score = false;
 			addValidation(Template.scoreNotDefined, $('.player2Score'), 'has-error');
 		}
