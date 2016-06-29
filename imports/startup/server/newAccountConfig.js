@@ -12,7 +12,7 @@ Accounts.onCreateUser((options, user) => {
 		}
 		user.profile.championships = [];
 		user.profile.tournaments = [];
-		user.profile.fullName = user.profile.firstName + ' ' + user.profile.lastName;
+		user.profile.fullName = options.profile.firstName + ' ' + options.profile.lastName;
 		user.profile.worldPoints = 0;
 	} else {
 		user.profile = {
