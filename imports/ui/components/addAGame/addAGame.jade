@@ -8,32 +8,28 @@ template(name="addAGame")
 					form
 						.row
 							.col-xs-6.col-sm-6.col-md-6.col-lg-6
-								.panel.panel-default
-									.panel-body
-										.form-group.has-feedback.player1fullName
-											label(for='player1fullName') {{_ "player1Name"}}
-											select#player1fullName.form-control
-												option(value="default") {{_ 'selectAPlayer'}}
-												each players
-													option(value="#{_id}") #{profile.fullName}
-										.form-group.has-feedback.player1Score
-											label(for='player1Score') {{_ "score"}}
-											input#player1Score.form-control(type='number' min="0" step="1")
+								.form-group.has-feedback.player1fullName
+									label(for='player1fullName') {{_ "player1Name"}}
+									select#player1fullName.form-control
+										option(value="default") {{_ 'selectAPlayer'}}
+										each players
+											option(value="#{_id}") #{profile.fullName}
+								.form-group.has-feedback.player1Score
+									label(for='player1Score') {{_ "score"}}
+									input#player1Score.form-control(type='number' min="0" step="1")
 							.col-xs-6.col-sm-6.col-md-6.col-lg-6
-								.panel.panel-default
-									.panel-body
-										.form-group.has-feedback.player2fullName
-											label(for='player2fullName') {{_ "player2Name"}}
-											select#player2fullName.form-control
-												option(value="default") {{_ 'selectAPlayer'}}
-												each players
-													option(value="#{_id}") #{profile.fullName}
-										.form-group.has-feedback.player2Score
-											label(for='player2Score') {{_ "score"}}
-											input#player2Score.form-control(type='number' min="0" step="1")
-						.row
-							.col-md-12.col-lg-12#buttonOrProgressBar
-								+validateButton
+								.form-group.has-feedback.player2fullName
+									label(for='player2fullName') {{_ "player2Name"}}
+									select#player2fullName.form-control
+										option(value="default") {{_ 'selectAPlayer'}}
+										each players
+											option(value="#{_id}") #{profile.fullName}
+								.form-group.has-feedback.player2Score
+									label(for='player2Score') {{_ "score"}}
+									input#player2Score.form-control(type='number' min="0" step="1")
+				.panel-footer
+					#buttonOrProgressBar
+						+validateButton
 		else
 			button#integrateChampionship.btn.btn-success.btn-block(type="button") {{_ "integrateChampionship"}}
 	else
