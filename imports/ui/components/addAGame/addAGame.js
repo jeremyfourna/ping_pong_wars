@@ -6,11 +6,14 @@ import { lodash } from 'meteor/stevezhu:lodash';
 import { ReactiveVar } from 'meteor/reactive-var';
 import 'meteor/sacha:spin';
 
+import { Championships } from '../../../api/championships/schema.js';
+
 import './addAGame.jade';
 
 Template.addAGame.onCreated(function() {
 	this.autorun(() => {
 		this.subscribe('allUsersForAChampionship', Router.current().params._id);
+		this.subscribe('aChampionshipForAddingAGame', Router.current().params._id);
 	});
 });
 
@@ -39,6 +42,14 @@ Template.addAGame.events({
 	'click #addAGame': function(event) {
 		event.preventDefault();
 
+		function getMinPointsToWin() {
+			return Championships.findOne({ _id: Router.current().params._id }, {
+				fields: {
+					minPointsToWin: 1
+				}
+			});
+		}
+
 		function saveBegin() {
 			$('#addAGame').remove();
 			Blaze.render(Template.progressBar, $('#buttonOrProgressBar').get(0));
@@ -64,6 +75,13 @@ Template.addAGame.events({
 			}
 		}
 
+		function addValidationWithData(template, data, element, state) {
+			if (!element.hasClass('has-warning') && !element.hasClass('has-error') && !element.hasClass('has-success')) {
+				element.addClass(state);
+				Blaze.renderWithData(template, data, element.get(0));
+			}
+		}
+
 		function playerInChampionship(playerId) {
 			let inDb = Meteor.users.findOne({
 				_id: playerId,
@@ -84,6 +102,7 @@ Template.addAGame.events({
 		let player1OK = true;
 		let player2OK = true;
 		let score = true;
+		let pointsToWin = getMinPointsToWin().minPointsToWin;
 
 		const data = {
 			player1: $('#player1fullName').val(),
@@ -111,10 +130,10 @@ Template.addAGame.events({
 			score = false;
 			addValidation(Template.scoreNotDefined, $('.player2Score'), 'has-error');
 		}
-		if (data.scorePlayer1 < 10 && data.scorePlayer2 < 10) {
+		if (data.scorePlayer1 < pointsToWin && data.scorePlayer2 < pointsToWin) {
 			score = false;
-			addValidation(Template.minToWin, $('.player1Score'), 'has-warning');
-			addValidation(Template.minToWin, $('.player2Score'), 'has-warning');
+			addValidationWithData(Template.minToWin, getMinPointsToWin(), $('.player1Score'), 'has-warning');
+			addValidationWithData(Template.minToWin, getMinPointsToWin(), $('.player2Score'), 'has-warning');
 		}
 		if (data.player1 === data.player2) {
 			player1OK = false;

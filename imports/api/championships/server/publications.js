@@ -21,6 +21,15 @@ Meteor.publish('aChampionshipForEdition', (championshipId) => {
 	});
 });
 
+Meteor.publish('aChampionshipForAddingAGame', (championshipId) => {
+	check(championshipId, String);
+	return Championships.find({ _id: championshipId }, {
+		fields: {
+			minPointsToWin: 1
+		}
+	});
+});
+
 Meteor.publish('allChampionships', () => {
 	return Championships.find({}, {
 		fields: {
