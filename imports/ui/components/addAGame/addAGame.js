@@ -4,7 +4,6 @@ import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { lodash } from 'meteor/stevezhu:lodash';
 import { ReactiveVar } from 'meteor/reactive-var';
-import 'meteor/mizzao:autocomplete';
 import 'meteor/sacha:spin';
 
 import './addAGame.jade';
@@ -15,24 +14,17 @@ Template.addAGame.onCreated(function() {
 	});
 });
 
-Template.addAGame.onRendered(function() {
-	this.player1Id = new ReactiveVar('');
-	this.player2Id = new ReactiveVar('');
-	$(document).on('click', 'input[type=text]', function() { this.select(); });
-});
 
 Template.addAGame.helpers({
-	settings() {
-		return {
-			position: 'bottom',
-			limit: 5,
-			matchAll: true,
-			rules: [{
-				collection: Meteor.users,
-				field: 'profile.fullName',
-				template: Template.userPill
-			}]
-		};
+	players() {
+		return Meteor.users.find({ 'profile.championships': Router.current().params._id }, {
+			fields: {
+				'profile.fullName': 1
+			},
+			sort: {
+				'profile.fullName': 1
+			}
+		});
 	},
 	playerInChampionship() {
 		if (lodash.includes(Meteor.user().profile.championships, Router.current().params._id)) {
@@ -44,12 +36,6 @@ Template.addAGame.helpers({
 });
 
 Template.addAGame.events({
-	'autocompleteselect #player1fullName': function(event, template, doc) {
-		Template.instance().player1Id.set(doc._id);
-	},
-	'autocompleteselect #player2fullName': function(event, template, doc) {
-		Template.instance().player2Id.set(doc._id);
-	},
 	'click #addAGame': function(event) {
 		event.preventDefault();
 
@@ -68,6 +54,7 @@ Template.addAGame.events({
 			$('.has-feedback').removeClass('has-warning');
 			$('.has-feedback').removeClass('has-error');
 			$('.saveAGame').find('span').remove();
+			$('.has-feedback').find('span').remove();
 		}
 
 		function addValidation(template, element, state) {
@@ -99,8 +86,8 @@ Template.addAGame.events({
 		let score = true;
 
 		const data = {
-			player1: Template.instance().player1Id.get(),
-			player2: Template.instance().player2Id.get(),
+			player1: $('#player1fullName').val(),
+			player2: $('#player2fullName').val(),
 			scorePlayer1: Number($('#player1Score').val()),
 			scorePlayer2: Number($('#player2Score').val()),
 			gameDate: new Date(),
@@ -108,19 +95,19 @@ Template.addAGame.events({
 			championshipId: Router.current().params._id
 		};
 
-		if (!data.player1) {
+		if (data.player1 === 'default' || !data.player1) {
 			player1OK = false;
 			addValidation(Template.playerNotDefined, $('.player1fullName'), 'has-error');
 		}
-		if (!data.player2) {
+		if (data.player2 === 'default' || !data.player2) {
 			player2OK = false;
 			addValidation(Template.playerNotDefined, $('.player2fullName'), 'has-error');
 		}
-		if (data.scorePlayer1 === '' || data.scorePlayer1 < 0) {
+		if ($('#player1Score').val() === '' || data.scorePlayer1 < 0) {
 			score = false;
 			addValidation(Template.scoreNotDefined, $('.player1Score'), 'has-error');
 		}
-		if (data.scorePlayer2 === '' || data.scorePlayer2 < 0) {
+		if ($('#player2Score').val() === '' || data.scorePlayer2 < 0) {
 			score = false;
 			addValidation(Template.scoreNotDefined, $('.player2Score'), 'has-error');
 		}
@@ -168,8 +155,8 @@ Template.addAGame.events({
 			return saveEnd();
 		}
 		if (data.scorePlayer1 < data.scorePlayer2) {
-			data.player1 = Template.instance().player2Id.get();
-			data.player2 = Template.instance().player1Id.get();
+			data.player1 = $('#player1fullName').val();
+			data.player2 = $('#player2fullName').val();
 			data.scorePlayer1 = Number($('#player2Score').val());
 			data.scorePlayer2 = Number($('#player1Score').val());
 		}
@@ -179,6 +166,7 @@ Template.addAGame.events({
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
 				$('input').val('');
+				$('select').val('default');
 				cleanForm();
 				saveEnd();
 			}
