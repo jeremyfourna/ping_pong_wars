@@ -48,3 +48,13 @@ Meteor.publish('playersForAGame', (gameId) => {
 		}
 	});
 });
+
+Meteor.publish('allUsersForWorldRanking', () => {
+	return Meteor.users.find({}, {
+		fields: {
+			'profile.worldPoints': 1,
+			'profile.fullName': 1
+		},
+		limit: 10
+	});
+});

@@ -1,0 +1,17 @@
+template(name="worldPointsRanking")
+	.panel.panel-default
+		.panel-heading
+			p.panel-title {{_ "bestPlayersRanking"}}
+		table.table.table-condensed.table-responsive
+			thead
+				tr
+					th #
+					th {{_ "playerName"}}
+					th {{_ "points"}}
+						span.glyphicon.glyphicon-arrow-up
+			tbody
+				each players
+					tr(class="#{colorClass}")
+						td {{myIndex @index}}
+						td #{profile.fullName}
+						td #{profile.worldPoints}

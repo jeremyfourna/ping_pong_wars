@@ -3,11 +3,9 @@ template(name="home")
 	.jumbotron
 		h1 {{_ "applicationName"}}
 		p {{_ "saveAllScores"}}
-			br
-			| {{_ "championshipsWithAnybody"}}
-			br
-			| {{_ "championshipsRankingBased"}}
-			a(target="blank" href="https://en.wikipedia.org/wiki/Elo_rating_system") {{_ "eloChessMethod"}}
-			br
-			| {{_ "completelyFree"}}
 		a.btn.btn-primary(href="{{pathFor 'listChampionships'}}") {{_ "seeAllChampionships"}}
+	+worldPointsRanking
+	p {{_ "championshipsWithAnybody"}}
+		br
+		| {{_ "championshipsRankingBased"}}
+		a(target="blank" href="https://en.wikipedia.org/wiki/Elo_rating_system") {{_ "eloChessMethod"}}
