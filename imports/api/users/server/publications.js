@@ -55,6 +55,9 @@ Meteor.publish('allUsersForWorldRanking', () => {
 			'profile.worldPoints': 1,
 			'profile.fullName': 1
 		},
+		sort: {
+			'profile.worldPoints': -1
+		},
 		limit: 10
 	});
 });
