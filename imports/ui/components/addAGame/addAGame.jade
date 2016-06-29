@@ -12,7 +12,7 @@ template(name="addAGame")
 									.panel-body
 										.form-group.has-feedback.player1fullName
 											label(for='player1fullName') {{_ "player1Name"}}
-											+inputAutocomplete(settings=settings id="player1fullName" class="form-control")
+											+inputAutocomplete(settings=settings id="player1fullName" class="form-control" autocomplete="off")
 										.form-group.has-feedback.player1Score
 											label(for='player1Score') {{_ "score"}}
 											input#player1Score.form-control(type='number' min="0" step="1")
@@ -21,7 +21,7 @@ template(name="addAGame")
 									.panel-body
 										.form-group.has-feedback.player2fullName
 											label(for='player2fullName') {{_ "player2Name"}}
-											+inputAutocomplete(settings=settings id="player2fullName" class="form-control")
+											+inputAutocomplete(settings=settings id="player2fullName" class="form-control" autocomplete="off")
 										.form-group.has-feedback.player2Score
 											label(for='player2Score') {{_ "score"}}
 											input#player2Score.form-control(type='number' min="0" step="1")
