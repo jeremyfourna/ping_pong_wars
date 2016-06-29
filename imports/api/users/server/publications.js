@@ -6,7 +6,8 @@ Meteor.publish('allUsers', () => {
 	return Meteor.users.find({}, {
 		fields: {
 			'profile.firstName': 1,
-			'profile.lastName': 1
+			'profile.lastName': 1,
+			'profile.fullName': 1
 		}
 	});
 });

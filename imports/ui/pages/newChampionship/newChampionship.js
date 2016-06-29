@@ -7,6 +7,22 @@ import { Championships } from '../../../api/championships/schema.js';
 
 import './newChampionship.jade';
 
+Template.newChampionship.onCreated(function() {
+	this.autorun(() => {
+		this.subscribe('allUsers');
+	});
+});
+
+Template.newChampionship.helpers({
+	allUsers() {
+		return Meteor.users.find({}, {
+			fields: {
+				'profile.fullName': 1
+			}
+		});
+	}
+});
+
 Template.newChampionship.events({
 	'click #createChampionship': function(event) {
 		event.preventDefault();
