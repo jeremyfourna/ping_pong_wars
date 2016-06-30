@@ -174,8 +174,8 @@ Template.addAGame.events({
 			return saveEnd();
 		}
 		if (data.scorePlayer1 < data.scorePlayer2) {
-			data.player1 = $('#player1fullName').val();
-			data.player2 = $('#player2fullName').val();
+			data.player1 = $('#player2fullName').val();
+			data.player2 = $('#player1fullName').val();
 			data.scorePlayer1 = Number($('#player2Score').val());
 			data.scorePlayer2 = Number($('#player1Score').val());
 		}
