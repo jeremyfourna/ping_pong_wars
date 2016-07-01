@@ -17,7 +17,7 @@ template(name="ranking")
 					each playersRanking
 						tr(class="#{colorClass}")
 							td {{myIndex @index}}
-							td #{fullName}
+							td #{profile.fullName}
 							td #{currentPoints}
 							td #{nbGames}
 							td #{last10GamesPerf}
