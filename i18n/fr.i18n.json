@@ -48,7 +48,7 @@
 	"completelyFree": "C'est totalement GRATUIT !",
 	"seeAllChampionships": "Voir les championnats",
 	"playerNotDefined": "Aucun joueur renseigné",
-	"minToWin": "Le minimum pour gagner un match est 10",
+	"minToWin": "Le minimum pour gagner un match est",
 	"scoreNotDefined": "Aucun score renseigné",
 	"bothPlayersEqual": "Les deux joueurs sont identiques !",
 	"bothScoresEqual": "Les deux scores sont identiques !",
@@ -70,5 +70,7 @@
 	"editChampionship": "Edition du championnat",
 	"editChampionshipPlayers": "Ajouter/Retirer des joueurs dans ce championnat",
 	"usersAlreadyIn": "Joueurs participant à ce championnat",
-	"usersNotIn": "Joueurs disponibles"
+	"usersNotIn": "Joueurs disponibles",
+	"selectAPlayer": "Sélectionnez un joueur",
+	"bestPlayersRanking": "Classement des 10 meilleurs joueurs"
 }

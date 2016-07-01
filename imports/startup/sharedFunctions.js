@@ -35,14 +35,14 @@ export const pointsDifference = function(winnerPoints, looserPoints) {
 	}
 };
 
-export const worldPointsForAGame = function(winnerPoints, looserPoints) {
+export const worldPointsForAGame = function(winnerPoints, looserPoints, pointsToWin) {
 	let win = 0;
 	let loose = 0;
 	if (winnerPoints - looserPoints === 2) {
 		win += 2;
 		loose += 2;
 	}
-	if (winnerPoints > 10) {
+	if (winnerPoints > pointsToWin) {
 		win += 2;
 		loose += 2;
 	}
