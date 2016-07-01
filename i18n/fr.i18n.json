@@ -62,5 +62,13 @@
 	"yes": "Oui",
 	"no": "Non",
 	"thereAre": "Il y a",
-	"playersInTheChampionship": "joueurs dans ce championnat"
+	"playersInTheChampionship": "joueurs dans ce championnat",
+	"playersToAddIntoChampionship": "Joueurs à ajouter dans ce championnat",
+	"add": "Ajouter",
+	"remove": "Retirer",
+	"edit": "Edition",
+	"editChampionship": "Edition du championnat",
+	"editChampionshipPlayers": "Ajouter/Retirer des joueurs dans ce championnat",
+	"usersAlreadyIn": "Joueurs participant à ce championnat",
+	"usersNotIn": "Joueurs disponibles"
 }
