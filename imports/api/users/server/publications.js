@@ -7,7 +7,8 @@ Meteor.publish('allUsers', () => {
 		fields: {
 			'profile.firstName': 1,
 			'profile.lastName': 1,
-			'profile.fullName': 1
+			'profile.fullName': 1,
+			'profile.championships': 1
 		}
 	});
 });

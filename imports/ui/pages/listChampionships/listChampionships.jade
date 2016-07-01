@@ -18,7 +18,7 @@ template(name="listChampionships")
 								span.badge #{nbPlayers}
 								| {{_ "playersInTheChampionship"}}
 								if public
-									a.btn.btn-default.pull-right(role="button" href="{{pathFor 'championship'}}")
+									a.btn.btn-primary.pull-right(role="button" href="{{pathFor 'championship'}}")
 										span.glyphicon.glyphicon-zoom-in
 										| {{_ "seeDetails"}}
 	else

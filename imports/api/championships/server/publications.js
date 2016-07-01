@@ -16,7 +16,8 @@ Meteor.publish('aChampionshipForEdition', (championshipId) => {
 			minPointsToWin: 1,
 			numberOfSetsToPlay: 1,
 			numberOfGamesToBeDisplayedInTheRanking: 1,
-			numberOfResultsToBeDisplayedInTheGraph: 1
+			numberOfResultsToBeDisplayedInTheGraph: 1,
+			players: 1
 		}
 	});
 });
@@ -25,7 +26,8 @@ Meteor.publish('aChampionshipForAddingAGame', (championshipId) => {
 	check(championshipId, String);
 	return Championships.find({ _id: championshipId }, {
 		fields: {
-			minPointsToWin: 1
+			minPointsToWin: 1,
+			players: 1
 		}
 	});
 });

@@ -33,6 +33,18 @@ Meteor.methods({
 			}
 		});
 	},
+	removeChampionshipFromProfile(data) {
+		let methodSchema = new SimpleSchema({
+			userId: { type: String },
+			championshipId: { type: String }
+		});
+		check(data, methodSchema);
+		return Meteor.users.update({ _id: data.userId }, {
+			$pull: {
+				'profile.championships': data.championshipId
+			}
+		});
+	},
 	resetWorldPoints() {
 		return Meteor.users.update({}, {
 			$set: {

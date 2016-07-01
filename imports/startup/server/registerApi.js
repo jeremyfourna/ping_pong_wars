@@ -14,4 +14,5 @@ import '/imports/api/games/methods.js';
 import '/imports/api/users/methods.js';
 
 // Hooks
+import '/imports/api/championships/hooks.js';
 import '/imports/api/games/hooks.js';
