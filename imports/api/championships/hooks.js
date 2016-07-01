@@ -24,3 +24,17 @@ MethodHooks.after('createChampionship', (options) => {
 	}
 	return options.result;
 });
+
+MethodHooks.after('addPlayerInChampionship', (options) => {
+	if (options.error) {
+		return;
+	} else if (options.result) {
+		const data = {
+			userId: options.arguments[0].userId,
+			championshipId: options.arguments[0].championshipId
+		};
+		Meteor.call('addChampionshipIntoProfile', data);
+		return options.result;
+	}
+	return options.result;
+});

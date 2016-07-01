@@ -122,7 +122,8 @@ Meteor.startup(function() {
 			minPointsToWin: 10,
 			numberOfSetsToPlay: 1,
 			numberOfGamesToBeDisplayedInTheRanking: 10,
-			numberOfResultsToBeDisplayedInTheGraph: 5
+			numberOfResultsToBeDisplayedInTheGraph: 5,
+			playersToAdd: []
 		};
 		console.log('begin championship creation');
 		let twengaChampionship = Meteor.call('createChampionship', champ);

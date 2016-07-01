@@ -7,11 +7,14 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import 'meteor/mizzao:autocomplete';
 import 'meteor/sacha:spin';
 
+import { Championships } from '../../../api/championships/schema.js';
+
 import './addAGame.jade';
 
 Template.addAGame.onCreated(function() {
 	this.autorun(() => {
 		this.subscribe('allUsersForAChampionship', Router.current().params._id);
+		this.subscribe('championshipPlayers', Router.current().params._id);
 	});
 });
 
@@ -190,10 +193,23 @@ Template.addAGame.events({
 			userId: Meteor.userId(),
 			championshipId: Router.current().params._id
 		};
-		Meteor.call('addPlayerInChampionship', data, (error, result) => {
-			if (error) {
-				return Bert.alert(error.message, 'danger', 'growl-top-right');
+		let champData = Championships.findOne({ _id: Router.current().params._id }, {
+			fields: {
+				players: 1
 			}
 		});
+		if (lodash.findIndex(champData.players, ['playerId', data.userId]) === -1) {
+			Meteor.call('addPlayerInChampionship', data, (error, result) => {
+				if (error) {
+					return Bert.alert(error.message, 'danger', 'growl-top-right');
+				}
+			});
+		} else {
+			Meteor.call('addChampionshipIntoProfile', data, (error, result) => {
+				if (error) {
+					return Bert.alert(error.message, 'danger', 'growl-top-right');
+				}
+			});
+		}
 	}
 });

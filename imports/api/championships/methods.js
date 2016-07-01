@@ -75,19 +75,17 @@ Meteor.methods({
 			userId: { type: String },
 			championshipId: { type: String }
 		});
+		check(data, methodSchema);
 		let playerData = {
 			playerId: data.userId,
 			points: [1500]
 		};
-		check(data, methodSchema);
 
-		Championships.update({ _id: data.championshipId }, {
+		return Championships.update({ _id: data.championshipId }, {
 			$push: {
 				players: playerData
 			}
 		});
-
-		Meteor.call('addChampionshipIntoProfile', data);
 	},
 	addPointsForPlayerInChampionship(data) {
 		let methodSchema = new SimpleSchema({
@@ -103,7 +101,8 @@ Meteor.methods({
 		});
 		let ind = lodash.findIndex(champ.players, ['playerId', data.userId]);
 		let res = 'players.' + ind + '.points';
-		Championships.update({ _id: data.championshipId }, {
+
+		return Championships.update({ _id: data.championshipId }, {
 			$push: {
 				[res]: data.newPoints
 			}
@@ -168,6 +167,7 @@ Meteor.methods({
 
 			Meteor.call('updateAGame', game3);
 		});
+		return true;
 	},
 	migrate(data) {
 		let methodSchema = new SimpleSchema({
@@ -195,6 +195,6 @@ Meteor.methods({
 			});
 		});
 		Meteor.call('refreshPoints', data.toChampionshipId);
-		Championships.remove({ _id: data.fromChampionshipId });
+		return Championships.remove({ _id: data.fromChampionshipId });
 	}
 });

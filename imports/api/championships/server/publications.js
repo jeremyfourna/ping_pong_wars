@@ -16,7 +16,8 @@ Meteor.publish('aChampionshipForEdition', (championshipId) => {
 			minPointsToWin: 1,
 			numberOfSetsToPlay: 1,
 			numberOfGamesToBeDisplayedInTheRanking: 1,
-			numberOfResultsToBeDisplayedInTheGraph: 1
+			numberOfResultsToBeDisplayedInTheGraph: 1,
+			players: 1
 		}
 	});
 });
@@ -36,4 +37,12 @@ Meteor.publish('allChampionships', () => {
 
 Meteor.publish('championshipsForUser', (userId) => {
 	return Championships.find({ 'players.playerId': userId });
+});
+
+Meteor.publish('championshipPlayers', (championshipId) => {
+	return Championships.find({ _id: championshipId }, {
+		fields: {
+			players: 1
+		}
+	});
 });
