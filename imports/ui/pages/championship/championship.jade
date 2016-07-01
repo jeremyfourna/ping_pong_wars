@@ -1,7 +1,7 @@
 template(name="championship")
 	if Template.subscriptionsReady
 		with championshipData
-			h1 #{name}
+			h2 #{name}
 				if ownerOfTheChampionship
 					a.btn.btn-info.pull-right(role="button" href="{{pathFor 'editChampionship'}}")
 						span.glyphicon.glyphicon-edit(aria-hidden="true")

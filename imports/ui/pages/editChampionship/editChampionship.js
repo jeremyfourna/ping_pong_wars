@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
+import { lodash } from 'meteor/stevezhu:lodash';
 import 'meteor/sacha:spin';
 
 import { Championships } from '../../../api/championships/schema.js';
@@ -11,12 +12,39 @@ import './editChampionship.jade';
 Template.editChampionship.onCreated(function() {
 	this.autorun(() => {
 		this.subscribe('aChampionshipForEdition', Router.current().params._id);
+		this.subscribe('allUsers');
 	});
 });
 
 Template.editChampionship.helpers({
 	champData() {
 		return Championships.findOne({ _id: Router.current().params._id });
+	},
+	allUsersAlreadyIn() {
+		return Meteor.users.find({
+			'profile.championships': Router.current().params._id
+		}, {
+			fields: {
+				'profile.fullName': 1
+			},
+			sort: {
+				'profile.fullName': 1
+			}
+		});
+	},
+	allUsersNotIn() {
+		return Meteor.users.find({
+			'profile.championships': {
+				$nin: [Router.current().params._id]
+			}
+		}, {
+			fields: {
+				'profile.fullName': 1
+			},
+			sort: {
+				'profile.fullName': 1
+			}
+		});
 	}
 });
 
@@ -58,5 +86,42 @@ Template.editChampionship.events({
 				Router.go('championship', { _id: Router.current().params._id });
 			}
 		});
+	},
+	'click .removePlayer': function(event) {
+		event.preventDefault();
+		const data = {
+			championshipId: Router.current().params._id,
+			userId: this._id
+		};
+		Meteor.call('removeChampionshipFromProfile', data, (error, result) => {
+			if (error) {
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
+			}
+		});
+	},
+	'click .addPlayer': function(event) {
+		event.preventDefault();
+		const data = {
+			championshipId: Router.current().params._id,
+			userId: this._id
+		};
+		let champData = Championships.findOne({ _id: Router.current().params._id }, {
+			fields: {
+				players: 1
+			}
+		});
+		if (lodash.findIndex(champData.players, ['playerId', data.userId]) === -1) {
+			Meteor.call('addPlayerInChampionship', data, (error, result) => {
+				if (error) {
+					return Bert.alert(error.message, 'danger', 'growl-top-right');
+				}
+			});
+		} else {
+			Meteor.call('addChampionshipIntoProfile', data, (error, result) => {
+				if (error) {
+					return Bert.alert(error.message, 'danger', 'growl-top-right');
+				}
+			});
+		}
 	}
 });

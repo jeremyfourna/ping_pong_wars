@@ -35,7 +35,7 @@ Template.ranking.onRendered(function() {
 			},
 			x: {
 				label: {
-					text: 'Derniers 5 matchs',
+					text: 'Derniers matchs',
 					position: 'outer-center'
 				}
 			}
