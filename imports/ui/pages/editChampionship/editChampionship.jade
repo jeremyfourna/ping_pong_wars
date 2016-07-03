@@ -48,30 +48,30 @@ template(name="editChampionship")
 				.panel-footer
 					button#updateChampionship.btn-block.btn.btn-success(type="submit") {{_ "validate"}}
 		.panel.panel-default
-				.panel-heading
-					p.panel-title {{_ "editChampionshipPlayers"}}
-				.panel-body
-					.panel.panel-success
-						.panel-heading
-							p.panel-title {{_ "usersAlreadyIn"}}
-						.panel-body
-							.row
-								each allUsersAlreadyIn
-									.col-xs-12.col-sm-6.col-md-4.col-lg-3
-										.panel.panel-default
-											.panel-body
-												p #{profile.fullName}
-													button.removePlayer.btn.btn-warning.pull-right(id="playerRemove_#{_id}") {{_ "remove"}}
-					.panel.panel-danger
-						.panel-heading
-							p.panel-title {{_ "usersNotIn"}}
-						.panel-body
-							.row
-								each allUsersNotIn
-									.col-xs-12.col-sm-6.col-md-4.col-lg-3
-										.panel.panel-default
-											.panel-body
-												p #{profile.fullName}
-													button.addPlayer.btn.btn-primary.pull-right(id="playerAdd_#{_id}") {{_ "add"}}
+			.panel-heading
+				p.panel-title {{_ "editChampionshipPlayers"}}
+			.panel-body
+				.panel.panel-success
+					.panel-heading
+						p.panel-title {{_ "usersAlreadyIn"}}
+					.panel-body
+						.row
+							each allUsersAlreadyIn
+								.col-xs-12.col-sm-6.col-md-4.col-lg-3
+									.panel.panel-default
+										.panel-body
+											p #{profile.fullName}
+												button.removePlayer.btn.btn-warning.pull-right(id="playerRemove_#{_id}") {{_ "remove"}}
+				.panel.panel-danger
+					.panel-heading
+						p.panel-title {{_ "usersNotIn"}}
+					.panel-body
+						.row
+							each allUsersNotIn
+								.col-xs-12.col-sm-6.col-md-4.col-lg-3
+									.panel.panel-default
+										.panel-body
+											p #{profile.fullName}
+												button.addPlayer.btn.btn-primary.pull-right(id="playerAdd_#{_id}") {{_ "add"}}
 	else
 		+spinner

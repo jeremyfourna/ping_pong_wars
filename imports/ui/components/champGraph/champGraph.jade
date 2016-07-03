@@ -1,0 +1,7 @@
+template(name="champGraph")
+	.panel.panel-default
+		.panel-heading
+			h2.panel-title {{_ "rankingEvolution"}}
+			small {{_ "lastXGames" nbGames=champInfos.numberOfResultsToBeDisplayedInTheGraph}}
+		.panel-body
+			#rankingGraph

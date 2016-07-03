@@ -1,4 +1,6 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { lodash } from 'meteor/stevezhu:lodash';
 import 'meteor/sacha:spin';
 
 import { Championships } from '../../../api/championships/schema.js';
@@ -23,5 +25,12 @@ Template.listChampionships.helpers({
 	},
 	nbPlayers() {
 		return this.players.length;
+	},
+	userIsIn() {
+		if (Meteor.userId()) {
+			return lodash.includes(Meteor.user().profile.championships, this._id);
+		} else {
+			return false;
+		}
 	}
 });

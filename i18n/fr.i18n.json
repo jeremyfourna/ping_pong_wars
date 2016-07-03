@@ -19,7 +19,7 @@
 	"last10GamesPerf": "Perf last 10",
 	"points": "Pts.",
 	"logInToSaveAGame": "Connectes-toi pour rentrer un score !",
-	"nbGamesLimit": "Seulement les joueurs avec plus de __nbGames__ matchs rentrent dans le classement.",
+	"nbGamesLimit": "Seulement les joueurs avec au moins __nbGames__ matchs rentrent dans le classement.",
 	"lastXGames": "Sur les __nbGames__ derniers matchs",
 	"lastScore": "Prev pts",
 	"newScore": "New pts",
@@ -72,5 +72,6 @@
 	"usersAlreadyIn": "Joueurs participant à ce championnat",
 	"usersNotIn": "Joueurs disponibles",
 	"selectAPlayer": "Sélectionnez un joueur",
-	"bestPlayersRanking": "Classement des 10 meilleurs joueurs"
+	"bestPlayersRanking": "Classement des 10 meilleurs joueurs",
+	"youAreIn": "Vous en faites partie"
 }
