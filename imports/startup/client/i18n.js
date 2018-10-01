@@ -3,7 +3,7 @@ import { TAPi18n } from 'meteor/tap:i18n';
 
 let getUserLanguage = function() {
 	// Put here the logic for determining the user language
-	return 'fr';
+	return 'en';
 };
 
 if (Meteor.isClient) {
